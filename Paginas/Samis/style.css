@@ -43,7 +43,7 @@ header #samilogo {
 }
 
 header ul li {
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: aliceblue;
     font-family: Amita;
 
@@ -54,9 +54,9 @@ header ul li:hover {
 }
 
 header nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
 }
 
 header li {
