@@ -1,0 +1,49 @@
+
+a, a:link, a:hover, a:visited {
+    color: currentColor;
+    text-decoration: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Header  */
+
+header {
+    background-color:rgb(39, 84, 151);
+    color: rgb(250, 250, 250);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+}
+/* Main */
+main {
+    background-color: rgb(112, 150, 207);
+    color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+main h2 {
+    padding: 10px;
+}
+
+/* Footer  */
+
+footer {
+    background-color: rgb(75, 117, 196);
+    height: 5vh;
+    color: antiquewhite;
+    padding: 10px;
+}

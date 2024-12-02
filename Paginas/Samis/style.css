@@ -29,18 +29,32 @@ header #samilogo {
 
 }
 
-
-
-#titulo-img div {
-    width: 50px;
+#titulo-img button {
+    position: absolute;
+    right: 0;
     height: 50px;
-    overflow: hidden;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    margin: 20px;
 }
+
+
+/* Menu desplegable para movil */
+.menu {
+    display: none;
+}
+
+.menu-hamb {
+    text-align: end;
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+
+.menu-hamb nav.menu {
+    text-align: end;
+}
+
+
+
+
+
 
 header ul li {
     font-size: 1.1em;
@@ -53,11 +67,7 @@ header ul li:hover {
     color: rgb(75, 65, 24);
 }
 
-header nav ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    text-align: center;
-}
+
 
 header li {
     list-style: none;
@@ -116,6 +126,7 @@ main section .cafes img {
     row-gap: 5px;
     column-gap: 10%;
     background-color: rgb(219, 207, 165);
+    justify-content: center;
 }
 
 
@@ -123,12 +134,14 @@ main section .cafes img {
 .cafes h3 {
     color: rgb(107, 86, 41);
     font-family:Amita ;
+    font-size: 2em;
 }
 
 
 .cafes p {
     color: rgb(148, 116, 46);
     font-family:Amita ;
+    font-size: 1.3em;
 }
 
 
