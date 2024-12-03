@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Estudio Mejorada</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+
+</head>
+<body>
+    <div id="loginContainer" class="container">
+        <h1>Iniciar Sesión</h1>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Correo electrónico" required>
+            <input type="password" id="loginPassword" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p>¿No tienes una cuenta? <a href="#" id="showSignup">Regístrate</a></p>
+    </div>
+
+    <div id="signupContainer" class="container" style="display: none;">
+        <h1>Registrarse</h1>
+        <form id="signupForm">
+            <input type="email" id="signupEmail" placeholder="Correo electrónico" required>
+            <input type="password" id="signupPassword" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+        </form>
+        <p>¿Ya tienes una cuenta? <a href="#" id="showLogin">Iniciar Sesión</a></p>
+    </div>
+
+    <div id="appContainer" class="container" style="display: none;">
+        <header>
+            <h1>Aplicación de Estudio</h1>
+            <div id="studyMoodIndicator" class="mood-indicator">
+                <i class="fas fa-face-meh"></i>
+                <span id="totalStudyTime">0 minutos estudiados hoy</span>
+            </div>
+            <button id="darkModeToggle" aria-label="Alternar modo oscuro">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="logoutButton">Cerrar Sesión</button>
+        </header>
+        <nav id="bottom-nav">
+            <button class="nav-button active" data-tab="agenda"><i class="fas fa-calendar-alt"></i><span>Agenda</span></button>
+            <button class="nav-button" data-tab="add-items"><i class="fas fa-plus"></i><span>Añadir</span></button>
+            <button class="nav-button" data-tab="study"><i class="fas fa-book-reader"></i><span>Estudiar</span></button>
+            <button class="nav-button" data-tab="calendar"><i class="fas fa-calendar"></i><span>Calendario</span></button>
+            <button class="nav-button" data-tab="exams"><i class="fas fa-graduation-cap"></i><span>Exámenes</span></button>
+            <button class="nav-button" data-tab="exam-results"><i class="fas fa-chart-bar"></i><span>Notas</span></button>
+            <button class="nav-button" data-tab="history"><i class="fas fa-history"></i><span>Historial</span></button>
+        </nav>
+        <main>
+            <section id="agenda" class="tab-content active">
+                <h2>Agenda Semanal</h2>
+                <div class="week-navigation">
+                    <button id="prevWeek"><i class="fas fa-chevron-left"></i></button>
+                    <span id="currentWeek"></span>
+                    <button id="nextWeek"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div id="weeklyAgenda" class="weekly-agenda"></div>
+            </section>
+            <section id="add-items" class="tab-content">
+                <h2>Añadir Nuevo Elemento</h2>
+                <form id="addItemForm">
+                    <select id="itemType">
+                        <option value="task">Tarea</option>
+                        <option value="exam">Examen</option>
+                        <option value="note">Nota</option>
+                    </select>
+                    <input type="text" id="itemTitle" placeholder="Título" required>
+                    <input type="datetime-local" id="itemDate" required>
+                    <input type="text" id="examSubject" placeholder="Asignatura (para exámenes)" style="display: none;">
+                    <textarea id="itemNotes" placeholder="Notas"></textarea>
+                    <button type="submit">Añadir Elemento</button>
+                </form>
+            </section>
+            <section id="study" class="tab-content">
+                <h2>Sesión de Estudio</h2>
+                <div class="study-timer">
+                    <div class="timer-display">
+                        <div id="timer" class="timer">25:00</div>
+                        <div class="timer-label">Minutos : Segundos</div>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="startStudyBtn" class="timer-button">
+                            <i class="fas fa-play"></i>
+                            <span>Iniciar</span>
+                        </button>
+                        <button id="resetStudyBtn" class="timer-button">
+                            <i class="fas fa-redo"></i>
+                            <span>Reiniciar</span>
+                        </button>
+                        <button id="finishStudyBtn" class="timer-button">
+                            <i class="fas fa-flag-checkered"></i>
+                            <span>Finalizar</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="study-settings">
+                    <div class="setting">
+                        <label for="studyDuration">
+                            <i class="fas fa-book"></i>
+                            Duración de Estudio:
+                        </label>
+                        <input type="number" id="studyDuration" value="25" min="1" max="120">
+                        <span class="unit">min</span>
+                    </div>
+                    <div class="setting">
+                        <label for="restDuration">
+                            <i class="fas fa-coffee"></i>
+                            Duración de Descanso:
+                        </label>
+                        <input type="number" id="restDuration" value="5" min="1" max="30">
+                        <span class="unit">min</span>
+                    </div>
+                </div>
+                <div class="study-sessions">
+                    <h3>Sesiones de Estudio de Hoy</h3>
+                    <div id="studySessions" class="sessions-list"></div>
+                </div>
+            </section>
+            <section id="calendar" class="tab-content">
+                <h2>Calendario</h2>
+                <div id="calendarView"></div>
+            </section>
+            <section id="exams" class="tab-content">
+                <h2>Próximos Exámenes</h2>
+                <div id="examsList"></div>
+            </section>
+            <section id="exam-results" class="tab-content">
+                <h2>Resultados de Exámenes</h2>
+                <div id="examResults"></div>
+            </section>
+            <section id="history" class="tab-content">
+                <h2>Historial de Estudio</h2>
+                <div id="studyHistory"></div>
+            </section>
+        </main>
+    </div>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Elemento</h2>
+            <form id="editItemForm">
+                <input type="hidden" id="editItemId">
+                <input type="hidden" id="editItemType">
+                <input type="text" id="editItemTitle" required>
+                <input type="datetime-local" id="editItemDate" required>
+                <input type="text" id="editExamSubject" placeholder="Asignatura (para exámenes)">
+                <textarea id="editItemNotes" placeholder="Notas"></textarea>
+                <input type="number" id="editExamGrade" placeholder="Nota del Examen" min="0" max="100" step="0.1" style="display: none;">
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

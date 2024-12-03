@@ -157,6 +157,54 @@ footer {
 }
 
 
+
+/* Pagina de Cruceros Reservar */
+
+.main-cru {
+    display: grid;
+    grid-template: 
+    "a a a" 100px
+    "b d d" 300px
+    "b d d" 300px 
+    "c c c" 300px / 1fr 1fr 1fr;
+}
+
+.con-tit-cru {
+grid-area: a;
+overflow: hidden;
+}
+
+.img-cru {
+grid-area: b;
+overflow: hidden;
+}
+
+.mapa-cru {
+grid-area: c;
+overflow: hidden;
+}
+
+.cru-precios {
+grid-area: d;
+}
+
+
+.tit-cru {
+    color: #004f9f;
+
+}
+
+.tabla-precios {
+
+    border-collapse: collapse;
+}
+
+.tabla-precios th, td {
+    border: 1px black solid;
+}
+
+
+
 @media (max-width: 768px) {
 
     .logo {

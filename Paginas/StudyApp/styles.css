@@ -1,0 +1,459 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg: #333;
+    --header-text: #fff;
+    --card-bg: #fff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --task-done-bg: #e8f5e9;
+    --task-done-color: #4caf50;
+}
+
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #f4f4f4;
+    --header-bg: #2c2c2c;
+    --header-text: #fff;
+    --card-bg: #2c2c2c;
+    --card-shadow: rgba(255, 255, 255, 0.1);
+    --task-done-bg: #1b5e20;
+    --task-done-color: #81c784;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 10px;
+    position: relative;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.mood-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.mood-indicator i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.mood-indicator .fa-face-smile {
+    color: #4CAF50;
+}
+
+.mood-indicator .fa-face-meh {
+    color: #FFC107;
+}
+
+.mood-indicator .fa-face-frown {
+    color: #F44336;
+}
+
+#darkModeToggle, #logoutButton {
+    position: absolute;
+    top: 10px;
+    background: none;
+    border: none;
+    color: var(--header-text);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#darkModeToggle {
+    right: 10px;
+}
+
+#logoutButton {
+    left: 10px;
+}
+
+#bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--header-bg);
+    padding: 10px 0;
+    overflow-x: auto;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: var(--header-text);
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.nav-button i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.nav-button.active {
+    color: #ffd700;
+}
+
+main {
+    margin-bottom: 60px;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.week-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.week-navigation button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.weekly-agenda {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.agenda-day {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px var(--card-shadow);
+}
+
+.agenda-day.past {
+    opacity: 0.7;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select, textarea, button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.study-timer {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px var(--card-shadow);
+    margin-bottom: 20px;
+}
+
+.timer-display {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.timer {
+    font-size: 64px;
+    font-weight: bold;
+    color: var(--header-bg);
+}
+
+.timer-label {
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.timer-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.timer-button:hover {
+    background-color: #555;
+}
+
+.timer-button i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.study-settings {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px var(--card-shadow);
+    margin-bottom: 20px;
+}
+
+.setting {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.setting:last-child {
+    margin-bottom: 0;
+}
+
+.setting label {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.setting i {
+    margin-right: 8px;
+    color: var(--header-bg);
+}
+
+.setting input {
+    width: 60px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.setting .unit {
+    margin-left: 5px;
+}
+
+.study-sessions {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px var(--card-shadow);
+}
+
+.sessions-list {
+    margin-top: 10px;
+}
+
+.sessions-list div {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.exam-card, .task-card, .note-card {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px var(--card-shadow);
+}
+
+.task-item, .exam-item, .note-item {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px var(--card-shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item.done {
+    background-color: var(--task-done-bg);
+    color: var(--task-done-color);
+}
+
+.exam-item {
+    border-left: 4px solid #ff4500;
+}
+
+.note-item {
+    border-left: 4px solid #4CAF50;
+}
+
+.history-item {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px var(--card-shadow);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit-button, .done-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.done-button {
+    background-color: #2196F3;
+}
+
+.notes {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
+
+.exam-result {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px var(--card-shadow);
+}
+
+.exam-result h3 {
+    margin-bottom: 10px;
+}
+
+.exam-result p {
+    margin: 5px 0;
+}
+
+.exam-result.overall {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+    }
+
+    .weekly-agenda {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+    }
+}
