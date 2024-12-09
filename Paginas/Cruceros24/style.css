@@ -151,7 +151,6 @@ main {
 
 
 
-
 footer {
     background-color: #ffd600;
 }
@@ -162,30 +161,54 @@ footer {
 
 .main-cru {
     display: grid;
+    padding: 20px 15vw;
+    justify-items: center;
+    gap: 20px;
     grid-template: 
     "a a a" 100px
-    "b d d" 300px
-    "b d d" 300px 
-    "c c c" 300px / 1fr 1fr 1fr;
+    "b b c" 50vh
+    "d d d" auto
+    "e e e" 50vh / 1fr 1fr 1fr;
 }
 
 .con-tit-cru {
 grid-area: a;
 overflow: hidden;
+border-radius: 5px;
+width: 100%;
 }
 
 .img-cru {
 grid-area: b;
 overflow: hidden;
-}
-
-.mapa-cru {
-grid-area: c;
+border-radius: 5px;
+width: 100%;
 overflow: hidden;
 }
 
+.inf-cru {
+grid-area: c;
+border-radius: 5px;
+width: 100%;
+}
+    
 .cru-precios {
 grid-area: d;
+border-radius: 5px;
+width: 100%;
+}
+
+.mapa-cru {
+grid-area: e;
+overflow: hidden;
+border-radius: 5px;
+width: 100%;
+}
+
+.mapa-cru img {
+    object-fit: cover;
+    height: 100%;
+    width:  100%;
 }
 
 
@@ -194,13 +217,55 @@ grid-area: d;
 
 }
 
-.tabla-precios {
+.img-cru img {
+    object-fit: cover;
+    height: 100%;
+    width:  100%;
+}
 
+.tabla-precios {
+    font-size: 1.5em;
+    width: 100%;
+    height: auto;
     border-collapse: collapse;
+    text-align: center;
+
 }
 
 .tabla-precios th, td {
-    border: 1px black solid;
+    border: 1px rgb(218, 217, 217) solid;
+    padding: 8px;
+}
+
+.tabla-precios th {
+    background-color: #004f9f;
+    color: #fcfcfc;
+}
+
+.tabla-precios tr:nth-child(odd) {
+    background-color: rgba(221, 224, 221, 0.568);
+}
+
+
+.inf-cru .desc-cru {
+font-size: 1.1em;
+}
+
+.inf-cru .dur-cru {
+font-size: 1.1em;
+}
+
+.inf-cru .dur-cru span {
+font-weight: 800;
+}
+
+.inf-cru .reserv-btn {
+    background-color: #ffd600;
+    border: 2px #ffd600 solid;
+    border-radius: 5px;
+    color: #004f9f;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 
