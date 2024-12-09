@@ -43,19 +43,43 @@ header #samilogo {
 }
 
 .menu-hamb {
-    text-align: end;
-    margin-right: 10px;
-    padding-bottom: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+.menu-hamb .menu-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(49, 49, 49);
+    color: beige;
+    font-size: 1.9em;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.menu-hamb nav.menu {
-    text-align: end;
+
+
+
+
+
+
+
+header ul.nav-list {
+    background-color: rgb(49, 49, 49);
+    color: beige;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    column-gap: 10px;
+    font-size: 1.3em;
+    height: 100vh;
+    padding-left: 0;
+    padding: 35px 30px 0 30px ;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
 }
-
-
-
-
-
 
 header ul li {
     font-size: 1.1em;
@@ -65,7 +89,7 @@ header ul li {
 }
 
 header ul li:hover {
-    color: rgb(75, 65, 24);
+    #94742e;
 }
 
 
@@ -75,7 +99,7 @@ header li {
 }
 
 header ul li.activo {
- color: rgb(107, 86, 41);
+ color: #94742e;
 }
 
 
@@ -151,7 +175,7 @@ main section .cafes .menu-img img {
 
 
 .cafes p {
-    color: rgb(148, 116, 46);
+    color: #94742e;
     font-family:Amita ;
     font-size: 1.3em;
 }

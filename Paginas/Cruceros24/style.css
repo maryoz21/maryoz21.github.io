@@ -124,7 +124,7 @@ main {
 }
 .oferta-content p {
     margin: 0.5rem 0.5rem;
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 500;
 }
 .oferta-content p.precio {
@@ -145,7 +145,6 @@ main {
     text-decoration: none;
     font-weight: bold;
     border-radius: 25px;
-    display: inline-block;
 }
 
 
