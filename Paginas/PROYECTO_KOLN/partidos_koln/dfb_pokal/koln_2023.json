@@ -1,0 +1,242 @@
+[
+  {
+    "matchID": 66600,
+    "matchDateTime": "2023-08-14T20:45:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4635,
+    "leagueName": "DFB-Pokal 2023/2024",
+    "leagueSeason": 2023,
+    "leagueShortcut": "dfb",
+    "matchDateTimeUTC": "2023-08-14T18:45:00Z",
+    "group": {
+      "groupName": "1. Runde",
+      "groupOrderID": 1,
+      "groupID": 42053
+    },
+    "team1": {
+      "teamId": 36,
+      "teamName": "VfL Osnabrück",
+      "shortName": "Osnabrück",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/VfL_Osnabrueck_Logo_2021%E2%80%93.svg/240px-VfL_Osnabrueck_Logo_2021%E2%80%93.svg.png",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 65,
+      "teamName": "1. FC Köln",
+      "shortName": "Köln",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/1._FC_Koeln_Logo_2014–.svg/296px-1._FC_Koeln_Logo_2014–.svg.png",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2023-08-15T09:54:30.597",
+    "matchIsFinished": true,
+    "matchResults": [
+      {
+        "resultID": 103440,
+        "resultName": "Halbzeitergebnis",
+        "pointsTeam1": 0,
+        "pointsTeam2": 1,
+        "resultOrderID": 1,
+        "resultTypeID": 1,
+        "resultDescription": "Ergebnis nach Ende der 1. Halbzeit"
+      },
+      {
+        "resultID": 103441,
+        "resultName": "Endergebnis",
+        "pointsTeam1": 1,
+        "pointsTeam2": 3,
+        "resultOrderID": 2,
+        "resultTypeID": 2,
+        "resultDescription": "Ergebnis nach Ende des Spiels"
+      },
+      {
+        "resultID": 103442,
+        "resultName": "nach 90 Minuten",
+        "pointsTeam1": 1,
+        "pointsTeam2": 1,
+        "resultOrderID": 3,
+        "resultTypeID": 3,
+        "resultDescription": "Ergebnis inkl. Nachspielzeit"
+      },
+      {
+        "resultID": 103443,
+        "resultName": "nach Verlängerung",
+        "pointsTeam1": 1,
+        "pointsTeam2": 3,
+        "resultOrderID": 4,
+        "resultTypeID": 4,
+        "resultDescription": "Ergebnis nach Verlängerung (ohne Elfmeterschießen)"
+      }
+    ],
+    "goals": [
+      {
+        "goalID": 102560,
+        "scoreTeam1": 0,
+        "scoreTeam2": 1,
+        "matchMinute": 43,
+        "goalGetterID": 18571,
+        "goalGetterName": "",
+        "isPenalty": false,
+        "isOwnGoal": false,
+        "isOvertime": false,
+        "comment": null
+      },
+      {
+        "goalID": 102561,
+        "scoreTeam1": 1,
+        "scoreTeam2": 1,
+        "matchMinute": 73,
+        "goalGetterID": 19106,
+        "goalGetterName": "",
+        "isPenalty": false,
+        "isOwnGoal": false,
+        "isOvertime": false,
+        "comment": null
+      },
+      {
+        "goalID": 102562,
+        "scoreTeam1": 1,
+        "scoreTeam2": 2,
+        "matchMinute": 93,
+        "goalGetterID": 18368,
+        "goalGetterName": "",
+        "isPenalty": false,
+        "isOwnGoal": false,
+        "isOvertime": false,
+        "comment": null
+      },
+      {
+        "goalID": 102563,
+        "scoreTeam1": 1,
+        "scoreTeam2": 3,
+        "matchMinute": 96,
+        "goalGetterID": 20219,
+        "goalGetterName": "",
+        "isPenalty": false,
+        "isOwnGoal": false,
+        "isOvertime": false,
+        "comment": null
+      }
+    ],
+    "location": null,
+    "numberOfViewers": null
+  },
+  {
+    "matchID": 68738,
+    "matchDateTime": "2023-10-31T20:45:00",
+    "timeZoneID": "W. Europe Standard Time",
+    "leagueId": 4635,
+    "leagueName": "DFB-Pokal 2023/2024",
+    "leagueSeason": 2023,
+    "leagueShortcut": "dfb",
+    "matchDateTimeUTC": "2023-10-31T19:45:00Z",
+    "group": {
+      "groupName": "2. Runde",
+      "groupOrderID": 2,
+      "groupID": 42054
+    },
+    "team1": {
+      "teamId": 76,
+      "teamName": "1. FC Kaiserslautern",
+      "shortName": "Kaiserslautern",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Logo_1_FC_Kaiserslautern.svg",
+      "teamGroupName": null
+    },
+    "team2": {
+      "teamId": 65,
+      "teamName": "1. FC Köln",
+      "shortName": "Köln",
+      "teamIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/1._FC_Koeln_Logo_2014–.svg/296px-1._FC_Koeln_Logo_2014–.svg.png",
+      "teamGroupName": null
+    },
+    "lastUpdateDateTime": "2023-10-31T23:02:58.767",
+    "matchIsFinished": true,
+    "matchResults": [
+      {
+        "resultID": 104740,
+        "resultName": "Halbzeitergebnis",
+        "pointsTeam1": 1,
+        "pointsTeam2": 0,
+        "resultOrderID": 1,
+        "resultTypeID": 1,
+        "resultDescription": "Ergebnis nach Ende der 1. Halbzeit"
+      },
+      {
+        "resultID": 104741,
+        "resultName": "Endergebnis",
+        "pointsTeam1": 3,
+        "pointsTeam2": 2,
+        "resultOrderID": 2,
+        "resultTypeID": 2,
+        "resultDescription": "Ergebnis nach Ende des Spiels"
+      }
+    ],
+    "goals": [
+      {
+        "goalID": 105314,
+        "scoreTeam1": 1,
+        "scoreTeam2": 0,
+        "matchMinute": 19,
+        "goalGetterID": 19327,
+        "goalGetterName": "",
+        "isPenalty": false,
+        "isOwnGoal": false,
+        "isOvertime": false,
+        "comment": null
+      },
+      {
+        "goalID": 105317,
+        "scoreTeam1": 2,
+        "scoreTeam2": 0,
+        "matchMinute": 47,
+        "goalGetterID": 19452,
+        "goalGetterName": "",
+        "isPenalty": false,
+        "isOwnGoal": false,
+        "isOvertime": false,
+        "comment": null
+      },
+      {
+        "goalID": 105319,
+        "scoreTeam1": 3,
+        "scoreTeam2": 0,
+        "matchMinute": 65,
+        "goalGetterID": 20714,
+        "goalGetterName": "",
+        "isPenalty": false,
+        "isOwnGoal": false,
+        "isOvertime": false,
+        "comment": null
+      },
+      {
+        "goalID": 105322,
+        "scoreTeam1": 3,
+        "scoreTeam2": 1,
+        "matchMinute": 71,
+        "goalGetterID": 18496,
+        "goalGetterName": "",
+        "isPenalty": false,
+        "isOwnGoal": false,
+        "isOvertime": false,
+        "comment": null
+      },
+      {
+        "goalID": 105327,
+        "scoreTeam1": 3,
+        "scoreTeam2": 2,
+        "matchMinute": 81,
+        "goalGetterID": 18750,
+        "goalGetterName": "",
+        "isPenalty": false,
+        "isOwnGoal": false,
+        "isOvertime": false,
+        "comment": null
+      }
+    ],
+    "location": {
+      "locationID": 437,
+      "locationCity": "Kaiserslautern",
+      "locationStadium": "Fritz-Walter-Stadion"
+    },
+    "numberOfViewers": null
+  }
+]

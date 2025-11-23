@@ -1,0 +1,212 @@
+[
+    {
+        "stadium": "RheinEnergieStadion",
+        "lat": 50.9335,
+        "lon": 6.8753
+    },
+    {
+        "stadium": "Signal Iduna Park",
+        "lat": 51.4926,
+        "lon": 7.4519
+    },
+    {
+        "stadium": "Allianz Arena",
+        "lat": 48.2188,
+        "lon": 11.6247
+    },
+    {
+        "stadium": "BayArena",
+        "lat": 51.0383,
+        "lon": 7.0022
+    },
+    {
+        "stadium": "Borussia-Park",
+        "lat": 51.1746,
+        "lon": 6.3855
+    },
+    {
+        "stadium": "Deutsche Bank Park",
+        "lat": 50.0686,
+        "lon": 8.6455
+    },
+    {
+        "stadium": "Volkswagen Arena",
+        "lat": 52.4326,
+        "lon": 10.8036
+    },
+    {
+        "stadium": "Mewa Arena",
+        "lat": 49.9841,
+        "lon": 8.2242
+    },
+    {
+        "stadium": "PreZero Arena",
+        "lat": 49.2462,
+        "lon": 8.8873
+    },
+    {
+        "stadium": "Stadion An der Alten Försterei",
+        "lat": 52.4574,
+        "lon": 13.5681
+    },
+    {
+        "stadium": "Europa-Park Stadion",
+        "lat": 48.0208,
+        "lon": 7.8298
+    },
+    {
+        "stadium": "WWK Arena",
+        "lat": 48.3226,
+        "lon": 10.8823
+    },
+    {
+        "stadium": "Vonovia Ruhrstadion",
+        "lat": 51.4900,
+        "lon": 7.2361
+    },
+    {
+        "stadium": "Wohninvest Weserstadion",
+        "lat": 53.0664,
+        "lon": 8.8376
+    },
+    {
+        "stadium": "Mercedes-Benz Arena",
+        "lat": 48.7922,
+        "lon": 9.2320
+    },
+    {
+        "stadium": "Red Bull Arena",
+        "lat": 51.3458,
+        "lon": 12.3484
+    },
+    {
+        "stadium": "Olympiastadion Berlin",
+        "lat": 52.5147,
+        "lon": 13.2395
+    },
+    {
+        "stadium": "Veltins-Arena",
+        "lat": 51.5546,
+        "lon": 7.0675
+    },
+    {
+        "stadium": "Volksparkstadion",
+        "lat": 53.5869,
+        "lon": 9.8987
+    },
+    {
+        "stadium": "Merkur Spiel-Arena",
+        "lat": 51.2616,
+        "lon": 6.7332
+    },
+    {
+        "stadium": "Heinz von Heiden Arena",
+        "lat": 52.3600,
+        "lon": 9.7311
+    },
+    {
+        "stadium": "Max-Morlock-Stadion",
+        "lat": 49.4262,
+        "lon": 11.1257
+    },
+    {
+        "stadium": "SchücoArena",
+        "lat": 52.0309,
+        "lon": 8.5147
+    },
+    {
+        "stadium": "Sportpark Ronhof",
+        "lat": 49.4819,
+        "lon": 10.9986
+    },
+    {
+        "stadium": "Millerntor-Stadion",
+        "lat": 53.5545,
+        "lon": 9.9676
+    },
+    {
+        "stadium": "Merck-Stadion am Böllenfalltor",
+        "lat": 49.8573,
+        "lon": 8.6669
+    },
+    {
+        "stadium": "Benteler-Arena",
+        "lat": 51.7306,
+        "lon": 8.7125
+    },
+    {
+        "stadium": "Jahnstadion Regensburg",
+        "lat": 48.9953,
+        "lon": 12.1064
+    },
+    {
+        "stadium": "Voith-Arena",
+        "lat": 48.6685,
+        "lon": 10.1393
+    },
+    {
+        "stadium": "Holstein-Stadion",
+        "lat": 54.3487,
+        "lon": 10.1242
+    },
+    {
+        "stadium": "Wildparkstadion",
+        "lat": 49.0200,
+        "lon": 8.4130
+    },
+    {
+        "stadium": "Ostseestadion",
+        "lat": 54.0848,
+        "lon": 12.0953
+    },
+    {
+        "stadium": "Erzgebirgsstadion",
+        "lat": 50.5936,
+        "lon": 12.6933
+    },
+    {
+        "stadium": "Audi Sportpark",
+        "lat": 48.7467,
+        "lon": 11.4633
+    },
+    {
+        "stadium": "Sandhausen",
+        "lat": 49.3364,
+        "lon": 8.6475
+    },
+    {
+        "stadium": "MDCC-Arena",
+        "lat": 52.1322,
+        "lon": 11.6517
+    },
+    {
+        "stadium": "Eintracht-Stadion",
+        "lat": 52.2901,
+        "lon": 10.5214
+    },
+    {
+        "stadium": "Fritz-Walter-Stadion",
+        "lat": 49.4343,
+        "lon": 7.7758
+    },
+    {
+        "stadium": "MOL Aréna Sóstó",
+        "lat": 47.1736,
+        "lon": 18.4153
+    },
+    {
+        "stadium": "Allianz Riviera",
+        "lat": 43.7042,
+        "lon": 7.1900
+    },
+    {
+        "stadium": "Městský fotbalový stadion",
+        "lat": 49.0593,
+        "lon": 17.4695
+    },
+    {
+        "stadium": "Partizan Stadium",
+        "lat": 44.7887,
+        "lon": 20.4591
+    }
+]

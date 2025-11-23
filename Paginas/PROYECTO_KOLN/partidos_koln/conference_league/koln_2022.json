@@ -1,0 +1,202 @@
+[
+    {
+        "matchID": "manual_conf_1",
+        "matchDateTime": "2022-08-18T20:30:00",
+        "group": {
+            "groupName": "Play-off Ida"
+        },
+        "team1": {
+            "teamId": 65,
+            "teamName": "1. FC Köln"
+        },
+        "team2": {
+            "teamId": 9991,
+            "teamName": "Videoton FC Fehervar"
+        },
+        "matchResults": [
+            {
+                "resultTypeID": 2,
+                "pointsTeam1": 1,
+                "pointsTeam2": 2
+            }
+        ],
+        "location": {
+            "locationStadium": "RheinEnergieStadion"
+        }
+    },
+    {
+        "matchID": "manual_conf_2",
+        "matchDateTime": "2022-08-25T19:00:00",
+        "group": {
+            "groupName": "Play-off Vuelta"
+        },
+        "team1": {
+            "teamId": 9991,
+            "teamName": "Videoton FC Fehervar"
+        },
+        "team2": {
+            "teamId": 65,
+            "teamName": "1. FC Köln"
+        },
+        "matchResults": [
+            {
+                "resultTypeID": 2,
+                "pointsTeam1": 0,
+                "pointsTeam2": 3
+            }
+        ],
+        "location": {
+            "locationStadium": "MOL Aréna Sóstó"
+        }
+    },
+    {
+        "matchID": "manual_conf_3",
+        "matchDateTime": "2022-09-08T18:45:00",
+        "group": {
+            "groupName": "Fase de Grupos"
+        },
+        "team1": {
+            "teamId": 9992,
+            "teamName": "OGC Nice"
+        },
+        "team2": {
+            "teamId": 65,
+            "teamName": "1. FC Köln"
+        },
+        "matchResults": [
+            {
+                "resultTypeID": 2,
+                "pointsTeam1": 1,
+                "pointsTeam2": 1
+            }
+        ],
+        "location": {
+            "locationStadium": "Allianz Riviera"
+        }
+    },
+    {
+        "matchID": "manual_conf_4",
+        "matchDateTime": "2022-09-15T21:00:00",
+        "group": {
+            "groupName": "Fase de Grupos"
+        },
+        "team1": {
+            "teamId": 65,
+            "teamName": "1. FC Köln"
+        },
+        "team2": {
+            "teamId": 9993,
+            "teamName": "1. FC Slovácko"
+        },
+        "matchResults": [
+            {
+                "resultTypeID": 2,
+                "pointsTeam1": 4,
+                "pointsTeam2": 2
+            }
+        ],
+        "location": {
+            "locationStadium": "RheinEnergieStadion"
+        }
+    },
+    {
+        "matchID": "manual_conf_5",
+        "matchDateTime": "2022-10-06T21:00:00",
+        "group": {
+            "groupName": "Fase de Grupos"
+        },
+        "team1": {
+            "teamId": 65,
+            "teamName": "1. FC Köln"
+        },
+        "team2": {
+            "teamId": 9994,
+            "teamName": "Partizan Beograd"
+        },
+        "matchResults": [
+            {
+                "resultTypeID": 2,
+                "pointsTeam1": 0,
+                "pointsTeam2": 1
+            }
+        ],
+        "location": {
+            "locationStadium": "RheinEnergieStadion"
+        }
+    },
+    {
+        "matchID": "manual_conf_6",
+        "matchDateTime": "2022-10-13T18:45:00",
+        "group": {
+            "groupName": "Fase de Grupos"
+        },
+        "team1": {
+            "teamId": 9994,
+            "teamName": "Partizan Beograd"
+        },
+        "team2": {
+            "teamId": 65,
+            "teamName": "1. FC Köln"
+        },
+        "matchResults": [
+            {
+                "resultTypeID": 2,
+                "pointsTeam1": 2,
+                "pointsTeam2": 0
+            }
+        ],
+        "location": {
+            "locationStadium": "Partizan Stadium"
+        }
+    },
+    {
+        "matchID": "manual_conf_7",
+        "matchDateTime": "2022-10-28T13:00:00",
+        "group": {
+            "groupName": "Fase de Grupos"
+        },
+        "team1": {
+            "teamId": 9993,
+            "teamName": "1. FC Slovácko"
+        },
+        "team2": {
+            "teamId": 65,
+            "teamName": "1. FC Köln"
+        },
+        "matchResults": [
+            {
+                "resultTypeID": 2,
+                "pointsTeam1": 0,
+                "pointsTeam2": 1
+            }
+        ],
+        "location": {
+            "locationStadium": "Městský fotbalový stadion"
+        }
+    },
+    {
+        "matchID": "manual_conf_8",
+        "matchDateTime": "2022-11-03T21:00:00",
+        "group": {
+            "groupName": "Fase de Grupos"
+        },
+        "team1": {
+            "teamId": 65,
+            "teamName": "1. FC Köln"
+        },
+        "team2": {
+            "teamId": 9992,
+            "teamName": "OGC Nice"
+        },
+        "matchResults": [
+            {
+                "resultTypeID": 2,
+                "pointsTeam1": 2,
+                "pointsTeam2": 2
+            }
+        ],
+        "location": {
+            "locationStadium": "RheinEnergieStadion"
+        }
+    }
+]

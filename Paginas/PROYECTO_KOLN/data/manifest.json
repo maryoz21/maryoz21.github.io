@@ -1,0 +1,97 @@
+[
+  {
+    "year": 2010,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2010.json"
+  },
+  {
+    "year": 2011,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2011.json"
+  },
+  {
+    "year": 2012,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2012.json"
+  },
+  {
+    "year": 2013,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2013.json"
+  },
+  {
+    "year": 2014,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2014.json"
+  },
+  {
+    "year": 2015,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2015.json"
+  },
+  {
+    "year": 2016,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2016.json"
+  },
+  {
+    "year": 2017,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2017.json"
+  },
+  {
+    "year": 2018,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2018.json"
+  },
+  {
+    "year": 2019,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2019.json"
+  },
+  {
+    "year": 2020,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2020.json"
+  },
+  {
+    "year": 2021,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2021.json"
+  },
+  {
+    "year": 2022,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2022.json"
+  },
+  {
+    "year": 2023,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2023.json"
+  },
+  {
+    "year": 2024,
+    "competition": "bundesliga",
+    "path": "partidos_koln/bundesliga/koln_2024.json"
+  },
+  {
+    "year": 2022,
+    "competition": "conference_league",
+    "path": "partidos_koln/conference_league/koln_2022.json"
+  },
+  {
+    "year": 2015,
+    "competition": "dfb_pokal",
+    "path": "partidos_koln/dfb_pokal/koln_2015.json"
+  },
+  {
+    "year": 2023,
+    "competition": "dfb_pokal",
+    "path": "partidos_koln/dfb_pokal/koln_2023.json"
+  },
+  {
+    "year": 2024,
+    "competition": "dfb_pokal",
+    "path": "partidos_koln/dfb_pokal/koln_2024.json"
+  }
+]
