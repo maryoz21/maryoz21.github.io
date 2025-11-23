@@ -1,44 +1,146 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Cruceros24</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/icon.png" type="image/x-icon" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-    <header>
-        <img src="img/logo.png" alt="Logo Cruceros24" />
-        <nav>
-          <ul>
-            <li><a href="index.html">INICIO</a></li>
-            <li><a href="somos.html">SOMOS</a></li>
-            <li><a class="inicio" href="contacto.html">CONTACTO</a></li>
-          </ul>
-        </nav>
-      </header>
-    
-    <main id="maincontacto">
-        <section>
-            <h1>CONTACTO</h1>
-        </section>
-        
 
-        
-            <section id="contacto">
-                <p>Cruceros24</p>
-                <p>Calle Cristobal Sanz Nº 34</p>
-                <p>03201 Elche</p>
-                <p>info@cruceros24.eu</p>
-                <b>
-                <p>Horario: lunes-viernes 9.15 a 13.15 sabados: cerrado</p>
-                <p>Tambien nos pueden contactar por teléfono o whatsapp 633 474 012</p>
-                <img src="img/tienda1.jpg" alt="">
-                </b>
+  <!-- Navigation -->
+  <header>
+    <div class="container header-container">
+      <div class="logo-container">
+        <img src="img/logo.png" alt="Logo Cruceros24" class="logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="somos.html">Nosotros</a></li>
+          <li><a class="active" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
 
-            </section>
-    </main>
+  <main>
+    <!-- Hero -->
+    <section class="hero" style="height: 50vh; background-image: url('img/crucero3.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content animate-on-scroll">
+        <h1>Contáctanos</h1>
+        <p>Estamos aquí para ayudarte a planificar tu próximo viaje.</p>
+      </div>
+    </section>
 
+    <!-- Contact Content -->
+    <section class="section-padding">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px;">
+
+          <!-- Info -->
+          <div class="animate-on-scroll">
+            <h2 class="section-title" style="text-align: left;">Información de Contacto</h2>
+            <p style="margin-bottom: 30px; color: var(--text-light);">
+              ¿Tienes dudas? Llámanos, escríbenos o visítanos. Nuestro equipo de expertos estará encantado de atenderte.
+            </p>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fas fa-map-marker-alt"
+                  style="color: var(--accent-color); width: 30px;"></i> Dirección</h3>
+              <p>Calle del Mar, 123<br>08000 Barcelona, España</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fas fa-phone"
+                  style="color: var(--accent-color); width: 30px;"></i> Teléfono</h3>
+              <p>+34 900 123 456</p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <h3 style="color: var(--primary-color); margin-bottom: 10px;"><i class="fas fa-envelope"
+                  style="color: var(--accent-color); width: 30px;"></i> Email</h3>
+              <p>info@cruceros24.com</p>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="animate-on-scroll"
+            style="background: white; padding: 40px; border-radius: 15px; box-shadow: var(--shadow-lg);">
+            <h2 style="color: var(--primary-color); font-family: var(--font-heading); margin-bottom: 20px;">Envíanos un
+              mensaje</h2>
+            <form>
+              <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" required>
+              </div>
+              <div class="form-group">
+                <label>Asunto</label>
+                <input type="text" required>
+              </div>
+              <div class="form-group">
+                <label>Mensaje</label>
+                <textarea rows="5"
+                  style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit;"
+                  required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h3>Cruceros24</h3>
+        <p>Tu agencia de confianza para descubrir el mundo.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="somos.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Newsletter</h3>
+        <p>Suscríbete para recibir ofertas exclusivas.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Tu email">
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Cruceros24. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

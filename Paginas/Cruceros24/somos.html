@@ -1,27 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="img/icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros | Cruceros24</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="img/icon.png" type="image/x-icon" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
-    <header>
-        <img src="img/logo.png" alt="Logo Cruceros24" />
-        <nav>
-          <ul>
-            <li><a href="index.html">INICIO</a></li>
-            <li><a class="inicio" href="somos.html">SOMOS</a></li>
-            <li><a href="contacto.html">CONTACTO</a></li>
-          </ul>
-        </nav>
-      </header>
 
-    <main>
-       
-    </main>
+  <!-- Navigation -->
+  <header>
+    <div class="container header-container">
+      <div class="logo-container">
+        <img src="img/logo.png" alt="Logo Cruceros24" class="logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a class="active" href="somos.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <!-- Hero -->
+    <section class="hero" style="height: 50vh; background-image: url('img/crucero2.jpg');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content animate-on-scroll">
+        <h1>Sobre Nosotros</h1>
+        <p>Pasión por el mar y el servicio excelente.</p>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+          <div class="animate-on-scroll">
+            <h2 class="section-title" style="text-align: left;">Nuestra Historia</h2>
+            <p style="margin-bottom: 20px; color: var(--text-light);">
+              Fundada en 2010, Cruceros24 nació con la visión de hacer accesibles los viajes de lujo a todo el mundo. Lo
+              que comenzó como una pequeña agencia familiar se ha convertido en un referente del sector turístico
+              marítimo.
+            </p>
+            <p style="color: var(--text-light);">
+              Nuestro compromiso es ofrecer experiencias únicas, seleccionando cuidadosamente cada itinerario y barco
+              para garantizar la máxima satisfacción de nuestros clientes.
+            </p>
+          </div>
+          <div class="animate-on-scroll">
+            <img src="img/crucero3.jpg" alt="Nuestra Historia"
+              style="border-radius: 15px; box-shadow: var(--shadow-lg);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section-padding" style="background-color: var(--bg-light);">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Nuestros Valores</h2>
+        <div class="features-grid">
+          <div class="feature-card animate-on-scroll">
+            <i class="fas fa-heart"></i>
+            <h3>Pasión</h3>
+            <p>Amamos lo que hacemos y eso se refleja en cada viaje que organizamos.</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <i class="fas fa-star"></i>
+            <h3>Excelencia</h3>
+            <p>Buscamos la perfección en cada detalle para superar tus expectativas.</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <i class="fas fa-handshake"></i>
+            <h3>Confianza</h3>
+            <p>Transparencia y honestidad son los pilares de nuestra relación contigo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h3>Cruceros24</h3>
+        <p>Tu agencia de confianza para descubrir el mundo.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="somos.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Newsletter</h3>
+        <p>Suscríbete para recibir ofertas exclusivas.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Tu email">
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Cruceros24. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

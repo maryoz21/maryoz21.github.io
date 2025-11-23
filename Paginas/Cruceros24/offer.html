@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Crucero | Cruceros24</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/icon.png" type="image/x-icon" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <img src="img/logo.png" alt="Logo Cruceros24" class="logo" />
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="somos.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Offer Hero -->
+        <section class="hero" id="offerHero" style="height: 60vh;">
+            <div class="hero-overlay"></div>
+            <div class="hero-content animate-on-scroll">
+                <h1 id="offerTitle">Cargando...</h1>
+                <p id="offerShip">...</p>
+            </div>
+        </section>
+
+        <div class="container section-padding">
+            <div class="offer-details-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
+
+                <!-- Main Content -->
+                <div class="details-content">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Descripción del Viaje</h2>
+                    <p id="offerDescription" style="font-size: 1.1rem; margin-bottom: 30px; color: var(--text-light);">
+                        ...
+                    </p>
+
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Itinerario Destacado</h3>
+                    <ul class="itinerary-list" style="list-style: none; margin-bottom: 30px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt"
+                                style="color: var(--accent-color); margin-right: 10px;"></i> Día 1: Embarque</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt"
+                                style="color: var(--accent-color); margin-right: 10px;"></i> Día 2: Navegación</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt"
+                                style="color: var(--accent-color); margin-right: 10px;"></i> Día 3: Escala Principal
+                        </li>
+                        <!-- More dummy items -->
+                    </ul>
+
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">Servicios Incluidos</h3>
+                    <div class="services-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                        <div class="service-item"
+                            style="text-align: center; padding: 15px; background: white; box-shadow: var(--shadow-sm); border-radius: 8px;">
+                            <i class="fas fa-utensils"
+                                style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                            <p>Pensión Completa</p>
+                        </div>
+                        <div class="service-item"
+                            style="text-align: center; padding: 15px; background: white; box-shadow: var(--shadow-sm); border-radius: 8px;">
+                            <i class="fas fa-glass-cheers"
+                                style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                            <p>Bebidas</p>
+                        </div>
+                        <div class="service-item"
+                            style="text-align: center; padding: 15px; background: white; box-shadow: var(--shadow-sm); border-radius: 8px;">
+                            <i class="fas fa-wifi"
+                                style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                            <p>Wifi a bordo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="details-sidebar">
+                    <div class="booking-card"
+                        style="background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow-lg); position: sticky; top: 100px;">
+                        <div class="price-tag" style="text-align: center; margin-bottom: 20px;">
+                            <span style="font-size: 0.9rem; color: var(--text-light);">desde</span>
+                            <div id="offerPrice"
+                                style="font-size: 2.5rem; font-weight: bold; color: var(--primary-color);">...€</div>
+                            <span style="font-size: 0.9rem; color: var(--text-light);">por persona</span>
+                        </div>
+
+                        <ul style="margin-bottom: 20px;">
+                            <li style="margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                                <i class="far fa-clock" style="color: var(--accent-color); margin-right: 10px;"></i>
+                                <span id="offerDays">...</span> días
+                            </li>
+                            <li style="margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 10px;">
+                                <i class="fas fa-ship" style="color: var(--accent-color); margin-right: 10px;"></i>
+                                <span id="offerShipSidebar">...</span>
+                            </li>
+                        </ul>
+
+                        <button id="reserveBtn" class="btn btn-primary btn-block">Solicitar Reserva</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Cruceros24</h3>
+                <p>Tu agencia de confianza para descubrir el mundo.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="somos.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Suscríbete para recibir ofertas exclusivas.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu email">
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Cruceros24. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Reservation Modal -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Reserva tu Crucero</h2>
+            <p>Completa el formulario y nos pondremos en contacto contigo.</p>
+            <form id="reservationForm">
+                <input type="hidden" id="cruise-name" name="cruise-name">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="passengers">Nº Pasajeros</label>
+                    <input type="number" id="passengers" min="1" value="2" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Confirmar Solicitud</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Specific logic for Offer Page
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            if (id) {
+                const offers = getOffers(); // From script.js
+                const offer = offers.find(o => o.id == id);
+
+                if (offer) {
+                    document.title = `${offer.title} | Cruceros24`;
+                    document.getElementById('offerHero').style.backgroundImage = `url('${offer.image}')`;
+                    document.getElementById('offerTitle').innerText = offer.title;
+                    document.getElementById('offerShip').innerText = offer.ship;
+                    document.getElementById('offerDescription').innerText = offer.description;
+                    document.getElementById('offerPrice').innerText = `${offer.price}€`;
+                    document.getElementById('offerDays').innerText = offer.days;
+                    document.getElementById('offerShipSidebar').innerText = offer.ship;
+
+                    // Pre-fill modal
+                    document.getElementById('reserveBtn').addEventListener('click', () => {
+                        document.getElementById('cruise-name').value = offer.title;
+                        document.getElementById('reservationModal').style.display = 'flex';
+                    });
+                } else {
+                    document.querySelector('main').innerHTML = '<div class="container section-padding"><h2>Oferta no encontrada</h2><a href="index.html" class="btn btn-primary">Volver al Inicio</a></div>';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

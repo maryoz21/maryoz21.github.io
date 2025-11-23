@@ -1,143 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1"
-    />
-    <title>Cruceros24</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="img/icon.png" type="image/x-icon" />
-  </head>
-  <body>
-    <header>
-      <img src="img/logo.png" alt="Logo Cruceros24" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Cruceros24 | Tu Viaje de Ensueño</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="img/icon.png" type="image/x-icon" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container header-container">
+      <div class="logo-container">
+        <img src="img/logo.png" alt="Logo Cruceros24" class="logo" />
+      </div>
       <nav>
         <ul>
-          <li><a class="inicio" href="index.html">INICIO</a></li>
-          <li><a href="somos.html">SOMOS</a></li>
-          <li><a href="contacto.html">CONTACTO</a></li>
+          <li><a class="active" href="index.html">Inicio</a></li>
+          <li><a href="somos.html">Nosotros</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
-    </header>
-    <main>
-     
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
 
-      <section class="ofertas">
-        <div class="ofertas-cont">
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content animate-on-scroll">
+        <h1>Descubre el Mundo Navegando</h1>
+        <p>Experiencias inolvidables en alta mar. Lujo, aventura y relax te esperan.</p>
+        <a href="#ofertas" class="btn btn-primary">Ver Ofertas Exclusivas</a>
+      </div>
+    </section>
 
-          <h2>Ofertas Destacadas</h2>
-          <div class="grid-ofertas">
-
-            <div class="oferta-card">
-              <img src="img/crucero1.jpg" />
-              <div class="oferta-content">
-                <h3>Mediterraneo 2025</h3>
-                <p>15 dias</p>
-                <p>MSC Fantasia</p>
-                <p class="precio">desde 1.799€</p>
-                <a href="mscfantasiamed2025.html" class="btn">Reservar Ahora</a>
-              </div>
-            </div>
-
-            <div class="oferta-card">
-              <img src="img/crucero2.jpg" />
-              <div class="oferta-content">
-                <h3>Fiordos 2025</h3>
-                <p>8 dias</p>
-                <p>MSC Euribia</p>
-                <p class="precio">desde 1.199€</p>
-                <a href="#" class="btn">Reservar Ahora</a>
-              </div>
-            </div>
-
-            <div class="oferta-card">
-              <img src="img/crucero3.jpg" />
-              <div class="oferta-content">
-                <h3>Islas Griegas 2025</h3>
-                <p>8 dias</p>
-                <p>MSC World Europa</p>
-                <p class="precio">desde 899</p>
-                <a href="#" class="btn">Reservar Ahora</a>
-              </div>
-            </div>
-
-            <div class="oferta-card">
-              <img src="img/crucero1.jpg" />
-              <div class="oferta-content">
-                <h3>Mediterraneo 2025</h3>
-                <p>15 dias</p>
-                <p>MSC Fantasia</p>
-                <p class="precio">desde 1.799€</p>
-                <a href="#" class="btn">Reservar Ahora</a>
-              </div>
-            </div>
-
-            <div class="oferta-card">
-              <img src="img/crucero2.jpg" />
-              <div class="oferta-content">
-                <h3>Fiordos 2025</h3>
-                <p>8 dias</p>
-                <p>MSC Euribia</p>
-                <p class="precio">desde 1.199€</p>
-                <a href="#" class="btn">Reservar Ahora</a>
-              </div>
-            </div>
-
-            <div class="oferta-card">
-              <img src="img/crucero3.jpg" />
-              <div class="oferta-content">
-                <h3>Islas Griegas 2025</h3>
-                <p>8 dias</p>
-                <p>MSC World Europa</p>
-                <p class="precio">desde 899</p>
-                <a href="#" class="btn">Reservar Ahora</a>
-              </div>
-            </div>
-
-            <div class="oferta-card">
-              <img src="img/crucero1.jpg" />
-              <div class="oferta-content">
-                <h3>Mediterraneo 2025</h3>
-                <p>15 dias</p>
-                <p>MSC Fantasia</p>
-                <p class="precio">desde 1.799€</p>
-                <a href="#" class="btn">Reservar Ahora</a>
-              </div>
-            </div>
-
-            <div class="oferta-card">
-              <img src="img/crucero2.jpg" />
-              <div class="oferta-content">
-                <h3>Fiordos 2025</h3>
-                <p>8 dias</p>
-                <p>MSC Euribia</p>
-                <p class="precio">desde 1.199€</p>
-                <a href="#" class="btn">Reservar Ahora</a>
-              </div>
-            </div>
-
-            <div class="oferta-card">
-              <img src="img/crucero3.jpg" />
-              <div class="oferta-content">
-                <h3>Islas Griegas 2025</h3>
-                <p>8 dias</p>
-                <p>MSC World Europa</p>
-                <p class="precio">desde 899</p>
-                <a href="#" class="btn">Reservar Ahora</a>
-              </div>
-            </div>
-
+    <!-- Why Choose Us -->
+    <section class="features section-padding">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">¿Por qué viajar con nosotros?</h2>
+        <div class="features-grid">
+          <div class="feature-card animate-on-scroll">
+            <i class="fas fa-ship"></i>
+            <h3>Barcos Modernos</h3>
+            <p>Disfruta de la última tecnología y confort en nuestra flota renovada.</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <i class="fas fa-globe-americas"></i>
+            <h3>Destinos Exóticos</h3>
+            <p>Desde el Mediterráneo hasta los Fiordos, te llevamos a donde sueñas.</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <i class="fas fa-tags"></i>
+            <h3>Mejor Precio</h3>
+            <p>Garantizamos las tarifas más competitivas del mercado.</p>
           </div>
         </div>
-      </section>
-    </main>
-    <footer>
-      <p>&copy;</p>
+      </div>
+    </section>
 
-      <p>Contactanos</p>
-      <p>Contactanos</p>
-    </footer>
-  </body>
+    <!-- Offers Section -->
+    <section id="ofertas" class="ofertas section-padding">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Ofertas Destacadas</h2>
+
+        <!-- Search Bar -->
+        <div class="search-container animate-on-scroll">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchInput" placeholder="Busca por destino, barco o descripción...">
+        </div>
+
+        <!-- Grid Container (Content injected by JS) -->
+        <div class="grid-ofertas">
+          <!-- Cards will be rendered here by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section-padding">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">Lo que dicen nuestros viajeros</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card animate-on-scroll">
+            <p>"Una experiencia inolvidable. La atención fue de primera y el barco espectacular."</p>
+            <h4>- María García</h4>
+          </div>
+          <div class="testimonial-card animate-on-scroll">
+            <p>"El mejor precio que encontré. Todo muy organizado y sin sorpresas."</p>
+            <h4>- Carlos Ruiz</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h3>Cruceros24</h3>
+        <p>Tu agencia de confianza para descubrir el mundo.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Enlaces Rápidos</h3>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Destinos</a></li>
+          <li><a href="#">Ofertas</a></li>
+          <li><a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Acceso Agentes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Newsletter</h3>
+        <p>Suscríbete para recibir ofertas exclusivas.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Tu email">
+          <button type="submit">Suscribirse</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Cruceros24. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Reservation Modal -->
+  <div id="reservationModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Reserva tu Crucero</h2>
+      <p>Completa el formulario y nos pondremos en contacto contigo.</p>
+      <form id="reservationForm">
+        <input type="hidden" id="cruise-name" name="cruise-name">
+        <div class="form-group">
+          <label for="name">Nombre Completo</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="passengers">Nº Pasajeros</label>
+          <input type="number" id="passengers" min="1" value="2" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Confirmar Solicitud</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
