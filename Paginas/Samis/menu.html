@@ -11,7 +11,6 @@
     <link rel="shortcut icon"
         href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYRNyXe4mQQY8_yY4mmDyeQJPe02pv13XKJg&s"
         type="image/x-icon">
-    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -24,10 +23,12 @@
             <h1>Sami's Cafe</h1>
         </div>
 
-        <button class="menu-btn" id="menu-btn">☰</button>
+        <!-- Checkbox Hack for Mobile Menu -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-btn">☰</label>
 
         <nav class="nav">
-            <ul class="nav-list" id="nav-list">
+            <ul class="nav-list">
                 <li><a href="index.html">Inicio</a></li>
                 <li class="activo"><a href="menu.html">Menú</a></li>
                 <li><a href="sobre.html">Sobre Nosotros</a></li>
@@ -40,112 +41,205 @@
     <main class="menu-main">
 
         <!-- Desayunos -->
-        <div class="section-header" onclick="toggleSection('cafes1')">
-            <h2>Desayunos</h2>
-            <span class="toggle-icon" id="icon-cafes1">▼</span>
-        </div>
-        <section id="cafes1" class="menu-container">
-            <article class="cafes">
-                <div class="menu-img"><img src="img/tosthuevo.webp" alt="Tostada de aguacate"></div>
-                <div class="card-content">
-                    <h3>Tostada de aguacate</h3>
-                    <p>Tostada con huevo, aguacate y tomate fresco.</p>
-                    <div class="price-row">
-                        <span class="precio">1.50€</span>
-                        <button class="add-btn" onclick="addToCart('Tostada de aguacate', 1.50)">Añadir</button>
+        <details open>
+            <summary>Desayunos</summary>
+            <section class="menu-container">
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1525351484163-7529414395d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Tostada de aguacate"></div>
+                    <div class="card-content">
+                        <h3>Tostada de Aguacate</h3>
+                        <p>Pan de masa madre, aguacate triturado, huevo poché y semillas.</p>
+                        <div class="price-row">
+                            <span class="precio">4.50€</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="cafes">
-                <div class="menu-img"><img src="img/croissant.webp" alt="Croissant"></div>
-                <div class="card-content">
-                    <h3>Croissant</h3>
-                    <p>Clásico francés. Elige jamón y queso o chocolate.</p>
-                    <div class="price-row">
-                        <span class="precio">1.50€</span>
-                        <button class="add-btn" onclick="addToCart('Croissant', 1.50)">Añadir</button>
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Croissant"></div>
+                    <div class="card-content">
+                        <h3>Croissant Francés</h3>
+                        <p>Horneado cada mañana. Mantequilla 100%.</p>
+                        <div class="price-row">
+                            <span class="precio">2.00€</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="cafes">
-                <div class="menu-img"><img
-                        src="https://exigibuencafe.com/wp-content/uploads/2017/12/exigi-5-1000x600.jpg"
-                        alt="Croissant Especial"></div>
-                <div class="card-content">
-                    <h3>Croissant Especial</h3>
-                    <p>Relleno de crema pastelera artesanal.</p>
-                    <div class="price-row">
-                        <span class="precio">2.00€</span>
-                        <button class="add-btn" onclick="addToCart('Croissant Especial', 2.00)">Añadir</button>
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Pancakes"></div>
+                    <div class="card-content">
+                        <h3>Torre de Pancakes</h3>
+                        <p>Con sirope de arce, frutos rojos y nata montada.</p>
+                        <div class="price-row">
+                            <span class="precio">5.50€</span>
+                        </div>
                     </div>
-                </div>
-            </article>
-        </section>
+                </article>
+
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1511690656952-34342d5c71df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Bowl de Frutas"></div>
+                    <div class="card-content">
+                        <h3>Bowl de Açaí</h3>
+                        <p>Base de açaí con granola casera, plátano y fresas.</p>
+                        <div class="price-row">
+                            <span class="precio">6.00€</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </details>
+
+        <!-- Salado -->
+        <details>
+            <summary>Salado & Brunch</summary>
+            <section class="menu-container">
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1481070414801-51fd732d7184?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Bagel"></div>
+                    <div class="card-content">
+                        <h3>Bagel de Salmón</h3>
+                        <p>Queso crema, salmón ahumado, alcaparras y eneldo.</p>
+                        <div class="price-row">
+                            <span class="precio">5.50€</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Sandwich"></div>
+                    <div class="card-content">
+                        <h3>Sandwich Club</h3>
+                        <p>Pollo, bacon, lechuga, tomate y mayonesa en pan tostado.</p>
+                        <div class="price-row">
+                            <span class="precio">6.50€</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </details>
 
         <!-- Bebidas -->
-        <div class="section-header" onclick="toggleSection('cafes2')">
-            <h2>Bebidas</h2>
-            <span class="toggle-icon" id="icon-cafes2">▼</span>
-        </div>
-        <section id="cafes2" class="menu-container oculto">
-            <article class="cafes">
-                <div class="menu-img"><img
-                        src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                        alt="Cappuccino"></div>
-                <div class="card-content">
-                    <h3>Cappuccino</h3>
-                    <p>Espresso con leche vaporizada y espuma.</p>
-                    <div class="price-row">
-                        <span class="precio">2.50€</span>
-                        <button class="add-btn" onclick="addToCart('Cappuccino', 2.50)">Añadir</button>
+        <details>
+            <summary>Bebidas Frías</summary>
+            <section class="menu-container">
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1613478223719-2ab802602423?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Zumo Naranja"></div>
+                    <div class="card-content">
+                        <h3>Zumo de Naranja</h3>
+                        <p>Recién exprimido, 100% natural.</p>
+                        <div class="price-row">
+                            <span class="precio">3.00€</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="cafes">
-                <div class="menu-img"><img
-                        src="https://images.unsplash.com/photo-1461023058943-48dbf945da11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                        alt="Latte"></div>
-                <div class="card-content">
-                    <h3>Latte Macchiato</h3>
-                    <p>Suave y cremoso, perfecto para la tarde.</p>
-                    <div class="price-row">
-                        <span class="precio">2.80€</span>
-                        <button class="add-btn" onclick="addToCart('Latte Macchiato', 2.80)">Añadir</button>
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1577805947697-89e18249d767?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Batido"></div>
+                    <div class="card-content">
+                        <h3>Batido de Fresa</h3>
+                        <p>Fresas naturales, leche y un toque de vainilla.</p>
+                        <div class="price-row">
+                            <span class="precio">4.00€</span>
+                        </div>
                     </div>
-                </div>
-            </article>
-        </section>
+                </article>
+            </section>
+        </details>
 
         <!-- Cafés -->
-        <div class="section-header" onclick="toggleSection('cafes3')">
-            <h2>Cafés Especiales</h2>
-            <span class="toggle-icon" id="icon-cafes3">▼</span>
-        </div>
-        <section id="cafes3" class="menu-container oculto">
-            <article class="cafes">
-                <div class="menu-img"><img
-                        src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                        alt="Espresso"></div>
-                <div class="card-content">
-                    <h3>Espresso Doble</h3>
-                    <p>Intenso y lleno de energía.</p>
-                    <div class="price-row">
-                        <span class="precio">1.80€</span>
-                        <button class="add-btn" onclick="addToCart('Espresso Doble', 1.80)">Añadir</button>
+        <details>
+            <summary>Cafés de Especialidad</summary>
+            <section class="menu-container">
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Espresso"></div>
+                    <div class="card-content">
+                        <h3>Espresso Doble</h3>
+                        <p>Intenso, con cuerpo y notas de chocolate.</p>
+                        <div class="price-row">
+                            <span class="precio">1.80€</span>
+                        </div>
                     </div>
-                </div>
-            </article>
-        </section>
+                </article>
+
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Cappuccino"></div>
+                    <div class="card-content">
+                        <h3>Cappuccino</h3>
+                        <p>Espresso con leche vaporizada y mucha espuma.</p>
+                        <div class="price-row">
+                            <span class="precio">2.50€</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1570968992193-6e5c922e5363?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Mocha"></div>
+                    <div class="card-content">
+                        <h3>Caffè Mocha</h3>
+                        <p>Espresso, chocolate caliente y leche vaporizada.</p>
+                        <div class="price-row">
+                            <span class="precio">3.20€</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </details>
+
+        <!-- Postres -->
+        <details>
+            <summary>Postres Caseros</summary>
+            <section class="menu-container">
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Cheesecake"></div>
+                    <div class="card-content">
+                        <h3>Cheesecake</h3>
+                        <p>Tarta de queso estilo New York con frutos rojos.</p>
+                        <div class="price-row">
+                            <span class="precio">4.50€</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="cafes">
+                    <div class="menu-img"><img
+                            src="https://images.unsplash.com/photo-1606313564200-e75d5e30476d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            alt="Brownie"></div>
+                    <div class="card-content">
+                        <h3>Brownie de Chocolate</h3>
+                        <p>Servido caliente con una bola de helado de vainilla.</p>
+                        <div class="price-row">
+                            <span class="precio">4.00€</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </details>
 
     </main>
-
-    <div id="cart-icon">
-        🛒
-        <div id="cart-count">0</div>
-    </div>
 
     <footer>
         <p>&copy; 2024 Sami's Café. Todos los derechos reservados.</p>

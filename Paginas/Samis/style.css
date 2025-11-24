@@ -1,14 +1,18 @@
 :root {
-    --primary-color: #4b382a; /* Dark Coffee */
-    --secondary-color: #8c6b4a; /* Medium Roast */
-    --accent-color: #d4a373; /* Latte/Gold */
-    --bg-color: #fdfbf7; /* Cream */
+    --primary-color: #4b382a;
+    /* Dark Coffee */
+    --secondary-color: #8c6b4a;
+    /* Medium Roast */
+    --accent-color: #d4a373;
+    /* Latte/Gold */
+    --bg-color: #fdfbf7;
+    /* Cream */
     --text-color: #2c2c2c;
     --white: #ffffff;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
     --font-heading: 'Amita', cursive;
-    --font-body: 'Helvetica Neue', sans-serif; /* Fallback for now, can add Google Font later if needed */
+    --font-body: 'Outfit', sans-serif;
 }
 
 * {
@@ -36,7 +40,7 @@ ul {
 
 /* Header */
 header {
-    background-color: rgba(75, 56, 42, 0.95); /* Semi-transparent dark coffee */
+    background-color: rgba(75, 56, 42, 0.95);
     color: var(--accent-color);
     padding: 1rem 2rem;
     position: sticky;
@@ -68,7 +72,19 @@ header h1 {
     align-items: center;
 }
 
-/* Navigation */
+/* CSS-Only Mobile Menu (Checkbox Hack) */
+#menu-toggle {
+    display: none;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--accent-color);
+    user-select: none;
+}
+
 .nav-list {
     display: flex;
     gap: 2rem;
@@ -100,20 +116,10 @@ header h1 {
     color: var(--white);
 }
 
-/* Mobile Menu Button */
-.menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--accent-color);
-    font-size: 2rem;
-    cursor: pointer;
-}
-
-/* Hero Section (for index.html) */
+/* Hero Section */
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -129,7 +135,7 @@ header h1 {
     font-family: var(--font-heading);
     font-size: 4rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
@@ -161,58 +167,54 @@ header h1 {
     margin: 0 auto;
 }
 
-.titulo-seccion {
-    font-family: var(--font-heading);
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    text-align: center;
-    margin: 2rem 0 1rem;
-    position: relative;
-    display: inline-block;
+/* Details/Summary Styling for Accordions */
+details {
+    margin-bottom: 1rem;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
 }
 
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+summary {
     background-color: var(--secondary-color);
     color: var(--white);
     padding: 1rem 2rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
     cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    list-style: none;
+    /* Hide default arrow */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     transition: var(--transition);
 }
 
-.section-header:hover {
+summary:hover {
     background-color: var(--primary-color);
 }
 
-.section-header h2 {
-    font-family: var(--font-heading);
-    margin: 0;
+summary::-webkit-details-marker {
+    display: none;
 }
 
-.toggle-icon {
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
+summary::after {
+    content: '▼';
+    font-size: 1rem;
+    transition: transform 0.3s;
+}
+
+details[open] summary::after {
+    transform: rotate(180deg);
 }
 
 .menu-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-bottom: 3rem;
-    opacity: 1;
-    max-height: 2000px; /* Arbitrary large height for transition */
-    transition: all 0.5s ease;
-    overflow: hidden;
-}
-
-.menu-container.oculto {
-    opacity: 0;
-    max-height: 0;
-    margin-bottom: 0;
+    padding: 2rem;
+    background-color: var(--bg-color);
 }
 
 .cafes {
@@ -227,7 +229,7 @@ header h1 {
 
 .cafes:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .menu-img {
@@ -269,7 +271,8 @@ header h1 {
 
 .price-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    /* Align price to right */
     align-items: center;
     margin-top: auto;
 }
@@ -277,22 +280,7 @@ header h1 {
 .precio {
     font-weight: bold;
     color: var(--primary-color);
-    font-size: 1.2rem;
-}
-
-.add-btn {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.add-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
+    font-size: 1.4rem;
 }
 
 /* Footer */
@@ -302,45 +290,6 @@ footer {
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
-}
-
-/* Floating Cart */
-#cart-icon {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    cursor: pointer;
-    z-index: 1001;
-    transition: var(--transition);
-}
-
-#cart-icon:hover {
-    transform: scale(1.1);
-}
-
-#cart-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background-color: red;
-    color: white;
-    font-size: 0.8rem;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* Responsive */
@@ -357,14 +306,17 @@ footer {
         background-color: var(--primary-color);
         flex-direction: column;
         align-items: center;
-        padding: 2rem 0;
-        gap: 1.5rem;
-        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Hidden by default */
-        transition: clip-path 0.4s ease-in-out;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
     }
 
-    .nav-list.active {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    /* Checkbox Hack Logic */
+    #menu-toggle:checked~.nav-list {
+        max-height: 500px;
+        /* Large enough to show all items */
+        padding: 2rem 0;
     }
 
     .hero h2 {

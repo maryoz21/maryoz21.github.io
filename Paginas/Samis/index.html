@@ -11,7 +11,6 @@
     <link rel="shortcut icon"
         href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYRNyXe4mQQY8_yY4mmDyeQJPe02pv13XKJg&s"
         type="image/x-icon">
-    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -24,10 +23,12 @@
             <h1>Sami's Cafe</h1>
         </div>
 
-        <button class="menu-btn" id="menu-btn">☰</button>
+        <!-- Checkbox Hack for Mobile Menu -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-btn">☰</label>
 
         <nav class="nav">
-            <ul class="nav-list" id="nav-list">
+            <ul class="nav-list">
                 <li class="activo"><a href="index.html">Inicio</a></li>
                 <li><a href="menu.html">Menú</a></li>
                 <li><a href="sobre.html">Sobre Nosotros</a></li>
