@@ -1,214 +1,373 @@
+:root {
+    --primary-color: #4b382a; /* Dark Coffee */
+    --secondary-color: #8c6b4a; /* Medium Roast */
+    --accent-color: #d4a373; /* Latte/Gold */
+    --bg-color: #fdfbf7; /* Cream */
+    --text-color: #2c2c2c;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --font-heading: 'Amita', cursive;
+    --font-body: 'Helvetica Neue', sans-serif; /* Fallback for now, can add Google Font later if needed */
+}
+
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 a {
     text-decoration: none;
-    color: currentColor;
-}
-header {
-    background-color: rgb(201, 180, 112);
-    text-align: center;
-
+    color: inherit;
+    transition: var(--transition);
 }
 
-
-header h1 {
-    font-family:Amita;
-    color: rgb(94, 76, 17);
-    font-size: 3em;
-}
-
-header #samilogo {
-    width: 100dvw;
-}
-
-#titulo-img {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-}
-
-#titulo-img button {
-    position: absolute;
-    right: 0;
-    height: 50px;
-}
-
-
-/* Menu desplegable para movil */
-.menu {
-    display: none;
-}
-
-.menu-hamb {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-}
-.menu-hamb .menu-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: rgb(49, 49, 49);
-    color: beige;
-    font-size: 1.9em;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-
-
-
-
-
-
-
-header ul.nav-list {
-    background-color: rgb(49, 49, 49);
-    color: beige;
-    display: flex;
-    align-content: center;
-    flex-direction: column;
-    column-gap: 10px;
-    font-size: 1.3em;
-    height: 100vh;
-    padding-left: 0;
-    padding: 35px 30px 0 30px ;
-    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
-}
-
-header ul li {
-    font-size: 1.1em;
-    color: aliceblue;
-    font-family: Amita;
-
-}
-
-header ul li:hover {
-    #94742e;
-}
-
-
-
-header li {
+ul {
     list-style: none;
 }
 
-header ul li.activo {
- color: #94742e;
-}
-
-
-
-main section .cafes {
-    border: 2px rgb(255, 255, 255) solid;
-    background-color: white;
-    width: 75dvw;
-    padding: 2vh;
-    border-radius: 3%;
-    margin: 10px;
-    text-align: center;
-
-}
-
-main section .cafes .menu-img{
-    height: 250px;
-    width: 100%;
-    overflow: hidden;
+/* Header */
+header {
+    background-color: rgba(75, 56, 42, 0.95); /* Semi-transparent dark coffee */
+    color: var(--accent-color);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
-main section .cafes .menu-img img {
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin: 0;
+}
+
+#samilogo {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation */
+.nav-list {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-list li a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.nav-list li a:hover::after,
+.nav-list li.activo a::after {
+    width: 100%;
+}
+
+.nav-list li.activo a {
+    color: var(--white);
+}
+
+/* Mobile Menu Button */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Hero Section (for index.html) */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 2rem;
+}
+
+.hero h2 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    border: 2px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+/* Menu Page Styles */
+.menu-main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem 0 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.section-header:hover {
+    background-color: var(--primary-color);
+}
+
+.section-header h2 {
+    font-family: var(--font-heading);
+    margin: 0;
+}
+
+.toggle-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    opacity: 1;
+    max-height: 2000px; /* Arbitrary large height for transition */
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.menu-container.oculto {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+}
+
+.cafes {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.cafes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.menu-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.menu-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.abrir-seccion {
-    background-color: rgb(107, 86, 41);
-    color: beige;
+.cafes:hover .menu-img img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
     display: flex;
-    height: 8vh;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    column-gap: 30vw;
-    font-size: 2em;
+    flex-direction: column;
 }
-
-.boton-abrir-seccion {
-    position: absolute;
-    right: 3vw;
-    background-color: beige;
-    color: rgb(107, 86, 41);
-    font-size: 0.6em;
-}
-
-.oculto {
-    display: none;
-}
-
-
-.visible {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    row-gap: 5px;
-    column-gap: 10%;
-    background-color: rgb(219, 207, 165);
-    justify-content: center;
-}
-
-
 
 .cafes h3 {
-    color: rgb(107, 86, 41);
-    font-family:Amita ;
-    font-size: 2em;
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
-
 
 .cafes p {
-    color: #94742e;
-    font-family:Amita ;
-    font-size: 1.3em;
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
 }
 
-
-.cafes p.precio {
-    color: rgb(0, 0, 0);
-    font-family:Amita ;
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
 }
 
+.precio {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
 
+.add-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
 
-@media (min-width: 1000px) {
+.add-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
 
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
 
-    main section .cafes {
-     
-        width: 30dvw;
-        
-    
+/* Floating Cart */
+#cart-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    z-index: 1001;
+    transition: var(--transition);
+}
+
+#cart-icon:hover {
+    transform: scale(1.1);
+}
+
+#cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 0.8rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
     }
-    .oculto {
-        display: none;
-    }
-    .visible {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-        row-gap: 5px;
-        column-gap: 10%;
-        background-color: rgb(219, 207, 165);
+
+    .nav-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* Hidden by default */
+        transition: clip-path 0.4s ease-in-out;
     }
 
+    .nav-list.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
 }

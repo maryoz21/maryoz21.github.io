@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sami's Café</title>
+    <title>Menú - Sami's Café</title>
     <link rel="stylesheet" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet'>
-    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYRNyXe4mQQY8_yY4mmDyeQJPe02pv13XKJg&s" type="image/x-icon">
-    <script src="script.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Amita:400,700' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYRNyXe4mQQY8_yY4mmDyeQJPe02pv13XKJg&s"
+        type="image/x-icon">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
 
     <header>
-        <section id="titulo-img">
-        <h1>Sami's Cafe</h1>
+        <div class="logo-container">
+            <img id="samilogo"
+                src="https://img.carta.menu/storage/media/company_gallery/42601505/conversions/contribution_gallery.jpg"
+                alt="Sami's Logo">
+            <h1>Sami's Cafe</h1>
+        </div>
 
-        
-        </section>
-        
-        <section class="menu-hamb">
         <button class="menu-btn" id="menu-btn">☰</button>
-        <nav class="nav menu" id="menu">
-            
-            <ul class="nav-list">
+
+        <nav class="nav">
+            <ul class="nav-list" id="nav-list">
                 <li><a href="index.html">Inicio</a></li>
                 <li class="activo"><a href="menu.html">Menú</a></li>
                 <li><a href="sobre.html">Sobre Nosotros</a></li>
@@ -30,143 +35,122 @@
                 <li><a href="testimonio.html">Testimonios</a></li>
             </ul>
         </nav>
-    </section>
-       
     </header>
 
     <main class="menu-main">
-        
-        <div class="abrir-seccion">
-            <h2 class="titulo-seccion">Desayunos</h2>
-            <button class="boton-abrir-seccion" onclick="toggleSection('cafes1')">⬇</button>
+
+        <!-- Desayunos -->
+        <div class="section-header" onclick="toggleSection('cafes1')">
+            <h2>Desayunos</h2>
+            <span class="toggle-icon" id="icon-cafes1">▼</span>
         </div>
-        <section id="cafes1" class="menu-container oculto">
-            
-        
+        <section id="cafes1" class="menu-container">
             <article class="cafes">
-                <div class="menu-img"><img src="img/tosthuevo.webp" alt=""></div>
-                <h3>Tostada de aguacate</h3>
-                <p>Tosatda con huevo, aguacate y tomate</p>
-                <p class="precio">1.50€</p>
+                <div class="menu-img"><img src="img/tosthuevo.webp" alt="Tostada de aguacate"></div>
+                <div class="card-content">
+                    <h3>Tostada de aguacate</h3>
+                    <p>Tostada con huevo, aguacate y tomate fresco.</p>
+                    <div class="price-row">
+                        <span class="precio">1.50€</span>
+                        <button class="add-btn" onclick="addToCart('Tostada de aguacate', 1.50)">Añadir</button>
+                    </div>
+                </div>
             </article>
 
             <article class="cafes">
-                <div class="menu-img"><img src="img/croissant.webp" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
+                <div class="menu-img"><img src="img/croissant.webp" alt="Croissant"></div>
+                <div class="card-content">
+                    <h3>Croissant</h3>
+                    <p>Clásico francés. Elige jamón y queso o chocolate.</p>
+                    <div class="price-row">
+                        <span class="precio">1.50€</span>
+                        <button class="add-btn" onclick="addToCart('Croissant', 1.50)">Añadir</button>
+                    </div>
+                </div>
             </article>
 
             <article class="cafes">
-                <div class="menu-img"><img src="https://exigibuencafe.com/wp-content/uploads/2017/12/exigi-5-1000x600.jpg" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
-            </article>
-
-            <article class="cafes">
-                <div class="menu-img"><img src="img/tosthuevo.webp" alt=""></div>
-                <h3>Tostada de aguacate</h3>
-                <p>Tosatda con huevo, aguacate y tomate</p>
-                <p class="precio">1.50€</p>
-            </article>
-
-            <article class="cafes">
-                <div class="menu-img"><img src="img/croissant.webp" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
-            </article>
-
-            <article class="cafes">
-                <div class="menu-img"><img src="https://exigibuencafe.com/wp-content/uploads/2017/12/exigi-5-1000x600.jpg" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
+                <div class="menu-img"><img
+                        src="https://exigibuencafe.com/wp-content/uploads/2017/12/exigi-5-1000x600.jpg"
+                        alt="Croissant Especial"></div>
+                <div class="card-content">
+                    <h3>Croissant Especial</h3>
+                    <p>Relleno de crema pastelera artesanal.</p>
+                    <div class="price-row">
+                        <span class="precio">2.00€</span>
+                        <button class="add-btn" onclick="addToCart('Croissant Especial', 2.00)">Añadir</button>
+                    </div>
+                </div>
             </article>
         </section>
 
-        <div class="abrir-seccion">
-            <h2 class="titulo-seccion">Bebidas</h2>
-            <button class="boton-abrir-seccion" onclick="toggleSection('cafes2')">⬇</button>
+        <!-- Bebidas -->
+        <div class="section-header" onclick="toggleSection('cafes2')">
+            <h2>Bebidas</h2>
+            <span class="toggle-icon" id="icon-cafes2">▼</span>
         </div>
         <section id="cafes2" class="menu-container oculto">
-            
-
             <article class="cafes">
-                <div class="menu-img"><img src="img/tosthuevo.webp" alt=""></div>
-                <h3>Tostada de aguacate</h3>
-                <p>Tosatda con huevo, aguacate y tomate</p>
-                <p class="precio">1.50€</p>
+                <div class="menu-img"><img
+                        src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="Cappuccino"></div>
+                <div class="card-content">
+                    <h3>Cappuccino</h3>
+                    <p>Espresso con leche vaporizada y espuma.</p>
+                    <div class="price-row">
+                        <span class="precio">2.50€</span>
+                        <button class="add-btn" onclick="addToCart('Cappuccino', 2.50)">Añadir</button>
+                    </div>
+                </div>
             </article>
 
             <article class="cafes">
-                <div class="menu-img"><img src="img/croissant.webp" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
-            </article>
-
-            <article class="cafes">
-                <div class="menu-img"><img src="https://exigibuencafe.com/wp-content/uploads/2017/12/exigi-5-1000x600.jpg" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
-            </article>
-            <article class="cafes">
-                <div class="menu-img"><img src="img/tosthuevo.webp" alt=""></div>
-                <h3>Tostada de aguacate</h3>
-                <p>Tosatda con huevo, aguacate y tomate</p>
-                <p class="precio">1.50€</p>
-            </article>
-
-            <article class="cafes">
-                <div class="menu-img"><img src="img/croissant.webp" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
-            </article>
-
-            <article class="cafes">
-                <div class="menu-img"><img src="https://exigibuencafe.com/wp-content/uploads/2017/12/exigi-5-1000x600.jpg" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
+                <div class="menu-img"><img
+                        src="https://images.unsplash.com/photo-1461023058943-48dbf945da11?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="Latte"></div>
+                <div class="card-content">
+                    <h3>Latte Macchiato</h3>
+                    <p>Suave y cremoso, perfecto para la tarde.</p>
+                    <div class="price-row">
+                        <span class="precio">2.80€</span>
+                        <button class="add-btn" onclick="addToCart('Latte Macchiato', 2.80)">Añadir</button>
+                    </div>
+                </div>
             </article>
         </section>
 
-        <div class="abrir-seccion">
-            <h2 class="titulo-seccion">Cafés</h2>
-            <button class="boton-abrir-seccion" onclick="toggleSection('cafes3')">⬇</button>
+        <!-- Cafés -->
+        <div class="section-header" onclick="toggleSection('cafes3')">
+            <h2>Cafés Especiales</h2>
+            <span class="toggle-icon" id="icon-cafes3">▼</span>
         </div>
         <section id="cafes3" class="menu-container oculto">
-            
-
             <article class="cafes">
-                <div class="menu-img"><img src="img/tosthuevo.webp" alt=""></div>
-                <h3>Tostada de aguacate</h3>
-                <p>Tosatda con huevo, aguacate y tomate</p>
-                <p class="precio">1.50€</p>
-            </article>
-
-            <article class="cafes">
-                <div class="menu-img"><img src="img/croissant.webp" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
-            </article>
-
-            <article class="cafes">
-                <div class="menu-img"><img src="https://exigibuencafe.com/wp-content/uploads/2017/12/exigi-5-1000x600.jpg" alt=""></div>
-                <h3>Croissant</h3>
-                <p>Elige si quieres jamon y queso o chocolate</p>
-                <p class="precio">1.50€</p>
+                <div class="menu-img"><img
+                        src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="Espresso"></div>
+                <div class="card-content">
+                    <h3>Espresso Doble</h3>
+                    <p>Intenso y lleno de energía.</p>
+                    <div class="price-row">
+                        <span class="precio">1.80€</span>
+                        <button class="add-btn" onclick="addToCart('Espresso Doble', 1.80)">Añadir</button>
+                    </div>
+                </div>
             </article>
         </section>
 
     </main>
-    
 
-    
+    <div id="cart-icon">
+        🛒
+        <div id="cart-count">0</div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sami's Café. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
+
 </html>
