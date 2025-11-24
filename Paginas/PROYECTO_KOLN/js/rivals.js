@@ -1,4 +1,4 @@
-import { renderSummary } from './ui.js';
+// import { renderSummary } from './ui.js';
 
 let appState = null;
 
