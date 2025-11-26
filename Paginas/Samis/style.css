@@ -16,6 +16,13 @@
     --font-body: 'Outfit', sans-serif;
 }
 
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -258,7 +265,7 @@ details[open] summary::after {
 }
 
 .cafes h3 {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     color: var(--primary-color);
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
