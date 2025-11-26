@@ -313,7 +313,7 @@ footer {
     }
 
     /* Checkbox Hack Logic */
-    #menu-toggle:checked~.nav-list {
+    #menu-toggle:checked~.nav .nav-list {
         max-height: 500px;
         /* Large enough to show all items */
         padding: 2rem 0;
