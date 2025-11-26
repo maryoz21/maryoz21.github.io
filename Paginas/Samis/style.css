@@ -62,8 +62,9 @@ header h1 {
 
 #samilogo {
     height: 50px;
-    width: auto;
+    width: 50px;
     border-radius: 50%;
+    object-fit: cover;
     margin-right: 1rem;
 }
 
@@ -309,7 +310,7 @@ footer {
         padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.4s ease-out;
+        transition: max-height 0.4s ease-out, padding 0.4s ease-out;
     }
 
     /* Checkbox Hack Logic */
