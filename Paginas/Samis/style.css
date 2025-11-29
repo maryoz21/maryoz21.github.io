@@ -1,334 +1,202 @@
 :root {
-    --primary-color: #000000;
-    /* O este 4b382a */
-    /* Dark Coffee */
-    --secondary-color: #8c6b4a;
-    /* Medium Roast */
-    --accent-color: #d4a373;
-    /* Latte/Gold */
-    --bg-color: #fdfbf7;
-    /* Cream */
-    --text-color: #2c2c2c;
+    --primary: #000000;      /* Negro */
+    --secondary: #8c6b4a;    /* Marrón Café */
+    --accent: #d4a373;       /* Dorado */
+    --bg: #fdfbf7;           /* Crema Fondo */
     --white: #ffffff;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    
+    /* Fuentes */
     --font-heading: 'Amita', cursive;
     --font-body: 'Outfit', sans-serif;
 }
 
-body {
-    display: grid;
-    min-height: 100vh;
-    grid-template-rows: auto 1fr auto;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: var(--font-body); 
+    background-color: var(--bg); 
+    color: #333; 
+    padding-bottom: 60px; 
+    -webkit-font-smoothing: antialiased;
 }
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-body);
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transition);
-}
-
-ul {
-    list-style: none;
-}
-
-/* Header */
+/* --- HEADER --- */
 header {
-    background-color: var(--primary-color);
-    color: var(--accent-color);
-    padding: 1rem 2rem;
+    background-color: var(--primary);
+    color: var(--accent);
+    padding: 1.5rem 1rem;
+    text-align: center;
     position: sticky;
     top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
-header h1 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    color: var(--accent-color);
-    margin: 0;
-}
+header h1 { font-family: var(--font-heading); margin: 0; font-size: 1.8rem; }
+header p { font-size: 0.8rem; opacity: 0.8; margin-top: 2px; letter-spacing: 1px; }
 
-#samilogo {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 1rem;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-/* CSS-Only Mobile Menu (Checkbox Hack) */
-#menu-toggle {
-    display: none;
-}
-
-.menu-btn {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--accent-color);
-    user-select: none;
-}
-
-.nav-list {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-list li a {
-    font-size: 1.1rem;
-    font-weight: 500;
-    position: relative;
-}
-
-.nav-list li a::after {
-    content: '';
+/* --- SELECTOR DE IDIOMAS (BANDERAS) --- */
+.lang-selector {
     position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--accent-color);
-    transition: var(--transition);
-}
-
-.nav-list li a:hover::after,
-.nav-list li.activo a::after {
-    width: 100%;
-}
-
-.nav-list li.activo a {
-    color: var(--white);
-}
-
-/* Hero Section */
-.hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-    background-size: cover;
-    background-position: center;
+    top: 15px;
+    right: 15px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--white);
-    padding: 0 2rem;
+    gap: 10px;
+    z-index: 1000;
 }
 
-.hero h2 {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+.lang-link {
+    display: block;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    line-height: 0;
 }
 
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
+.lang-link img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%; /* Redondas */
+    object-fit: cover;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-.btn-primary {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: var(--transition);
-    border: 2px solid var(--accent-color);
+.lang-link:hover { transform: scale(1.1); }
+
+/* Bandera Activa */
+.lang-link.active img {
+    border-color: var(--accent);
+    transform: scale(1.1);
+    box-shadow: 0 0 8px rgba(212, 163, 115, 0.6);
 }
 
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--accent-color);
-}
+/* --- ESTRUCTURA PRINCIPAL --- */
+main { max-width: 600px; margin: 25px auto; padding: 0 15px; }
 
-/* Menu Page Styles */
-.menu-main {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Details/Summary Styling for Accordions */
+/* Acordeón (Details/Summary) */
 details {
-    margin-bottom: 1rem;
     background: var(--white);
-    border-radius: 10px;
+    margin-bottom: 15px;
+    border-radius: 12px;
     box-shadow: var(--shadow);
     overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: box-shadow 0.3s ease;
 }
+details[open] { box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
 
 summary {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    padding: 1rem 2rem;
+    padding: 18px 20px;
     cursor: pointer;
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--primary);
     list-style: none;
-    /* Hide default arrow */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: var(--transition);
+    background: #fff;
+    user-select: none;
 }
-
-summary:hover {
-    background-color: var(--primary-color);
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
+summary::-webkit-details-marker { display: none; }
 summary::after {
-    content: '▼';
-    font-size: 1rem;
+    content: '+';
+    font-family: var(--font-body);
+    color: var(--accent);
+    font-weight: 300;
+    font-size: 1.5rem;
     transition: transform 0.3s;
 }
+details[open] summary::after { content: '-'; color: var(--primary); transform: rotate(180deg); }
 
-details[open] summary::after {
-    transform: rotate(180deg);
+.content-box { padding: 15px; }
+
+/* --- COMPONENTES --- */
+
+/* Etiquetas de Alérgenos */
+.allergen-row { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; }
+.badge {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    border: 1px solid #ddd;
+    color: #888;
+    background-color: #f9f9f9;
+}
+.badge.gluten { border-color: #d4a373; color: #8c6b4a; background: #fffbf5; }
+.badge.lacteos { border-color: #a4c2f4; color: #4a6b8c; background: #f0f7ff; }
+.badge.huevos { border-color: #ffe599; color: #b59000; background: #fffdf0; }
+.badge.sesamo { border-color: #aaa; color: #555; background: #eee; }
+
+/* Opción de Pan */
+.bread-option {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-style: italic;
 }
 
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-    background-color: var(--bg-color);
-}
+/* --- ESTILOS DE SECCIÓN --- */
 
-.cafes {
+/* 1. Foto Grande (Dulces) */
+.card-big {
     background: var(--white);
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #f0f0f0;
+}
+.card-big img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.big-info { padding: 15px; }
+.big-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+.big-title { font-size: 1.25rem; font-weight: 700; color: var(--primary); font-family: var(--font-heading); margin: 0; }
+.big-price { font-size: 1.2rem; font-weight: 700; color: var(--secondary); }
+.big-desc { font-size: 0.9rem; color: #666; line-height: 1.4; }
+
+/* 2. Fila con Foto Pequeña (Tostadas/Cafés) */
+.row-item {
     display: flex;
-    flex-direction: column;
-}
-
-.cafes:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.menu-img {
-    height: 200px;
-    overflow: hidden;
-}
-
-.menu-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.cafes:hover .menu-img img {
-    transform: scale(1.1);
-}
-
-.card-content {
-    padding: 1.5rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.cafes h3 {
-    font-family: var(--font-body);
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.cafes p {
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-}
-
-.price-row {
-    display: flex;
-    justify-content: flex-end;
-    /* Align price to right */
+    justify-content: space-between;
     align-items: center;
-    margin-top: auto;
+    padding: 15px 0;
+    border-bottom: 1px dashed #e0e0e0;
 }
+.row-item:last-child { border-bottom: none; }
+.row-text { flex: 1; padding-right: 15px; }
+.row-title { font-weight: 600; font-size: 1.05rem; color: #222; margin-bottom: 2px; }
+.row-desc { font-size: 0.85rem; color: #777; line-height: 1.3; }
+.row-price { font-weight: 700; color: var(--secondary); font-size: 1.05rem; margin-top: 5px; display: block; }
+.row-img { width: 80px; height: 80px; border-radius: 8px; object-fit: cover; flex-shrink: 0; background-color: #eee; }
 
-.precio {
-    font-weight: bold;
-    color: var(--primary-color);
-    font-size: 1.4rem;
+/* 3. Lista Simple (Bebidas) */
+.simple-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid #f5f5f5;
 }
+.simple-item:last-child { border-bottom: none; }
+.simple-item:nth-child(even) { background-color: #fafafa; border-radius: 6px; }
+.simple-name { font-weight: 500; color: #444; font-size: 0.95rem; }
+.simple-price { font-weight: 700; color: var(--secondary); font-size: 1rem; }
+
+/* Botón Tés */
+.tea-section { margin: 25px 0; }
+.btn-tea {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--primary); color: var(--accent);
+    text-decoration: none; padding: 15px 20px; border-radius: 12px;
+    font-family: var(--font-heading); font-size: 1.2rem; font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: transform 0.2s;
+}
+.btn-tea:active { transform: scale(0.98); }
 
 /* Footer */
-footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .menu-btn {
-        display: block;
-    }
-
-    .nav-list {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary-color);
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-    }
-
-    /* Checkbox Hack Logic */
-    #menu-toggle:checked~.nav .nav-list {
-        max-height: 500px;
-        /* Large enough to show all items */
-        padding: 2rem 0;
-    }
-
-    .hero h2 {
-        font-size: 2.5rem;
-    }
-}
+footer { text-align: center; color: #aaa; font-size: 0.8rem; padding: 20px; }
