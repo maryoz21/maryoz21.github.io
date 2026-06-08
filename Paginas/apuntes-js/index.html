@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chuleta JS — Examen</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0f;
+    --surface: #17171a;
+    --surface2: #1e1e22;
+    --border: #2a2a30;
+    --accent: #7c6af7;
+    --accent2: #3ecf8e;
+    --accent3: #f5a524;
+    --danger: #f5424d;
+    --text: #e8e8ee;
+    --muted: #888894;
+    --code-bg: #111114;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 15px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 1rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .header-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .header-title span { color: var(--accent); }
+  .badge {
+    background: var(--danger);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  /* NAV TABS */
+  nav {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-top: 0.85rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .tab {
+    flex-shrink: 0;
+    padding: 5px 13px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* MAIN */
+  main { padding: 1rem; max-width: 680px; margin: 0 auto; }
+  .section { display: none; flex-direction: column; gap: 12px; padding-bottom: 2rem; }
+  .section.visible { display: flex; }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    animation: fadeUp .25s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .card-label.green { color: var(--accent2); }
+  .card-label.amber { color: var(--accent3); }
+  .card-label.red   { color: var(--danger); }
+
+  /* CODE */
+  pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.85rem;
+    overflow-x: auto;
+    line-height: 1.7;
+    color: #c9c9d8;
+  }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #c9c9d8;
+  }
+  .kw  { color: #c792ea; }
+  .fn  { color: #82aaff; }
+  .str { color: var(--accent2); }
+  .cmt { color: #546e7a; font-style: italic; }
+  .num { color: var(--accent3); }
+  .cls { color: #f5f5a0; }
+
+  /* ITEMS */
+  .item {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .item:last-child { border-bottom: none; }
+  .item-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .item-dot.green { background: var(--accent2); }
+  .item-dot.amber { background: var(--accent3); }
+  .item-dot.red   { background: var(--danger); }
+
+  /* PILLS */
+  .pill {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .pill-red    { background: rgba(245,66,77,.15); color: var(--danger); border: 1px solid rgba(245,66,77,.3); }
+  .pill-green  { background: rgba(62,207,142,.15); color: var(--accent2); border: 1px solid rgba(62,207,142,.3); }
+  .pill-amber  { background: rgba(245,165,36,.15); color: var(--accent3); border: 1px solid rgba(245,165,36,.3); }
+  .pill-purple { background: rgba(124,106,247,.15); color: var(--accent); border: 1px solid rgba(124,106,247,.3); }
+
+  /* REGEX TABLE */
+  .regex-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .regex-table td { padding: 6px 4px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .regex-table tr:last-child td { border-bottom: none; }
+  .regex-table td:first-child { width: 42%; }
+  .regex-table td:last-child { color: var(--muted); padding-left: 10px; }
+
+  /* QUESTION */
+  .q {
+    padding: 0.7rem 0.9rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(124,106,247,.07);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.83rem;
+    margin-bottom: 6px;
+  }
+  .q:last-child { margin-bottom: 0; }
+
+  /* LAST 5 */
+  .last5-card {
+    background: linear-gradient(135deg, rgba(62,207,142,.08) 0%, rgba(124,106,247,.08) 100%);
+    border: 1px solid rgba(62,207,142,.3);
+    border-radius: 14px;
+    padding: 1.1rem;
+  }
+  .last5-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--accent2);
+    margin-bottom: 0.9rem;
+    letter-spacing: -0.01em;
+  }
+  .last5-item {
+    display: flex;
+    gap: 10px;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(62,207,142,.15);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .last5-item:last-child { border-bottom: none; }
+  .last5-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent2);
+    background: rgba(62,207,142,.12);
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* GRID */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 400px) { .grid2 { grid-template-columns: 1fr; } }
+
+  h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="header-title">Chuleta <span>JS</span> · Examen</div>
+    <span class="badge">⏱ 1h</span>
+  </div>
+  <nav>
+    <button class="tab active" onclick="show('overview', this)">Resumen</button>
+    <button class="tab" onclick="show('regex', this)">Regex</button>
+    <button class="tab" onclick="show('dom', this)">DOM</button>
+    <button class="tab" onclick="show('storage', this)">Storage</button>
+    <button class="tab" onclick="show('errors', this)">Errores</button>
+    <button class="tab" onclick="show('questions', this)">Preguntas</button>
+    <button class="tab" onclick="show('last5', this)">⏱ 5 min</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- RESUMEN -->
+<div id="s-overview" class="section visible">
+  <div class="card">
+    <div class="card-label">Flujo formulario — el esqueleto completo</div>
+    <pre><span class="kw">const</span> form = document.<span class="fn">getElementById</span>(<span class="str">"formRegistro"</span>);
+form.<span class="fn">addEventListener</span>(<span class="str">"submit"</span>, (e) => {
+  e.<span class="fn">preventDefault</span>(); <span class="cmt">// ← SIEMPRE, evita recargar</span>
+
+  <span class="kw">let</span> input = document.<span class="fn">getElementById</span>(<span class="str">"miInput"</span>);
+  <span class="kw">let</span> span  = document.<span class="fn">getElementById</span>(<span class="str">"miError"</span>);
+  <span class="kw">let</span> regex = <span class="cls">/^[A-Za-z]+$/</span>;
+  <span class="kw">let</span> todoCorrecto = <span class="kw">true</span>;
+
+  <span class="kw">if</span> (regex.<span class="fn">test</span>(input.value)) {
+    <span class="fn">marcarOk</span>(input, span);
+  } <span class="kw">else</span> {
+    <span class="fn">marcarError</span>(input, span, <span class="str">"mensaje"</span>);
+    todoCorrecto = <span class="kw">false</span>;
+  }
+
+  <span class="kw">if</span> (todoCorrecto) { <span class="cmt">/* éxito */</span> }
+  <span class="kw">else</span> { <span class="cmt">/* hay errores */</span> }
+});</pre>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="card-label green">marcarOk()</div>
+      <pre><span class="fn">input</span>.classList.<span class="fn">add</span>(<span class="str">"input-ok"</span>);
+<span class="fn">input</span>.classList.<span class="fn">remove</span>(<span class="str">"input-error"</span>);
+span.textContent = <span class="str">""</span>;</pre>
+    </div>
+    <div class="card">
+      <div class="card-label red">marcarError()</div>
+      <pre><span class="fn">input</span>.classList.<span class="fn">add</span>(<span class="str">"input-error"</span>);
+<span class="fn">input</span>.classList.<span class="fn">remove</span>(<span class="str">"input-ok"</span>);
+span.textContent = msg;</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Patrón storage — los 3 pasos</div>
+    <pre><span class="cmt">// 1. Leer</span>
+<span class="kw">let</span> items = JSON.<span class="fn">parse</span>(
+  sessionStorage.<span class="fn">getItem</span>(<span class="str">"clave"</span>)
+) || [];
+
+<span class="cmt">// 2. Modificar</span>
+items.<span class="fn">push</span>({ dato: valor });
+
+<span class="cmt">// 3. Guardar</span>
+sessionStorage.<span class="fn">setItem</span>(<span class="str">"clave"</span>, JSON.<span class="fn">stringify</span>(items));</pre>
+  </div>
+</div>
+
+<!-- REGEX -->
+<div id="s-regex" class="section">
+  <div class="card">
+    <div class="card-label">Las 4 regex de tu código</div>
+    <table class="regex-table">
+      <tr><td><code>/^[A-Za-z]+$/</code></td><td>Solo letras, mín. 1, sin espacios</td></tr>
+      <tr><td><code>/^[A-Za-z0-9._]+@[A-Za-z0-9]+\.[a-zA-Z]{2,}$/</code></td><td>Email válido (ejemplo@gmail.com)</td></tr>
+      <tr><td><code>/^\d{9}$/</code></td><td>Exactamente 9 dígitos (tel.)</td></tr>
+      <tr><td><code>/^.{6,}$/</code></td><td>Mín. 6 caracteres cualesquiera</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-label amber">Significado de cada símbolo</div>
+    <table class="regex-table">
+      <tr><td><code>^</code></td><td>Inicio de cadena</td></tr>
+      <tr><td><code>$</code></td><td>Final de cadena (sin $ acepta basura al final)</td></tr>
+      <tr><td><code>+</code></td><td>1 o más veces</td></tr>
+      <tr><td><code>*</code></td><td>0 o más veces</td></tr>
+      <tr><td><code>{9}</code></td><td>Exactamente 9 veces</td></tr>
+      <tr><td><code>{2,}</code></td><td>2 o más veces</td></tr>
+      <tr><td><code>\d</code></td><td>Cualquier dígito 0-9</td></tr>
+      <tr><td><code>.</code></td><td>Cualquier carácter (menos salto de línea)</td></tr>
+      <tr><td><code>[A-Za-z]</code></td><td>Letra mayúscula o minúscula</td></tr>
+      <tr><td><code>\.</code></td><td>Punto literal (escapado con \)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-label green">Cómo se usa</div>
+    <pre><span class="kw">let</span> regex = <span class="cls">/^[A-Za-z]+$/</span>;
+regex.<span class="fn">test</span>(<span class="str">"Mario"</span>)   <span class="cmt">// → true</span>
+regex.<span class="fn">test</span>(<span class="str">"Mario3"</span>)  <span class="cmt">// → false  (tiene número)</span>
+regex.<span class="fn">test</span>(<span class="str">""</span>)        <span class="cmt">// → false  (+ requiere ≥1)</span></pre>
+    <div class="item" style="margin-top:8px">
+      <div class="item-dot amber"></div>
+      <span><code>.test()</code> devuelve <code>true</code> o <code>false</code> — es un booleano</span>
+    </div>
+  </div>
+</div>
+
+<!-- DOM -->
+<div id="s-dom" class="section">
+  <div class="card">
+    <div class="card-label">Selectores y propiedades esenciales</div>
+    <div class="item"><div class="item-dot"></div><span><code>document.getElementById("id")</code> — el más usado</span></div>
+    <div class="item"><div class="item-dot"></div><span><code>element.value</code> — leer valor de un input</span></div>
+    <div class="item"><div class="item-dot"></div><span><code>element.textContent = "texto"</code> — cambiar texto</span></div>
+    <div class="item"><div class="item-dot"></div><span><code>element.innerHTML = ""</code> — limpiar contenido HTML</span></div>
+    <div class="item"><div class="item-dot"></div><span><code>input.value = ""</code> — vaciar un input tras guardar</span></div>
+  </div>
+
+  <div class="card">
+    <div class="card-label amber">classList — muy preguntado</div>
+    <pre>element.classList.<span class="fn">add</span>(<span class="str">"clase"</span>);        <span class="cmt">// añadir</span>
+element.classList.<span class="fn">remove</span>(<span class="str">"clase"</span>);     <span class="cmt">// quitar</span>
+element.classList.<span class="fn">toggle</span>(<span class="str">"clase"</span>);     <span class="cmt">// alternar</span>
+element.classList.<span class="fn">contains</span>(<span class="str">"clase"</span>);  <span class="cmt">// → boolean</span></pre>
+  </div>
+
+  <div class="card">
+    <div class="card-label green">Crear y añadir elementos a una lista</div>
+    <pre><span class="kw">let</span> li = document.<span class="fn">createElement</span>(<span class="str">"li"</span>);
+li.textContent = <span class="str">"Texto del elemento"</span>;
+document.<span class="fn">getElementById</span>(<span class="str">"miLista"</span>)
+  .<span class="fn">appendChild</span>(li);</pre>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Eventos</div>
+    <pre>form.<span class="fn">addEventListener</span>(<span class="str">"submit"</span>, (e) => {
+  e.<span class="fn">preventDefault</span>(); <span class="cmt">// evita recargar la página</span>
+});
+btn.<span class="fn">addEventListener</span>(<span class="str">"click"</span>, (e) => {
+  e.<span class="fn">preventDefault</span>(); <span class="cmt">// evita comportamiento por defecto</span>
+});</pre>
+  </div>
+</div>
+
+<!-- STORAGE -->
+<div id="s-storage" class="section">
+  <div class="card">
+    <div class="card-label">localStorage vs sessionStorage</div>
+    <div class="item">
+      <span class="pill pill-green" style="flex-shrink:0;margin-top:2px">localStorage</span>
+      <span style="margin-left:8px">Persiste siempre, aunque cierres el navegador</span>
+    </div>
+    <div class="item">
+      <span class="pill pill-amber" style="flex-shrink:0;margin-top:2px">sessionStorage</span>
+      <span style="margin-left:8px">Solo dura la sesión, se borra al cerrar la pestaña</span>
+    </div>
+    <div class="item">
+      <div class="item-dot"></div>
+      <span>La API es <strong>idéntica</strong> en ambos — solo cambia el nombre</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label amber">Los 4 métodos esenciales</div>
+    <pre><span class="cmt">// Guardar (siempre stringify para arrays/objetos)</span>
+sessionStorage.<span class="fn">setItem</span>(<span class="str">"clave"</span>, JSON.<span class="fn">stringify</span>(datos));
+
+<span class="cmt">// Leer (parse + fallback con || [])</span>
+<span class="kw">let</span> datos = JSON.<span class="fn">parse</span>(
+  sessionStorage.<span class="fn">getItem</span>(<span class="str">"clave"</span>)
+) || [];
+
+<span class="cmt">// Borrar una clave</span>
+sessionStorage.<span class="fn">removeItem</span>(<span class="str">"clave"</span>);
+
+<span class="cmt">// Borrar todo</span>
+sessionStorage.<span class="fn">clear</span>();</pre>
+  </div>
+
+  <div class="card">
+    <div class="card-label green">Cargar lista al iniciar la página</div>
+    <pre><span class="kw">let</span> tareas = JSON.<span class="fn">parse</span>(
+  sessionStorage.<span class="fn">getItem</span>(<span class="str">"tareas"</span>)
+) || [];
+
+tareas.<span class="fn">forEach</span>((tarea) => {
+  <span class="kw">let</span> li = document.<span class="fn">createElement</span>(<span class="str">"li"</span>);
+  li.textContent = tarea.tarea; <span class="cmt">// ← propiedad del objeto</span>
+  document.<span class="fn">getElementById</span>(<span class="str">"listaTareas"</span>)
+    .<span class="fn">appendChild</span>(li);
+});</pre>
+  </div>
+</div>
+
+<!-- ERRORES -->
+<div id="s-errors" class="section">
+  <div class="card">
+    <div class="card-label red">Errores clásicos de examen</div>
+    <div class="item">
+      <div class="item-dot red"></div>
+      <div><span class="pill pill-red">Error</span> <strong>Olvidar e.preventDefault()</strong> — la página recarga y pierdes todo</div>
+    </div>
+    <div class="item">
+      <div class="item-dot red"></div>
+      <div><span class="pill pill-red">Error</span> <strong>Olvidar $ al final de la regex</strong> — <code>/^\d{9}/</code> acepta "123456789abc"</div>
+    </div>
+    <div class="item">
+      <div class="item-dot red"></div>
+      <div><span class="pill pill-red">Error</span> <strong>No usar JSON.parse al leer</strong> — obtienes string en vez de array</div>
+    </div>
+    <div class="item">
+      <div class="item-dot red"></div>
+      <div><span class="pill pill-red">Error</span> <strong>No usar JSON.stringify al guardar</strong> — guarda "[object Object]"</div>
+    </div>
+    <div class="item">
+      <div class="item-dot red"></div>
+      <div><span class="pill pill-red">Error</span> <strong>Olvidar || []</strong> — JSON.parse(null) devuelve null y .push() peta</div>
+    </div>
+    <div class="item">
+      <div class="item-dot red"></div>
+      <div><span class="pill pill-red">Error</span> <strong>No limpiar el input</strong> — olvidar <code>input.value = ""</code> tras guardar</div>
+    </div>
+    <div class="item">
+      <div class="item-dot amber"></div>
+      <div><span class="pill pill-amber">Trampa</span> Punto en regex sin escapar — <code>\.</code> es punto literal, <code>.</code> es cualquier carácter</div>
+    </div>
+    <div class="item">
+      <div class="item-dot amber"></div>
+      <div><span class="pill pill-amber">Trampa</span> Dejar clase vieja — siempre hacer <code>.add()</code> y <code>.remove()</code> juntos</div>
+    </div>
+  </div>
+</div>
+
+<!-- PREGUNTAS -->
+<div id="s-questions" class="section">
+  <div class="card">
+    <div class="card-label">Posibles preguntas de examen</div>
+    <div class="q">¿Para qué sirve e.preventDefault() en el evento submit?</div>
+    <div class="q">¿Qué diferencia hay entre localStorage y sessionStorage?</div>
+    <div class="q">¿Por qué hay que usar JSON.stringify al guardar en storage?</div>
+    <div class="q">¿Qué devuelve regex.test("valor")? ¿Qué tipo de dato es?</div>
+    <div class="q">¿Qué hace classList.add() vs classList.toggle()?</div>
+    <div class="q">¿Qué significa ^ y $ en una expresión regular?</div>
+    <div class="q">¿Qué pasa si no pones || [] al leer del storage?</div>
+    <div class="q">¿Qué método del DOM se usa para añadir un hijo a una lista?</div>
+    <div class="q">Escribe la regex para validar un teléfono de 9 dígitos.</div>
+    <div class="q">¿Cómo se borra todo el sessionStorage? ¿Y solo una clave?</div>
+    <div class="q">¿Cuándo se borra automáticamente el sessionStorage?</div>
+    <div class="q">¿Qué diferencia hay entre textContent e innerHTML?</div>
+  </div>
+</div>
+
+<!-- ÚLTIMOS 5 MIN -->
+<div id="s-last5" class="section">
+  <div class="last5-card">
+    <div class="last5-title">⏱ Lo que debo recordar 5 minutos antes del examen</div>
+    <div class="last5-item"><div class="last5-num">1</div><div><strong>e.preventDefault()</strong> siempre en submit y en botones dentro de forms</div></div>
+    <div class="last5-item"><div class="last5-num">2</div><div>Regex: <code>^</code> inicio · <code>$</code> final · <code>\d</code> dígito · <code>{9}</code> exactamente 9 · <code>+</code> uno o más. Usar <code>.test(val)</code></div></div>
+    <div class="last5-item"><div class="last5-num">3</div><div><span class="pill pill-green">localStorage</span> permanente · <span class="pill pill-amber">sessionStorage</span> se borra al cerrar pestaña</div></div>
+    <div class="last5-item"><div class="last5-num">4</div><div>Guardar: <code>setItem("k", JSON.stringify(arr))</code><br>Leer: <code>JSON.parse(getItem("k")) || []</code></div></div>
+    <div class="last5-item"><div class="last5-num">5</div><div>Patrón storage: <strong>leer → push → setItem</strong> (siempre los 3 pasos)</div></div>
+    <div class="last5-item"><div class="last5-num">6</div><div>classList: siempre <code>.add()</code> y <code>.remove()</code> juntos para no dejar clase vieja</div></div>
+    <div class="last5-item"><div class="last5-num">7</div><div>Crear elemento DOM: <code>createElement</code> → <code>textContent</code> → <code>appendChild</code></div></div>
+    <div class="last5-item"><div class="last5-num">8</div><div>Limpiar lista: <code>lista.innerHTML = ""</code> · Limpiar input: <code>input.value = ""</code></div></div>
+  </div>
+</div>
+
+</main>
+
+<script>
+function show(id, tabEl) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('s-' + id).classList.add('visible');
+  tabEl.classList.add('active');
+  tabEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+}
+</script>
+</body>
+</html>
