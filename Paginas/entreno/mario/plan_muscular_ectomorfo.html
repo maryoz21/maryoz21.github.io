@@ -1,0 +1,1500 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-hover: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --accent: #10b981;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  --font-main: 'Outfit', system-ui, -apple-system, sans-serif;
+  
+  --warn-bg: rgba(245, 158, 11, 0.1);
+  --warn-text: #fbbf24;
+  --warn-border: #f59e0b;
+  
+  --info-bg: rgba(59, 130, 246, 0.1);
+  --info-text: #60a5fa;
+  --info-border: #3b82f6;
+  
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --success-text: #34d399;
+  --success-border: #10b981;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 2rem 0 1rem;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+h3::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 1.2rem 0 0.5rem;
+  color: var(--text-main);
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1.5rem;
+}
+
+.nav-btn {
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+.nav-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.section {
+  display: none;
+  animation: fadeIn 0.4s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.section.active { display: block; }
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin: 1.5rem 0;
+}
+
+.metric {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-hover);
+}
+
+.metric-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.metric-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  margin: 1.5rem 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background: rgba(255,255,255,0.03);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+td { color: var(--text-main); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.badge-green { background: rgba(16,185,129,0.15); color: #34d399; }
+.badge-amber { background: rgba(245,158,11,0.15); color: #fbbf24; }
+.badge-red { background: rgba(239,68,68,0.15); color: #f87171; }
+.badge-blue { background: rgba(59,130,246,0.15); color: #60a5fa; }
+.badge-purple { background: rgba(139,92,246,0.15); color: #a78bfa; }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.warn, .info, .success {
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  font-size: 14px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.6;
+}
+
+.warn { background: var(--warn-bg); border-left: 4px solid var(--warn-border); color: var(--warn-text); }
+.info { background: var(--info-bg); border-left: 4px solid var(--info-border); color: var(--info-text); }
+.success { background: var(--success-bg); border-left: 4px solid var(--success-border); color: var(--success-text); }
+
+.day-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1.5rem 0 1rem;
+  background: rgba(0,0,0,0.2);
+  padding: 6px;
+  border-radius: var(--radius-lg);
+}
+
+.day-tab {
+  flex: 1;
+  text-align: center;
+  min-width: 60px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.day-tab:hover { color: var(--text-main); }
+.day-tab.active {
+  background: var(--bg-card);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.meal-block {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin: 1rem 0;
+  background: var(--bg-card);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.meal-block:hover { border-color: var(--primary-hover); }
+
+.meal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: rgba(255,255,255,0.02);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.meal-header:hover { background: rgba(255,255,255,0.04); }
+
+.meal-header span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.meal-header .kcal {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary-hover);
+  background: rgba(59,130,246,0.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.meal-body {
+  padding: 0 16px 16px;
+  font-size: 14px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.meal-body table { margin: 0.5rem 0; border: none; }
+.meal-body th, .meal-body td { padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+.macro-legend {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.macro-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px rgba(255,255,255,0.2);
+}
+
+ul.tips {
+  padding-left: 0;
+  margin: 1rem 0;
+  list-style: none;
+}
+
+ul.tips li {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  padding-left: 24px;
+  position: relative;
+}
+
+ul.tips li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.shake-card {
+  background: linear-gradient(145deg, var(--bg-card), #151e2e);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.shake-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.shake-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.shake-kcal {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.cheat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+
+.cheat-cell {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.cheat-cell:hover {
+  transform: scale(1.02);
+  border-color: var(--primary);
+}
+
+.cheat-cell .key {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.cheat-cell .val {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-hover);
+}
+
+button[onclick^="sendPrompt"] {
+  background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  font-family: var(--font-main);
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+button[onclick^="sendPrompt"]:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.ex-name {
+  color: var(--primary-hover);
+  font-weight: 600;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+</style>
+
+<div class="app">
+<h2 style="margin-bottom:.25rem">Plan de volumen muscular</h2>
+<p style="margin-bottom:1rem;font-size:13px">Ectomorfo · 180 cm · 60 kg · 19 años · Objetivo: 70 kg en 12 meses</p>
+
+<div class="nav">
+  <button class="nav-btn active" onclick="show('s1',this)">Diagnóstico</button>
+  <button class="nav-btn" onclick="show('s2',this)">Alimentación</button>
+  <button class="nav-btn" onclick="show('s3',this)">Batidos &amp; Snacks</button>
+  <button class="nav-btn" onclick="show('s4',this)">Compra</button>
+  <button class="nav-btn" onclick="show('s5',this)">Suplementos</button>
+  <button class="nav-btn" onclick="show('s6',this)">Entrenamiento</button>
+  <button class="nav-btn" onclick="show('s7',this)">Cronograma</button>
+  <button class="nav-btn" onclick="show('s8',this)">Seguimiento</button>
+  <button class="nav-btn" onclick="show('s9',this)">Rutina diaria</button>
+  <button class="nav-btn" onclick="show('s10',this)">Errores &amp; FAQ</button>
+  <button class="nav-btn" onclick="show('s11',this)">Cheat Sheet</button>
+</div>
+
+<!-- ===== S1: DIAGNÓSTICO ===== -->
+<div id="s1" class="section active">
+  <h2>1. Análisis inicial y diagnóstico</h2>
+
+  <h3>Metabolismo basal (TMB)</h3>
+  <div class="card">
+    <table>
+      <tr><th>Fórmula</th><th>Cálculo</th><th>Resultado</th></tr>
+      <tr><td><strong>Mifflin-St Jeor</strong></td><td>10 × 60 + 6.25 × 180 − 5 × 19 + 5</td><td><strong>1.730 kcal</strong></td></tr>
+      <tr><td><strong>Harris-Benedict</strong></td><td>88.36 + 13.4 × 60 + 4.8 × 180 − 5.7 × 19</td><td><strong>1.758 kcal</strong></td></tr>
+      <tr><td>Usaremos (media)</td><td></td><td><strong>≈ 1.744 kcal</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>TDEE por fase</h3>
+  <div class="metric-grid">
+    <div class="metric"><div class="metric-label">Sedentario (ahora)</div><div class="metric-value">2.093</div><div class="metric-sub">× 1.2 · kcal/día</div></div>
+    <div class="metric"><div class="metric-label">Con PPL×2 (6 días)</div><div class="metric-value">2.964</div><div class="metric-sub">× 1.7 · kcal/día</div></div>
+    <div class="metric"><div class="metric-label">Objetivo diario</div><div class="metric-value">3.350</div><div class="metric-sub">+386 kcal superávit</div></div>
+    <div class="metric"><div class="metric-label">Día descanso</div><div class="metric-value">3.100</div><div class="metric-sub">TDEE × 1.45</div></div>
+  </div>
+
+  <div class="info">Para ganar ~1 kg/mes de masa (∼7.700 kcal/kg) se necesita un superávit de +250–300 kcal reales. Como ectomorfo con metabolismo acelerado, fijamos 3.350 kcal entreno / 3.100 kcal descanso.</div>
+
+  <h3>Macronutrientes objetivo (día entreno — 3.350 kcal)</h3>
+  <div class="macro-legend">
+    <span><span class="dot" style="background:#3B6D11"></span> Proteína</span>
+    <span><span class="dot" style="background:#185FA5"></span> Carbohidratos</span>
+    <span><span class="dot" style="background:#BA7517"></span> Grasas</span>
+  </div>
+  <table>
+    <tr><th>Macro</th><th>g/día</th><th>g/kg</th><th>% calorías</th><th>kcal</th></tr>
+    <tr><td>Proteínas</td><td><strong>165 g</strong></td><td>2.75 g/kg</td><td>20%</td><td>660</td></tr>
+    <tr><td>Carbohidratos</td><td><strong>460 g</strong></td><td>7.67 g/kg</td><td>55%</td><td>1.840</td></tr>
+    <tr><td>Grasas</td><td><strong>95 g</strong></td><td>1.58 g/kg</td><td>25%</td><td>855</td></tr>
+    <tr><td style="font-weight:500;color:var(--color-text-primary)">Total</td><td><strong>—</strong></td><td>—</td><td>100%</td><td><strong>3.355</strong></td></tr>
+  </table>
+
+  <h3>Macros día descanso (3.100 kcal)</h3>
+  <table>
+    <tr><th>Macro</th><th>g/día</th><th>kcal</th></tr>
+    <tr><td>Proteínas</td><td>160 g</td><td>640</td></tr>
+    <tr><td>Carbohidratos</td><td>395 g</td><td>1.580</td></tr>
+    <tr><td>Grasas</td><td>98 g</td><td>882</td></tr>
+    <tr><td style="font-weight:500">Total</td><td>—</td><td><strong>3.102</strong></td></tr>
+  </table>
+
+  <h3>¿Por qué no subías con 4.000 kcal?</h3>
+  <div class="warn">Causas probables: (1) Infra-registro calórico (olvidar salsas, aceite, bebidas). (2) TDEE real más alto del estimado (termogénesis adaptativa elevada). (3) Inconsistencia — días con pocas calorías compensaban días altos. (4) Poca proteína: sin estímulo muscular el exceso se oxida o almacena como grasa temporalmente y se pierde. Solución: pesar los alimentos en báscula digital, tracking en app y entrenamiento de fuerza desde el día 1.</div>
+
+  <h3>Progresión calórica gradual (apetito bajo)</h3>
+  <table>
+    <tr><th>Semana</th><th>Calorías objetivo</th><th>Comidas/día</th><th>Estrategia</th></tr>
+    <tr><td>1-2</td><td>2.800 kcal</td><td>5</td><td>Añadir 1 batido hipercalórico</td></tr>
+    <tr><td>3-4</td><td>3.000 kcal</td><td>5-6</td><td>+1 snack y aumentar porciones</td></tr>
+    <tr><td>5-8</td><td>3.200 kcal</td><td>6</td><td>Pleno plan + aceite en todo</td></tr>
+    <tr><td>9+</td><td>3.350 kcal</td><td>6</td><td>Plan completo mantenido</td></tr>
+  </table>
+
+  <h3>Hidratación y micronutrientes clave</h3>
+  <div class="metric-grid">
+    <div class="metric"><div class="metric-label">Agua diaria</div><div class="metric-value">3.5 L</div><div class="metric-sub">Mín. durante entreno</div></div>
+    <div class="metric"><div class="metric-label">Zinc</div><div class="metric-value">11 mg</div><div class="metric-sub">Testosterona + recuper.</div></div>
+    <div class="metric"><div class="metric-label">Vitamina D</div><div class="metric-value">2.000 UI</div><div class="metric-sub">Sol + suplemento</div></div>
+    <div class="metric"><div class="metric-label">Magnesio</div><div class="metric-value">400 mg</div><div class="metric-sub">Sueño y músculo</div></div>
+  </div>
+</div>
+
+<!-- ===== S2: ALIMENTACIÓN ===== -->
+<div id="s2" class="section">
+  <h2>2. Plan de alimentación completo</h2>
+
+  <h3>Estrategia general</h3>
+  <div class="info">6 comidas/día · Horario 9:30–23:00 · Pre-entreno 90 min antes · Post-entreno dentro de 45 min · Nunca más de 3 h sin comer</div>
+
+  <h3>Horario tipo día de entrenamiento</h3>
+  <table>
+    <tr><th>Hora</th><th>Comida</th><th>Objetivo</th><th>kcal aprox.</th></tr>
+    <tr><td>9:30</td><td>Desayuno</td><td>Romper ayuno + carbos</td><td>700</td></tr>
+    <tr><td>12:00</td><td>Snack 1</td><td>Batido hipercalórico</td><td>650</td></tr>
+    <tr><td>14:00</td><td>Almuerzo</td><td>Comida principal</td><td>850</td></tr>
+    <tr><td>17:00</td><td>Pre-entreno</td><td>Carbos + proteína</td><td>450</td></tr>
+    <tr><td>19:30-20:00</td><td>Entreno (gym)</td><td>—</td><td>—</td></tr>
+    <tr><td>20:30</td><td>Post-entreno</td><td>Proteína rápida + carbos</td><td>500</td></tr>
+    <tr><td>22:30</td><td>Snack nocturno</td><td>Caseína + grasas</td><td>350</td></tr>
+  </table>
+
+  <div class="day-tabs" id="dayTabs">
+    <button class="day-tab active" onclick="showDay(0,this)">Lun</button>
+    <button class="day-tab" onclick="showDay(1,this)">Mar</button>
+    <button class="day-tab" onclick="showDay(2,this)">Mié</button>
+    <button class="day-tab" onclick="showDay(3,this)">Jue</button>
+    <button class="day-tab" onclick="showDay(4,this)">Vie</button>
+    <button class="day-tab" onclick="showDay(5,this)">Sáb</button>
+    <button class="day-tab" onclick="showDay(6,this)">Dom</button>
+  </div>
+
+  <div id="dayContent"></div>
+
+  <h3>Estrategias anti-apetito bajo</h3>
+  <ul class="tips">
+    <li>Añadir 15-20 ml de aceite de oliva a cada comida cocinada (+135 kcal sin apenas volumen)</li>
+    <li>Usar leche entera en vez de agua para porridge, batidos y café</li>
+    <li>Frutos secos en pequeños cuencos siempre visibles en casa</li>
+    <li>Comer cada 2,5–3 h con alarma en el móvil</li>
+    <li>Batido hipercalórico entre comidas: 650+ kcal en 400 ml</li>
+    <li>Pasta y arroz bien cocidos: mayor palatabilidad y más calorías que verduras</li>
+    <li>Salsas con aceite, tahini o crema de cacahuete en lugar de salsas acuosas</li>
+  </ul>
+</div>
+
+<!-- ===== S3: BATIDOS ===== -->
+<div id="s3" class="section">
+  <h2>3. Batidos hipercalóricos y snacks de emergencia</h2>
+
+  <h3>Batidos hipercalóricos (mín. 600 kcal)</h3>
+
+  <div class="shake-card">
+    <div class="shake-name">Batido 1 — "El Clasico Gainer"</div>
+    <div class="shake-kcal">Momento: snack de media mañana</div>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th><th>kcal</th><th>P</th><th>C</th><th>G</th></tr>
+      <tr><td>Leche entera</td><td>400 ml</td><td>264</td><td>13g</td><td>19g</td><td>14g</td></tr>
+      <tr><td>Plátano maduro</td><td>1 grande (150g)</td><td>133</td><td>1.6g</td><td>34g</td><td>0.5g</td></tr>
+      <tr><td>Crema cacahuete</td><td>40g</td><td>248</td><td>9g</td><td>9g</td><td>20g</td></tr>
+      <tr><td>Proteína whey vainilla</td><td>30g (1 scoop)</td><td>120</td><td>24g</td><td>3g</td><td>2g</td></tr>
+      <tr><td>Avena molida</td><td>40g</td><td>153</td><td>5g</td><td>27g</td><td>3g</td></tr>
+      <tr><td style="font-weight:500;color:var(--color-text-primary)">TOTAL</td><td></td><td><strong>918</strong></td><td><strong>52.6g</strong></td><td><strong>92g</strong></td><td><strong>39.5g</strong></td></tr>
+    </table>
+    <p>Triturar todo 30 segundos. Tomar frío.</p>
+  </div>
+
+  <div class="shake-card">
+    <div class="shake-name">Batido 2 — "Horchata Power"</div>
+    <div class="shake-kcal">Momento: post-entreno</div>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th><th>kcal</th><th>P</th><th>C</th><th>G</th></tr>
+      <tr><td>Leche entera</td><td>350 ml</td><td>231</td><td>11g</td><td>17g</td><td>12g</td></tr>
+      <tr><td>Dátiles Medjool</td><td>3 unidades (60g)</td><td>166</td><td>1g</td><td>44g</td><td>0.3g</td></tr>
+      <tr><td>Proteína whey choco</td><td>30g</td><td>120</td><td>24g</td><td>3g</td><td>2g</td></tr>
+      <tr><td>Aceite de coco</td><td>15 ml</td><td>135</td><td>0g</td><td>0g</td><td>15g</td></tr>
+      <tr><td>Canela</td><td>1 tsp</td><td>6</td><td>0g</td><td>2g</td><td>0g</td></tr>
+      <tr><td style="font-weight:500;color:var(--color-text-primary)">TOTAL</td><td></td><td><strong>658</strong></td><td><strong>36g</strong></td><td><strong>66g</strong></td><td><strong>29.3g</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="shake-card">
+    <div class="shake-name">Batido 3 — "Berries &amp; Cream"</div>
+    <div class="shake-kcal">Momento: snack nocturno</div>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th><th>kcal</th><th>P</th><th>C</th><th>G</th></tr>
+      <tr><td>Queso Quark 0%</td><td>200g</td><td>134</td><td>26g</td><td>6g</td><td>0.4g</td></tr>
+      <tr><td>Leche entera</td><td>200 ml</td><td>132</td><td>6.5g</td><td>9.4g</td><td>7g</td></tr>
+      <tr><td>Frutos rojos cong.</td><td>100g</td><td>43</td><td>1g</td><td>10g</td><td>0.5g</td></tr>
+      <tr><td>Miel</td><td>30g</td><td>91</td><td>0.3g</td><td>24g</td><td>0g</td></tr>
+      <tr><td>Nueces</td><td>30g</td><td>196</td><td>4.6g</td><td>4g</td><td>19g</td></tr>
+      <tr><td style="font-weight:500;color:var(--color-text-primary)">TOTAL</td><td></td><td><strong>596</strong></td><td><strong>38.4g</strong></td><td><strong>53.4g</strong></td><td><strong>26.9g</strong></td></tr>
+    </table>
+    <p>Mezclar quark + leche, añadir el resto. No triturar las nueces, dejar enteras.</p>
+  </div>
+
+  <div class="shake-card">
+    <div class="shake-name">Batido 4 — "Mediterranean Gainer" (sin lácteos)</div>
+    <div class="shake-kcal">Momento: media mañana alternativa</div>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th><th>kcal</th><th>P</th><th>C</th><th>G</th></tr>
+      <tr><td>Leche avena</td><td>300 ml</td><td>138</td><td>3g</td><td>24g</td><td>3g</td></tr>
+      <tr><td>Mantequilla almendra</td><td>40g</td><td>254</td><td>9g</td><td>8g</td><td>22g</td></tr>
+      <tr><td>Plátano</td><td>1 (120g)</td><td>107</td><td>1.3g</td><td>27g</td><td>0.4g</td></tr>
+      <tr><td>Proteína vegana vainilla</td><td>30g</td><td>115</td><td>22g</td><td>5g</td><td>2g</td></tr>
+      <tr><td>Aceite de oliva virgen</td><td>15 ml</td><td>135</td><td>0g</td><td>0g</td><td>15g</td></tr>
+      <tr><td style="font-weight:500;color:var(--color-text-primary)">TOTAL</td><td></td><td><strong>749</strong></td><td><strong>35.3g</strong></td><td><strong>64g</strong></td><td><strong>42.4g</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="shake-card">
+    <div class="shake-name">Batido 5 — "Masa Nocturna" (slow-protein)</div>
+    <div class="shake-kcal">Momento: 30 min antes de dormir</div>
+    <table>
+      <tr><th>Ingrediente</th><th>Cantidad</th><th>kcal</th><th>P</th><th>C</th><th>G</th></tr>
+      <tr><td>Leche entera tibia</td><td>300 ml</td><td>198</td><td>9.9g</td><td>14g</td><td>10.5g</td></tr>
+      <tr><td>Requesón (ricotta)</td><td>150g</td><td>186</td><td>11.4g</td><td>3.6g</td><td>13.5g</td></tr>
+      <tr><td>Crema cacahuete</td><td>30g</td><td>186</td><td>6.7g</td><td>6.7g</td><td>15g</td></tr>
+      <tr><td>Miel</td><td>20g</td><td>61</td><td>0.2g</td><td>16.5g</td><td>0g</td></tr>
+      <tr><td>Cacao puro en polvo</td><td>10g</td><td>23</td><td>2g</td><td>3g</td><td>1g</td></tr>
+      <tr><td style="font-weight:500;color:var(--color-text-primary)">TOTAL</td><td></td><td><strong>654</strong></td><td><strong>30.2g</strong></td><td><strong>43.8g</strong></td><td><strong>40g</strong></td></tr>
+    </table>
+    <p>Mezclar en vaso, no necesita batidora. La proteína de la leche tibia + requesón = caseína lenta ideal para la noche.</p>
+  </div>
+
+  <h3>10 recetas rápidas (&lt;20 min) altas en calorías y proteína</h3>
+
+  <div class="card">
+    <h4>1. Tortilla de 4 huevos con queso y avena (20 min · 780 kcal · 52g P)</h4>
+    <p>4 huevos L batidos + 40g avena + 50g queso manchego. Cuajar en sartén con 10ml aceite. Servir con 2 rebanadas pan integral.</p>
+  </div>
+  <div class="card">
+    <h4>2. Pasta boloñesa express (18 min · 920 kcal · 55g P)</h4>
+    <p>150g pasta seca (400g cocida) + 200g carne picada mixta 50/50 + tomate frito Hida Belen + queso rallado. 15ml aceite al servir.</p>
+  </div>
+  <div class="card">
+    <h4>3. Bowl de arroz con atún y aguacate (10 min · 750 kcal · 48g P)</h4>
+    <p>200g arroz cocido + 2 latas atún en aceite (escurridas) + ½ aguacate + 20ml salsa soja + sésamo. Sin cocinar apenas.</p>
+  </div>
+  <div class="card">
+    <h4>4. Sándwich de pollo hipercalórico (8 min · 680 kcal · 44g P)</h4>
+    <p>2 rebanadas pan molde integral + 150g pechuga cocinada + 30g aguacate + 1 huevo frito + queso en lonchas. Calentar en sartén.</p>
+  </div>
+  <div class="card">
+    <h4>5. Porridge power (8 min · 720 kcal · 38g P)</h4>
+    <p>80g avena + 400ml leche entera + 1 plátano + 30g proteína whey + 30g mantequilla de almendra. Cocer avena en leche, añadir resto fuera del fuego.</p>
+  </div>
+  <div class="card">
+    <h4>6. Wrap de huevo y jamón serrano (10 min · 590 kcal · 40g P)</h4>
+    <p>2 tortillas de trigo grandes + 3 huevos revueltos + 80g jamón serrano + queso crema. 2 wraps por ración.</p>
+  </div>
+  <div class="card">
+    <h4>7. Filete de merluza con patatas (20 min · 710 kcal · 46g P)</h4>
+    <p>250g merluza + 300g patata cocida al micro + 20ml aceite oliva + ajo y perejil. Plancha 4 min por lado.</p>
+  </div>
+  <div class="card">
+    <h4>8. Macarrones con atún gratinados (18 min · 850 kcal · 50g P)</h4>
+    <p>150g macarrones + 3 latas atún + tomate frito + 50g mozzarella. Gratinar 5 min horno o microondas.</p>
+  </div>
+  <div class="card">
+    <h4>9. Revuelto de huevo con salmon y pan (12 min · 690 kcal · 45g P)</h4>
+    <p>4 huevos + 100g salmón ahumado + queso crema + 2 tostadas. Revolver a fuego bajo.</p>
+  </div>
+  <div class="card">
+    <h4>10. Bowl de lentejas con arroz (microondas) (5 min · 780 kcal · 38g P)</h4>
+    <p>1 brik lentejas cocidas (240g) + 200g arroz cocido + chorizo extra 50g + chorrito aceite. Calentar y mezclar.</p>
+  </div>
+
+  <h3>Snacks de emergencia (para llevar o cuando no llegas a calorías)</h3>
+  <table>
+    <tr><th>Snack</th><th>Calorías</th><th>Proteína</th><th>Notas</th></tr>
+    <tr><td>Mix 30g nueces + 30g almendras</td><td>360 kcal</td><td>10g</td><td>Siempre en mochila</td></tr>
+    <tr><td>3 barritas de dátiles + nueces (Nakd)</td><td>400 kcal</td><td>8g</td><td>Mercadona, 0.80€/u</td></tr>
+    <tr><td>Brick 200ml batido lácteo Kaiku</td><td>250 kcal</td><td>14g</td><td>Sin nevera</td></tr>
+    <tr><td>2 yogures griegos Lidl + miel</td><td>360 kcal</td><td>20g</td><td>Nevera necesaria</td></tr>
+    <tr><td>Pan con mantequilla de cacahuete (2 rebanadas)</td><td>420 kcal</td><td>14g</td><td>Rápido en casa</td></tr>
+    <tr><td>Lata de sardinas en aceite + pan</td><td>380 kcal</td><td>28g</td><td>Sin nevera</td></tr>
+    <tr><td>Barrita Quest / Myprotein</td><td>220 kcal</td><td>21g</td><td>Mochila emergencia</td></tr>
+  </table>
+</div>
+
+<!-- ===== S4: COMPRA ===== -->
+<div id="s4" class="section">
+  <h2>4. Lista de la compra semanal</h2>
+  <div class="info">Presupuesto objetivo: ~85-95€/semana (360-400€/mes). Supermercados recomendados: Mercadona (base), Lidl (lácteos y fruta), Carrefour (proteína polvo + suplementos)</div>
+
+  <h3>Proteínas animales</h3>
+  <table>
+    <tr><th>Producto</th><th>Cantidad/semana</th><th>Precio est.</th><th>kcal/100g</th></tr>
+    <tr><td>Pechuga de pollo fileteada</td><td>1,5 kg</td><td>~7,50€</td><td>165</td></tr>
+    <tr><td>Carne picada mixta 50/50</td><td>500g</td><td>~3,50€</td><td>250</td></tr>
+    <tr><td>Huevos L (camperos o eco)</td><td>24 unidades</td><td>~5,50€</td><td>155</td></tr>
+    <tr><td>Atún en aceite (latas)</td><td>12 latas × 80g</td><td>~6,00€</td><td>200</td></tr>
+    <tr><td>Salmón fresco o congelado</td><td>500g</td><td>~7,00€</td><td>208</td></tr>
+    <tr><td>Merluza congelada</td><td>500g</td><td>~4,50€</td><td>82</td></tr>
+    <tr><td>Jamón serrano (tacos)</td><td>200g</td><td>~3,00€</td><td>290</td></tr>
+  </table>
+
+  <h3>Carbohidratos</h3>
+  <table>
+    <tr><th>Producto</th><th>Cantidad/semana</th><th>Precio est.</th><th>kcal/100g</th></tr>
+    <tr><td>Pasta seca (macarrones, espaguetis)</td><td>1 kg</td><td>~1,50€</td><td>350</td></tr>
+    <tr><td>Arroz largo</td><td>1 kg</td><td>~1,20€</td><td>350</td></tr>
+    <tr><td>Pan de molde integral Bimbo</td><td>2 bolsas</td><td>~3,00€</td><td>260</td></tr>
+    <tr><td>Avena copos finos Quaker</td><td>1 kg</td><td>~2,50€</td><td>375</td></tr>
+    <tr><td>Patatas</td><td>2 kg</td><td>~1,80€</td><td>77</td></tr>
+    <tr><td>Plátanos</td><td>1,5 kg</td><td>~1,80€</td><td>89</td></tr>
+    <tr><td>Brik lentejas cocidas</td><td>4 briks</td><td>~4,00€</td><td>116</td></tr>
+  </table>
+
+  <h3>Grasas saludables</h3>
+  <table>
+    <tr><th>Producto</th><th>Cantidad/semana</th><th>Precio est.</th><th>kcal/100g</th></tr>
+    <tr><td>Aceite oliva virgen extra</td><td>500 ml</td><td>~4,50€</td><td>884</td></tr>
+    <tr><td>Crema cacahuete Krujiente (Mercadona)</td><td>1 bote 400g</td><td>~3,50€</td><td>620</td></tr>
+    <tr><td>Nueces peladas</td><td>200g</td><td>~3,50€</td><td>654</td></tr>
+    <tr><td>Almendras crudas</td><td>200g</td><td>~2,80€</td><td>579</td></tr>
+    <tr><td>Aguacates</td><td>3 unidades</td><td>~3,00€</td><td>160</td></tr>
+  </table>
+
+  <h3>Lácteos</h3>
+  <table>
+    <tr><th>Producto</th><th>Cantidad/semana</th><th>Precio est.</th></tr>
+    <tr><td>Leche entera (Hacendado/Lidl)</td><td>6 litros</td><td>~5,40€</td></tr>
+    <tr><td>Yogur griego 0% (Fage o Lidl)</td><td>8 unidades</td><td>~4,80€</td></tr>
+    <tr><td>Queso manchego tierno (rallado)</td><td>200g</td><td>~2,50€</td></tr>
+    <tr><td>Queso Quark (Lidl Milbona)</td><td>2 × 500g</td><td>~3,00€</td></tr>
+    <tr><td>Requesón</td><td>250g</td><td>~1,80€</td></tr>
+  </table>
+
+  <h3>Fruta y verdura</h3>
+  <table>
+    <tr><th>Producto</th><th>Cantidad</th><th>Precio est.</th></tr>
+    <tr><td>Espinacas baby bolsa</td><td>2 bolsas</td><td>~3,00€</td></tr>
+    <tr><td>Tomates</td><td>1 kg</td><td>~1,50€</td></tr>
+    <tr><td>Zanahorias</td><td>1 kg</td><td>~0,90€</td></tr>
+    <tr><td>Frutos rojos congelados</td><td>1 kg</td><td>~3,50€</td></tr>
+    <tr><td>Manzanas/naranjas</td><td>6 unidades</td><td>~2,00€</td></tr>
+  </table>
+
+  <h3>Otros / Despensa</h3>
+  <table>
+    <tr><th>Producto</th><th>Cantidad</th><th>Precio est.</th></tr>
+    <tr><td>Tomate frito Hida Belen (Mercadona)</td><td>2 botes</td><td>~2,00€</td></tr>
+    <tr><td>Miel</td><td>1 tarro 500g</td><td>~3,00€</td></tr>
+    <tr><td>Cacao puro Valor</td><td>250g</td><td>~2,50€</td></tr>
+    <tr><td>Proteína whey (mensual → semanal ÷4)</td><td>—</td><td>~7,50€</td></tr>
+  </table>
+
+  <div class="metric-grid" style="margin-top:1rem">
+    <div class="metric"><div class="metric-label">Total semanal estimado</div><div class="metric-value">~88€</div><div class="metric-sub">Sin suplementos</div></div>
+    <div class="metric"><div class="metric-label">Total mensual</div><div class="metric-value">~352€</div><div class="metric-sub">Dentro del presupuesto</div></div>
+    <div class="metric"><div class="metric-label">+ Suplementos/mes</div><div class="metric-value">~35€</div><div class="metric-sub">Whey + creatina</div></div>
+    <div class="metric"><div class="metric-label">Total mensual todo</div><div class="metric-value">~387€</div><div class="metric-sub">≤ 400€ objetivo</div></div>
+  </div>
+
+  <h3>Consejos de ahorro</h3>
+  <ul class="tips">
+    <li>Comprar pollo y carne en bandeja grande y congelar porciones de 150g</li>
+    <li>Atún Hacendado Mercadona: mejor relación calidad/precio de España</li>
+    <li>Avena, arroz y pasta al por mayor (bolsas 5 kg) cada 2-3 semanas</li>
+    <li>Frutos rojos y guisantes siempre congelados: más baratos y misma nutrición</li>
+    <li>Proteína whey: comprar en Myprotein en rebajas (Black Friday, MegaDeal), 2,5 kg sale a ~35€ → 4 meses</li>
+  </ul>
+</div>
+
+<!-- ===== S5: SUPLEMENTOS ===== -->
+<div id="s5" class="section">
+  <h2>5. Plan de suplementación</h2>
+
+  <h3>Esenciales</h3>
+  <table>
+    <tr><th>Suplemento</th><th>Tipo/Marca</th><th>Dosis</th><th>Cuándo</th><th>€/mes</th></tr>
+    <tr>
+      <td><strong>Proteína Whey</strong></td>
+      <td>Whey Concentrate Impact (Myprotein) o Isolate Gold (Optimum Nutrition)</td>
+      <td>1-2 scoops (30-60g)</td>
+      <td>Post-entreno (o en batidos si no llegas a proteína)</td>
+      <td>~20-25€</td>
+    </tr>
+    <tr>
+      <td><strong>Creatina Monohidrato</strong></td>
+      <td>Creapure® (Prozis, Myprotein Pure Creatine, HSN Evocreatine)</td>
+      <td>5g/día</td>
+      <td>Cualquier momento (con comida o batido). Sin fase de carga.</td>
+      <td>~5-8€</td>
+    </tr>
+  </table>
+
+  <div class="success">Protocolo creatina: sin carga. 5g/día desde el día 1, todos los días (incluso descanso). Efectos visibles en 2-4 semanas. Tomar con agua o en batido. No hay beneficio en timing específico.</div>
+
+  <h3>Opcionales pero útiles</h3>
+  <table>
+    <tr><th>Suplemento</th><th>Dosis</th><th>Beneficio</th><th>€/mes</th></tr>
+    <tr><td>Vitamina D3 + K2</td><td>2.000 UI D3 + 100 mcg K2</td><td>Testosterona, recuperación, inmunidad. Muy frecuente la deficiencia en España interior.</td><td>~5€</td></tr>
+    <tr><td>Magnesio bisglicinato</td><td>300-400 mg noche</td><td>Calidad del sueño, recuperación muscular</td><td>~6€</td></tr>
+    <tr><td>Omega-3 (EPA+DHA)</td><td>2g EPA+DHA</td><td>Inflamación, recuperación articular</td><td>~8€</td></tr>
+    <tr><td>Zinc</td><td>15-25 mg</td><td>Testosterona, síntesis proteica. Solo si come poco marisco/carne roja.</td><td>~4€</td></tr>
+  </table>
+
+  <h3>Suplementos que NO necesitas (ahorra dinero)</h3>
+  <ul class="tips">
+    <li>Mass gainers comerciales: azúcar camuflado a precio de oro. Haz tu propio con leche + avena + whey.</li>
+    <li>Pre-entrenos con estimulantes: cafeína suficiente (1 café antes del gym). Los pre-entrenos crean tolerancia rápido.</li>
+    <li>BCAAs: inútiles si ya llegas a 165g/día de proteína total. Dinero tirado.</li>
+    <li>HMB, glutamina, ZMA: evidencia muy débil para población sana. No merece la pena.</li>
+    <li>Testosterona boosters: marketing puro. Ilegales si llevan andros.</li>
+  </ul>
+
+  <h3>Dónde comprar en España</h3>
+  <table>
+    <tr><th>Tienda</th><th>Mejor para</th><th>Envío</th></tr>
+    <tr><td>Myprotein.es</td><td>Whey a granel, creatina, snacks. Esperar rebajas (25-50% off habitual)</td><td>Gratis &gt;30€</td></tr>
+    <tr><td>Prozis.com</td><td>Creatina Creapure, vitaminas, variedad</td><td>Gratis &gt;20€</td></tr>
+    <tr><td>HSNstore.com</td><td>Almería, envío rápido España, whey calidad</td><td>Gratis &gt;40€</td></tr>
+    <tr><td>Amazon.es</td><td>Omega-3, vitaminas, urgencias</td><td>Prime inmediato</td></tr>
+    <tr><td>Decathlon / Eroski</td><td>Proteína básica si urge</td><td>Recogida tienda</td></tr>
+  </table>
+
+  <div class="metric-grid">
+    <div class="metric"><div class="metric-label">Stack mínimo/mes</div><div class="metric-value">~28€</div><div class="metric-sub">Whey + creatina</div></div>
+    <div class="metric"><div class="metric-label">Stack completo/mes</div><div class="metric-value">~52€</div><div class="metric-sub">+ D3/K2 + Mg + Omega3</div></div>
+  </div>
+</div>
+
+<!-- ===== S6: ENTRENAMIENTO ===== -->
+<div id="s6" class="section">
+  <h2>6. Plan de entrenamiento PPL × 2</h2>
+
+  <div class="info">Lunes=Push · Martes=Pull · Miércoles=Legs · Jueves=Push · Viernes=Pull · Sábado=Legs · Domingo=Descanso. Hora recomendada: 19:30-20:00 (después de la comida pre-entreno de las 17:00)</div>
+
+  <div class="day-tabs" id="gymTabs">
+    <button class="day-tab active" onclick="showGym(0,this)">Push 1 (Lun)</button>
+    <button class="day-tab" onclick="showGym(1,this)">Pull 1 (Mar)</button>
+    <button class="day-tab" onclick="showGym(2,this)">Legs 1 (Mié)</button>
+    <button class="day-tab" onclick="showGym(3,this)">Push 2 (Jue)</button>
+    <button class="day-tab" onclick="showGym(4,this)">Pull 2 (Vie)</button>
+    <button class="day-tab" onclick="showGym(5,this)">Legs 2 (Sáb)</button>
+  </div>
+  <div id="gymContent"></div>
+
+  <h3>Sistema de progresión (sobrecarga progresiva)</h3>
+  <div class="card">
+    <h4>Regla del doble progresivo</h4>
+    <p>Si completas todas las repeticiones del rango superior en TODAS las series → sube el peso la próxima sesión. Ejemplo: press banca 3×8-12 reps. Si haces 12-12-12 → sube 2,5 kg. Si haces 10-10-8 → mantén peso.</p>
+    <h4>Cuánto subir</h4>
+    <p>Ejercicios de tren superior (pecho, espalda, hombros): +2,5 kg. Ejercicios de tren inferior (sentadilla, peso muerto, prensa): +5 kg. Ejercicios de aislamiento (curl, extensiones): +1,25-2,5 kg.</p>
+    <h4>Estancamiento (plateau)</h4>
+    <p>Si llevas 2-3 sesiones sin progresar: (1) Reduce peso 10% y reconstruye. (2) Cambia variante del ejercicio. (3) Revisa nutrición y descanso — suelen ser la causa real.</p>
+  </div>
+
+  <h3>Deloads</h3>
+  <div class="card">
+    <p>Cada 6-8 semanas, hacer 1 semana de deload: mismos ejercicios, reducir peso 40-50%, mismas series y reps. No es descanso total — es recuperación activa. Señales para deload anticipado: dolor articular persistente, motivación muy baja, rendimiento cayendo >15%.</p>
+  </div>
+
+  <h3>Progresión 6 meses</h3>
+  <table>
+    <tr><th>Mes</th><th>Fase</th><th>Press banca</th><th>Sentadilla</th><th>Peso muerto</th><th>Remo barra</th></tr>
+    <tr><td>1</td><td>Adaptación</td><td>50-60 kg</td><td>60-70 kg</td><td>70-80 kg</td><td>50-60 kg</td></tr>
+    <tr><td>2</td><td>Aprendizaje</td><td>65-70 kg</td><td>75-85 kg</td><td>85-95 kg</td><td>60-65 kg</td></tr>
+    <tr><td>3</td><td>Progresión</td><td>75-80 kg</td><td>90-100 kg</td><td>100-110 kg</td><td>70-75 kg</td></tr>
+    <tr><td>4</td><td>Progresión</td><td>80-85 kg</td><td>100-110 kg</td><td>115-125 kg</td><td>75-80 kg</td></tr>
+    <tr><td>5</td><td>Optimización</td><td>85-90 kg</td><td>110-120 kg</td><td>125-135 kg</td><td>80-90 kg</td></tr>
+    <tr><td>6</td><td>Optimización</td><td>90-95 kg</td><td>115-125 kg</td><td>135-145 kg</td><td>90-95 kg</td></tr>
+  </table>
+  <div class="warn">Estos son rangos orientativos para alguien con experiencia previa volviendo a entrenar. No son obligatorios — la seguridad técnica siempre por encima del peso.</div>
+</div>
+
+<!-- ===== S7: CRONOGRAMA ===== -->
+<div id="s7" class="section">
+  <h2>7. Cronograma 12 meses</h2>
+
+  <table>
+    <tr><th>Mes</th><th>Peso esperado</th><th>kcal/día</th><th>Comidas</th><th>Hito clave</th></tr>
+    <tr><td>1</td><td>61-62 kg</td><td>2.800</td><td>5</td><td>Adaptación al gym y a la dieta. Aprender técnica básica.</td></tr>
+    <tr><td>2</td><td>62-63 kg</td><td>3.000</td><td>5-6</td><td>Consistencia >90% días. Primeros aumentos de fuerza.</td></tr>
+    <tr><td>3</td><td>63-64 kg</td><td>3.150</td><td>6</td><td>PPL rodado. Creatina cargando. +2-3 kg fuerza por ejercicio.</td></tr>
+    <tr><td>4</td><td>64-65 kg</td><td>3.200</td><td>6</td><td>Cambios visuales. Medir brazos y pecho. Revisar macros.</td></tr>
+    <tr><td>5</td><td>65-66 kg</td><td>3.250</td><td>6</td><td>Recuperar peso máximo histórico (65 kg). Gran hito psicológico.</td></tr>
+    <tr><td>6</td><td>66-67 kg</td><td>3.300</td><td>6</td><td>Evaluación semestral. Fotos comparativa. Ajuste si necesario.</td></tr>
+    <tr><td>7</td><td>67 kg</td><td>3.350</td><td>6</td><td>Deload programado. Revisar plan de entrenamiento.</td></tr>
+    <tr><td>8</td><td>67-68 kg</td><td>3.350</td><td>6</td><td>Posible variación de ejercicios para nuevo estímulo.</td></tr>
+    <tr><td>9</td><td>68 kg</td><td>3.400</td><td>6</td><td>Analítica sangre recomendada. Revisar vitamina D.</td></tr>
+    <tr><td>10</td><td>68-69 kg</td><td>3.400</td><td>6</td><td>Valorar cambio de rutina si progresión se ralentiza.</td></tr>
+    <tr><td>11</td><td>69-70 kg</td><td>3.450</td><td>6</td><td>Cerca del objetivo. Continuar o valorar fase de definición leve.</td></tr>
+    <tr><td>12</td><td>70+ kg</td><td>3.450</td><td>6</td><td>Objetivo alcanzado. Evaluar nueva meta: 75 kg o definición.</td></tr>
+  </table>
+
+  <h3>Fases del plan</h3>
+  <div class="card">
+    <h4>Fase 1 — Adaptación (Mes 1-2)</h4>
+    <p>Objetivo principal: crear hábitos, aprender técnica, adaptar el sistema digestivo a más comida. No obsesionarse con el peso. Puede que no notes cambios visuales hasta el mes 2-3, y es normal.</p>
+    <h4>Fase 2 — Progresión (Mes 3-6)</h4>
+    <p>Aquí empieza la magia. Sistema nervioso adaptado, técnica afinada, metabolismo ajustado. La mayor parte del crecimiento muscular de novato ocurre aquí. Subir de peso semana a semana en los ejercicios principales.</p>
+    <h4>Fase 3 — Optimización (Mes 7-12)</h4>
+    <p>Progresión más lenta y esperable. Ajustar calorías cada 4-6 semanas según la báscula. Posible mini-cut de 4-6 semanas al mes 10-11 si has acumulado más grasa de la deseada (improbable con este plan).</p>
+  </div>
+
+  <h3>¿Cuándo hacer mini-cut?</h3>
+  <div class="warn">Solo si el nivel de grasa corporal supera el 18-20% (barriga notablemente blanda y visible). Con 60 kg actuales y 12 meses de volumen limpio, es muy improbable necesitarlo antes del mes 10. Si ocurre, mini-cut de 6 semanas a -400 kcal.</div>
+</div>
+
+<!-- ===== S8: SEGUIMIENTO ===== -->
+<div id="s8" class="section">
+  <h2>8. Sistema de seguimiento y medición</h2>
+
+  <h3>Equipamiento a comprar</h3>
+  <table>
+    <tr><th>Producto</th><th>Modelo recomendado</th><th>Precio aprox.</th><th>Dónde</th></tr>
+    <tr><td>Báscula digital de cocina</td><td>Cecotec Cook Control 10000 o Beurer KS19</td><td>12-18€</td><td>Amazon/Leroy Merlin</td></tr>
+    <tr><td>Báscula corporal</td><td>Xiaomi Mi Body Composition Scale 2</td><td>25-30€</td><td>Amazon</td></tr>
+    <tr><td>Cinta métrica</td><td>Cualquier cinta de tela 150cm</td><td>2-5€</td><td>Mercadona/Aliexpress</td></tr>
+    <tr><td>App calorías</td><td>MyFitnessPal (gratis) o Cronometer</td><td>Gratis</td><td>App Store/Play</td></tr>
+    <tr><td>App entrenamiento</td><td>Hevy (gratis, la mejor para PPL)</td><td>Gratis</td><td>App Store/Play</td></tr>
+  </table>
+
+  <h3>Protocolo de pesada corporal</h3>
+  <ul class="tips">
+    <li>Siempre por la mañana, en ayunas, después de orinar, sin ropa</li>
+    <li>Mismo día cada semana (recomendado: lunes)</li>
+    <li>Registrar 3 pesadas en la semana (lun, mié, vie) y hacer la media → evita fluctuaciones de agua</li>
+    <li>No pesarse diariamente: las fluctuaciones de ±1-2 kg de agua y comida son normales y desorientan</li>
+  </ul>
+
+  <h3>Medidas corporales (cada 4 semanas)</h3>
+  <table>
+    <tr><th>Medida</th><th>Cómo tomarla</th><th>Momento</th></tr>
+    <tr><td>Pecho</td><td>A la altura de los pezones, brazos caídos</td><td>Mañana, sin bomba</td></tr>
+    <tr><td>Cintura</td><td>Al ombligo, sin contraer</td><td>Mañana, sin bomba</td></tr>
+    <tr><td>Cadera</td><td>Punto más ancho de los glúteos</td><td>Mañana</td></tr>
+    <tr><td>Brazo</td><td>Contraído, punto más ancho del bíceps</td><td>Mañana, relajado y contraído</td></tr>
+    <tr><td>Muslo</td><td>A 15 cm del pliegue de la ingle</td><td>Mañana</td></tr>
+  </table>
+
+  <h3>Fotos de progreso</h3>
+  <ul class="tips">
+    <li>Cada 4 semanas, mismas condiciones: misma hora (mañana), misma luz, mismas poses</li>
+    <li>3 poses: frontal, lateral izquierdo, espalda</li>
+    <li>Sin bomba, en ayunas, sin ropa (o en bañador)</li>
+    <li>Guardar en álbum privado del móvil</li>
+  </ul>
+
+  <h3>Checkpoints y ajustes</h3>
+  <table>
+    <tr><th>Situación</th><th>Qué hacer</th></tr>
+    <tr><td>No sube peso en 2 semanas</td><td>Añadir 150-200 kcal/día (1 batido extra o +30g avena). Revisar registro — suele haber infra-registro oculto.</td></tr>
+    <tr><td>Sube >1,5 kg/mes</td><td>Reducir 200 kcal/día. Está acumulando demasiada grasa. El objetivo es músculo limpio.</td></tr>
+    <tr><td>Estancamiento en gym</td><td>Revisar descanso (¿duerme bien?), calorías (¿llega al objetivo?) y técnica. Añadir 1 serie por ejercicio compuesto.</td></tr>
+    <tr><td>Fatiga constante</td><td>Posible sobreentrenamiento o déficit calórico. Aumentar calorías 200 kcal, hacer deload una semana.</td></tr>
+    <tr><td>Dolor articular</td><td>No ignorarlo. Reducir peso ese ejercicio 30%, mejorar técnica, añadir calentamiento específico.</td></tr>
+  </table>
+</div>
+
+<!-- ===== S9: RUTINA DIARIA ===== -->
+<div id="s9" class="section">
+  <h2>9. Rutina diaria modelo</h2>
+
+  <div class="day-tabs">
+    <button class="day-tab active" id="tab-train" onclick="showRoutine('train',this)">Día entreno</button>
+    <button class="day-tab" onclick="showRoutine('rest',this)">Día descanso</button>
+  </div>
+  <div id="routineContent"></div>
+
+  <h3>Meal prep dominical (2h → semana lista)</h3>
+  <div class="card">
+    <h4>Qué preparar el domingo</h4>
+    <ul class="tips">
+      <li>1 kg arroz cocido (guardado en 5 tuppers de 200g)</li>
+      <li>1 kg pechuga de pollo marinada y cocinada a la plancha, fileteada</li>
+      <li>500g carne picada boloñesa básica</li>
+      <li>2 kg patatas cocidas enteras (se guardan 5 días)</li>
+      <li>1 bandeja de avena cocida en leche (porridge base, 4 raciones)</li>
+      <li>Fruta lavada y cortada en recipientes</li>
+    </ul>
+    <h4>Qué cocinar en el momento (5-10 min)</h4>
+    <ul class="tips">
+      <li>Huevos (siempre frescos, no preparar con antelación)</li>
+      <li>Pasta (cocer 10 min el día que toca)</li>
+      <li>Ensaladas y verduras frescas</li>
+    </ul>
+    <h4>Material necesario</h4>
+    <ul class="tips">
+      <li>8-10 tuppers herméticos de 600-1000 ml (Ikea PRUTA, ~8€ el set)</li>
+      <li>Bolsas de congelación para carnes</li>
+      <li>Báscula de cocina (imprescindible)</li>
+    </ul>
+  </div>
+
+  <h3>Hidratación — plan diario</h3>
+  <table>
+    <tr><th>Momento</th><th>Agua</th><th>Acumulado</th></tr>
+    <tr><td>Al despertar (9:30)</td><td>500 ml</td><td>0,5 L</td></tr>
+    <tr><td>Con desayuno</td><td>250 ml</td><td>0,75 L</td></tr>
+    <tr><td>A media mañana</td><td>500 ml</td><td>1,25 L</td></tr>
+    <tr><td>Con almuerzo</td><td>300 ml</td><td>1,55 L</td></tr>
+    <tr><td>Antes del entreno</td><td>400 ml</td><td>1,95 L</td></tr>
+    <tr><td>Durante entreno (cada 15 min)</td><td>600 ml</td><td>2,55 L</td></tr>
+    <tr><td>Post-entreno</td><td>500 ml</td><td>3,05 L</td></tr>
+    <tr><td>Con cena y noche</td><td>500 ml</td><td>3,55 L</td></tr>
+  </table>
+  <div class="warn">Actualmente bebes 1-1,5 L. El salto a 3,5 L es necesario pero hazlo gradualmente en 2 semanas para evitar sensación de hinchazón.</div>
+</div>
+
+<!-- ===== S10: ERRORES Y FAQ ===== -->
+<div id="s10" class="section">
+  <h2>10. Errores comunes y FAQ</h2>
+
+  <h3>Top 15 errores del hardgainer</h3>
+  <table>
+    <tr><th>#</th><th>Error</th><th>Solución</th></tr>
+    <tr><td>1</td><td>No contar calorías realmente</td><td>Báscula + MyFitnessPal obligatorio las primeras 8 semanas</td></tr>
+    <tr><td>2</td><td>"Comer mucho" sin medir</td><td>Lo que crees que es mucho casi nunca lo es</td></tr>
+    <tr><td>3</td><td>Demasiado cardio</td><td>Cero cardio en fase volumen (máximo 1 paseo suave/semana)</td></tr>
+    <tr><td>4</td><td>Cambiar de rutina cada 3 semanas</td><td>Mínimo 3-4 meses en el mismo PPL para ver resultados</td></tr>
+    <tr><td>5</td><td>Ignorar los compuestos</td><td>Sentadilla, peso muerto, press y remo son la base. Todo lo demás es accesorio.</td></tr>
+    <tr><td>6</td><td>Poco descanso entre series</td><td>2-3 min en compuestos, 60-90 seg en aislamiento</td></tr>
+    <tr><td>7</td><td>No subir el peso nunca</td><td>La sobrecarga progresiva ES el entrenamiento. Sin progresión no hay crecimiento.</td></tr>
+    <tr><td>8</td><td>Esperar resultados rápidos</td><td>3 meses para cambios visuales, 6 para que otros lo noten</td></tr>
+    <tr><td>9</td><td>Malísima técnica para levantar más</td><td>Ego fuera. Técnica perfecta siempre.</td></tr>
+    <tr><td>10</td><td>Saltarse comidas</td><td>Alarma en el móvil para cada comida</td></tr>
+    <tr><td>11</td><td>No dormir suficiente</td><td>El músculo crece mientras duermes. 8h mínimo.</td></tr>
+    <tr><td>12</td><td>Calorías pero poca proteína</td><td>Sin 165g/día de proteína, el exceso calórico va a grasa</td></tr>
+    <tr><td>13</td><td>Compararse con otros en el gym</td><td>Tu única competencia es el tú de la semana pasada</td></tr>
+    <tr><td>14</td><td>Usar suplementos como sustitutos de comida</td><td>Los suplementos son complemento, no base</td></tr>
+    <tr><td>15</td><td>Inconsistencia cíclica</td><td>3 días mal compensados no se pueden deshacer con 1 día perfecto</td></tr>
+  </table>
+
+  <h3>FAQ — Preguntas frecuentes</h3>
+
+  <div class="card"><h4>¿Qué pasa si un día no llego a las calorías?</h4><p>No pasa nada puntualmente. Lo importante es la media semanal. Si fallas un día, no intentes compensar al día siguiente comiendo el doble — eso estressa el sistema digestivo. Sigue el plan normal.</p></div>
+  <div class="card"><h4>¿Qué hago si me pongo enfermo?</h4><p>Descanso total del gym hasta recuperarte. Come lo que puedas (prioriza proteína líquida: batidos). Al volver, reduce pesos un 20% la primera semana para reaclimatarte.</p></div>
+  <div class="card"><h4>¿Puedo beber alcohol?</h4><p>Ocasional (1-2 veces al mes) no arruina el plan. Pero el alcohol inhibe la síntesis proteica 24-48h, deteriora el sueño y baja la testosterona. Evitarlo los días de entrenamiento y el día anterior.</p></div>
+  <div class="card"><h4>¿Qué hago si como fuera de casa o viajo?</h4><p>Prioriza proteína en cualquier restaurante: carnes, pescados, huevos. Pide doble ración de proteína si puedes. Lleva contigo una barrita proteica de emergencia. No te obsesiones: un día fuera del plan no rompe nada.</p></div>
+  <div class="card"><h4>¿Cuándo veré resultados?</h4><p>Fuerza: semanas 2-3. Cambios musculares leves: mes 2-3. Cambios que notas tú: mes 3-4. Cambios que notan otros: mes 4-6. Las fotos comparativas son más fiables que el espejo diario.</p></div>
+  <div class="card"><h4>¿Necesito hacer cardio?</h4><p>No en fase de volumen si el objetivo es máxima ganancia muscular. El cardio quema calorías que necesitas para crecer. Máximo: 1-2 paseos de 30 min/semana por salud cardiovascular básica.</p></div>
+  <div class="card"><h4>¿Puedo entrenar en ayunas?</h4><p>Técnicamente posible, pero contraproducente para ganar masa. Sin glucógeno, el rendimiento cae y el catabolismo muscular aumenta. Siempre comer 60-90 min antes.</p></div>
+  <div class="card"><h4>¿Qué hago si tengo agujetas muy fuertes?</h4><p>Las agujetas (DOMS) son normales las primeras 4-6 semanas. No impiden entrenar el grupo muscular contrario. Hidrátate bien, mueve el músculo suavemente y come suficiente proteína. Desaparecen solas.</p></div>
+  <div class="card"><h4>¿Puedo tomar el whey con agua en vez de leche?</h4><p>Sí, pero pierde ~200 kcal y 13g proteína por batido. Si el objetivo es calorías, siempre con leche entera. Solo con agua si tienes el estómago revuelto o es inmediatamente post-entreno.</p></div>
+  <div class="card"><h4>¿Tengo que pesar la comida siempre?</h4><p>Las primeras 6-8 semanas: sí, obligatorio. Después ya tienes el ojo calibrado para estimar porciones. Pero vuelve a pesar cada vez que notes que el peso corporal no avanza.</p></div>
+  <div class="card"><h4>¿Qué pasa si un día no tengo ganas de entrenar?</h4><p>Ve igual. El 90% de las veces, una vez en el gym el cuerpo responde. Si llevas 2 semanas sin motivación, probablemente es una señal de deload o de que algo falla en el descanso o nutrición.</p></div>
+  <div class="card"><h4>¿Puedo hacer este plan sin ir al gym, en casa?</h4><p>No con este PPL específico. Necesitas barras, discos y mancuernas para sobrecarga progresiva real. Las bandas de resistencia no ofrecen suficiente tensión para un ectomorfo con experiencia.</p></div>
+</div>
+
+<!-- ===== S11: CHEAT SHEET ===== -->
+<div id="s11" class="section">
+  <h2>11. Cheat sheet — todos los números clave</h2>
+  <p style="font-size:13px;margin-bottom:1rem">Imprimir y pegar en la nevera</p>
+
+  <div class="cheat-grid">
+    <div class="cheat-cell"><div class="key">Calorías día entreno</div><div class="val">3.350 kcal</div></div>
+    <div class="cheat-cell"><div class="key">Calorías día descanso</div><div class="val">3.100 kcal</div></div>
+    <div class="cheat-cell"><div class="key">Proteína / día</div><div class="val">165 g</div></div>
+    <div class="cheat-cell"><div class="key">Carbohidratos / día</div><div class="val">460 g</div></div>
+    <div class="cheat-cell"><div class="key">Grasas / día</div><div class="val">95 g</div></div>
+    <div class="cheat-cell"><div class="key">Agua diaria</div><div class="val">3,5 L</div></div>
+    <div class="cheat-cell"><div class="key">Comidas / día</div><div class="val">6</div></div>
+    <div class="cheat-cell"><div class="key">Días gym / semana</div><div class="val">6 días</div></div>
+    <div class="cheat-cell"><div class="key">Sueño mínimo</div><div class="val">8 h</div></div>
+    <div class="cheat-cell"><div class="key">Creatina diaria</div><div class="val">5 g</div></div>
+    <div class="cheat-cell"><div class="key">Whey post-entreno</div><div class="val">30 g</div></div>
+    <div class="cheat-cell"><div class="key">Próximo pesaje</div><div class="val">Lunes AM</div></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem">
+    <h4>Regla de oro del hardgainer</h4>
+    <p>Si no subes de peso esta semana, come más. Sin excusas. La báscula manda, no tu sensación de "ya como bastante".</p>
+  </div>
+
+  <div class="card">
+    <h4>Orden de prioridades</h4>
+    <p>1. Calorías totales · 2. Proteína · 3. Entrenamiento · 4. Sueño · 5. Carbohidratos · 6. Grasas · 7. Timing · 8. Suplementos</p>
+    <p>Si algo falla, revisa en este orden. El 90% de los problemas son calorías o proteína insuficientes.</p>
+  </div>
+
+  <div class="card">
+    <h4>Señales de que va bien</h4>
+    <ul class="tips">
+      <li>+0,5-1 kg/mes en la báscula (media semanal)</li>
+      <li>+2,5-5 kg en los ejercicios cada 2-3 semanas</li>
+      <li>Ropa más ajustada en hombros y pecho</li>
+      <li>Más energía en el gym y en el día a día</li>
+      <li>Mejor sueño</li>
+    </ul>
+  </div>
+
+  <button onclick="sendPrompt('Quiero que me generes el menú completo día a día con todos los gramos y macros exactos para cada comida')" style="margin-top:1rem;width:100%;padding:10px;font-size:14px">
+    Generar menú semanal completo con macros exactos ↗
+  </button>
+  <button onclick="sendPrompt('Dame la rutina de entrenamiento completa con todos los ejercicios, series, repeticiones y notas técnicas para los 6 días')" style="margin-top:.5rem;width:100%;padding:10px;font-size:14px">
+    Ver rutina PPL completa detallada ↗
+  </button>
+</div>
+
+</div>
+
+<script>
+const days = [
+  {name:'Lunes (Push 1)', type:'Entrenamiento', kcal:3350, meals:[
+    {t:'9:30 — Desayuno',kcal:720,p:42,c:90,g:18,items:[
+      {n:'Avena copos finos',q:'80g',k:306,p:11,c:55,g:6},
+      {n:'Leche entera',q:'350ml',k:231,p:11,c:17,g:12},
+      {n:'Proteína whey vainilla',q:'30g',k:120,p:24,c:3,g:2},
+      {n:'Plátano',q:'100g',k:89,p:1,c:23,g:0.3},
+      {n:'Miel',q:'15g',k:45,p:0,c:12,g:0}
+    ],prep:'Cocer avena en leche 3 min. Disolver whey fuera del fuego. Añadir plátano troceado y miel.'},
+    {t:'12:00 — Batido hipercalórico',kcal:918,p:53,c:92,g:40,items:[
+      {n:'El Clásico Gainer (ver sección Batidos)',q:'1 ración',k:918,p:53,c:92,g:40}
+    ],prep:'Ver receta en sección Batidos.'},
+    {t:'14:00 — Almuerzo',kcal:870,p:52,c:95,g:22,items:[
+      {n:'Pechuga de pollo a la plancha',q:'200g',k:330,p:62,c:0,g:7},
+      {n:'Arroz largo cocido',q:'250g (peso cocido)',k:325,p:6,c:70,g:0.5},
+      {n:'Aceite de oliva',q:'15ml',k:135,p:0,c:0,g:15},
+      {n:'Tomate + lechuga',q:'150g',k:30,p:1.5,c:6,g:0.3},
+      {n:'Pan integral',q:'40g',k:96,p:3.6,c:18,g:1.2}
+    ],prep:'Plancha pollo 5min/lado. Arroz cocido de meal prep. Aliñar ensalada con aceite.'},
+    {t:'17:00 — Pre-entreno',kcal:490,p:28,c:62,g:12,items:[
+      {n:'Pan de molde integral',q:'80g (4 rebanadas)',k:208,p:7,c:36,g:2.8},
+      {n:'Pechuga de pollo loncheada',q:'100g',k:165,p:31,c:0,g:3.5},
+      {n:'Aguacate',q:'60g (⅓)',k:96,p:1.2,c:1,g:8.8},
+      {n:'Tomate fresco',q:'80g',k:16,p:0.8,c:3,g:0.2}
+    ],prep:'Montar sándwich. Comer 60-90 min antes de entrenar.'},
+    {t:'20:30 — Post-entreno',kcal:510,p:48,c:55,g:10,items:[
+      {n:'Proteína whey chocolate',q:'30g',k:120,p:24,c:3,g:2},
+      {n:'Leche entera',q:'250ml',k:165,p:8,c:12,g:9},
+      {n:'Arroz cocido',q:'200g',k:260,p:4.8,c:56,g:0.4},
+      {n:'Atún en aceite (escurrido)',q:'1 lata 80g',k:100,p:16,c:0,g:4.4},
+      {n:'Salsa soja',q:'15ml',k:11,p:1.5,c:1,g:0}
+    ],prep:'Batido whey + leche (inmediato al salir del gym). Bowl arroz + atún al llegar a casa.'},
+    {t:'22:30 — Snack nocturno',kcal:350,p:28,c:22,g:15,items:[
+      {n:'Quark 0% Milbona',q:'200g',k:134,p:26,c:6,g:0.4},
+      {n:'Nueces',q:'25g',k:163,p:3.8,c:3.4,g:15.9},
+      {n:'Miel',q:'15g',k:45,p:0,c:12,g:0}
+    ],prep:'Mezclar quark con miel. Nueces por encima. Comer tranquilo 30 min antes de dormir.'}
+  ]},
+  {name:'Martes (Pull 1)', type:'Entrenamiento', kcal:3350, meals:[
+    {t:'9:30 — Desayuno',kcal:700,p:44,c:78,g:19,items:[
+      {n:'4 huevos L revueltos',q:'4 uds (200g)',k:312,p:24,c:2,g:22},
+      {n:'Pan integral tostado',q:'80g',k:208,p:7.2,c:36,g:2.8},
+      {n:'Queso manchego rallado',q:'30g',k:114,p:7.6,c:0.5,g:9.4},
+      {n:'Tomate natural',q:'100g',k:20,p:1,c:4,g:0.2},
+      {n:'Aceite oliva',q:'8ml',k:72,p:0,c:0,g:8}
+    ],prep:'Revuelto en sartén antiadherente a fuego bajo. Queso fundido al final.'},
+    {t:'12:00 — Batido Berries & Cream',kcal:596,p:38,c:53,g:27,items:[{n:'Batido Berries & Cream (ver receta)',q:'1 ración',k:596,p:38,c:53,g:27}],prep:'Ver sección batidos.'},
+    {t:'14:00 — Almuerzo',kcal:890,p:50,c:110,g:20,items:[
+      {n:'Pasta espaguetis cocida',q:'350g',k:466,p:14,c:96,g:1.8},
+      {n:'Carne picada 50/50',q:'150g',k:375,p:25,c:0,g:30},
+      {n:'Tomate frito Hida Belen',q:'150g',k:102,p:2.1,c:14,g:4.5},
+      {n:'Queso parmesano rallado',q:'20g',k:82,p:7.2,c:0.7,g:5.7}
+    ],prep:'Boloñesa casera o usar meal prep. Pasta al dente 8 min.'},
+    {t:'17:00 — Pre-entreno',kcal:450,p:30,c:55,g:10,items:[
+      {n:'Yogur griego Fage 0%',q:'200g',k:120,p:20,c:6,g:0.6},
+      {n:'Avena',q:'60g',k:229,p:7.7,c:40,g:4.5},
+      {n:'Plátano',q:'100g',k:89,p:1,c:23,g:0.3},
+      {n:'Miel',q:'10g',k:30,p:0,c:8,g:0}
+    ],prep:'Mezclar todo en bol. Comer 90 min antes.'},
+    {t:'20:30 — Post-entreno + Cena',kcal:550,p:50,c:48,g:15,items:[
+      {n:'Salmón fresco a la plancha',q:'200g',k:416,p:40,c:0,g:26},
+      {n:'Patata cocida',q:'300g',k:231,p:6,c:52,g:0.3},
+      {n:'Aceite oliva',q:'10ml',k:90,p:0,c:0,g:10},
+      {n:'Limón y perejil',q:'al gusto',k:8,p:0.3,c:2,g:0}
+    ],prep:'Plancha salmón 3 min/lado. Patata cocida micro 10 min.'},
+    {t:'22:30 — Snack nocturno',kcal:350,p:20,c:30,g:15,items:[
+      {n:'Batido Masa Nocturna (ver receta)',q:'½ ración',k:327,p:15,c:22,g:20}
+    ],prep:'Ver sección batidos. Media ración suficiente.'}
+  ]},
+  {name:'Miércoles (Legs 1)', type:'Entrenamiento', kcal:3350, meals:[
+    {t:'9:30 — Desayuno',kcal:740,p:40,c:88,g:20,items:[
+      {n:'Porridge Power (ver receta 5)',q:'1 ración',k:720,p:38,c:88,g:20}
+    ],prep:'Ver receta 5 en sección snacks.'},
+    {t:'12:00 — Snack',kcal:580,p:35,c:55,g:20,items:[
+      {n:'Batido Mediterranean Gainer (ver receta)',q:'½ + fruta',k:580,p:35,c:55,g:20}
+    ],prep:'Ver sección batidos.'},
+    {t:'14:00 — Almuerzo',kcal:880,p:55,c:95,g:22,items:[
+      {n:'Arroz cocido',q:'250g',k:325,p:5.8,c:70,g:0.5},
+      {n:'Pechuga pollo plancha',q:'200g',k:330,p:62,c:0,g:7},
+      {n:'Lentejas cocidas brik',q:'½ brik 120g',k:139,p:9.6,c:19,g:2.4},
+      {n:'Aceite oliva',q:'10ml',k:90,p:0,c:0,g:10}
+    ],prep:'Todo de meal prep. Calentar 3 min microondas.'},
+    {t:'17:00 — Pre-entreno',kcal:460,p:28,c:58,g:12,items:[
+      {n:'Tortilla 2 huevos + queso',q:'1 tortilla',k:280,p:21,c:1,g:21},
+      {n:'Pan integral',q:'80g',k:208,p:7.2,c:36,g:2.8}
+    ],prep:'Tortilla 4 min en sartén. Acompañar con pan tostado.'},
+    {t:'20:30 — Post-entreno',kcal:520,p:45,c:55,g:12,items:[
+      {n:'Whey shake con leche',q:'30g + 250ml',k:285,p:32,c:15,g:11},
+      {n:'Arroz con atún bowl',q:'ver receta 3',k:500,p:45,c:55,g:12}
+    ],prep:'Ver receta 3 (bowl atún). Batido inmediato.'},
+    {t:'22:30 — Snack nocturno',kcal:360,p:25,c:28,g:16,items:[
+      {n:'Requesón',q:'150g',k:186,p:11,c:4,g:14},
+      {n:'Frutos rojos',q:'100g',k:43,p:1,c:10,g:0.5},
+      {n:'Nueces',q:'25g',k:163,p:3.8,c:3.4,g:15.9}
+    ],prep:'Mezclar en bol. Sin azúcar añadida si no es necesario.'}
+  ]},
+  {name:'Jueves (Push 2)', type:'Entrenamiento', kcal:3350, meals:[
+    {t:'9:30 — Desayuno',kcal:710,p:45,c:75,g:20,items:[
+      {n:'Sándwich pollo hipercalórico (receta 4)',q:'1 ración',k:680,p:44,c:48,g:20}
+    ],prep:'Ver receta 4.'},
+    {t:'12:00 — Batido Clásico Gainer',kcal:918,p:53,c:92,g:40,items:[{n:'El Clásico Gainer',q:'1 ración',k:918,p:53,c:92,g:40}],prep:'Ver sección batidos.'},
+    {t:'14:00 — Almuerzo',kcal:860,p:52,c:92,g:22,items:[
+      {n:'Merluza al horno',q:'250g',k:205,p:41,c:0,g:3.5},
+      {n:'Patatas cocidas',q:'350g',k:269,p:7,c:60,g:0.4},
+      {n:'Aceite oliva + ajo',q:'15ml',k:135,p:0,c:0,g:15},
+      {n:'Pan de acompañamiento',q:'60g',k:156,p:5.4,c:28,g:2.1}
+    ],prep:'Merluza horno 180° 15min. Patatas microondas 10 min.'},
+    {t:'17:00 — Pre-entreno',kcal:450,p:25,c:58,g:12,items:[
+      {n:'Yogur griego + avena + miel',q:'200g+60g+15g',k:448,p:25,c:57,g:12}
+    ],prep:'Mezclar en bol 5 min antes.'},
+    {t:'20:30 — Post-entreno',kcal:520,p:50,c:52,g:12,items:[
+      {n:'Wrap huevo y jamón (receta 6)',q:'2 wraps',k:590,p:40,c:48,g:15}
+    ],prep:'Ver receta 6.'},
+    {t:'22:30 — Snack nocturno',kcal:350,p:28,c:22,g:15,items:[
+      {n:'Quark 0% + nueces + miel',q:'200g+25g+15g',k:342,p:29.8,c:21.4,g:15.9}
+    ],prep:'Sin preparación.'}
+  ]},
+  {name:'Viernes (Pull 2)', type:'Entrenamiento', kcal:3350, meals:[
+    {t:'9:30 — Desayuno',kcal:730,p:46,c:82,g:18,items:[
+      {n:'Tortilla de avena y queso (receta 1)',q:'1 ración',k:780,p:52,c:58,g:20}
+    ],prep:'Ver receta 1.'},
+    {t:'12:00 — Batido Horchata Power',kcal:658,p:36,c:66,g:29,items:[{n:'Horchata Power (ver receta)',q:'1 ración',k:658,p:36,c:66,g:29}],prep:'Ver sección batidos.'},
+    {t:'14:00 — Almuerzo',kcal:890,p:50,c:100,g:22,items:[
+      {n:'Macarrones con atún gratinados (receta 8)',q:'1 ración',k:850,p:50,c:100,g:20}
+    ],prep:'Ver receta 8.'},
+    {t:'17:00 — Pre-entreno',kcal:440,p:28,c:54,g:10,items:[
+      {n:'Pan + pechuga + aguacate',q:'80g+100g+60g',k:440,p:28,c:39,g:18}
+    ],prep:'Montar sándwich simple.'},
+    {t:'20:30 — Post-entreno',kcal:510,p:48,c:50,g:12,items:[
+      {n:'Revuelto salmon y pan (receta 9)',q:'1 ración',k:690,p:45,c:38,g:28}
+    ],prep:'Ver receta 9.'},
+    {t:'22:30 — Snack nocturno',kcal:330,p:22,c:28,g:14,items:[
+      {n:'Requesón + frutos rojos + almendras',q:'150g+100g+20g',k:342,p:16,c:20,g:18}
+    ],prep:'Sin preparación.'}
+  ]},
+  {name:'Sábado (Legs 2)', type:'Entrenamiento', kcal:3350, meals:[
+    {t:'9:30 — Desayuno',kcal:740,p:42,c:90,g:18,items:[
+      {n:'Porridge con frutos secos',q:'80g avena+300ml leche+40g mix frutos secos',k:700,p:22,c:72,g:32}
+    ],prep:'Cocinar avena en leche. Añadir frutos secos al final.'},
+    {t:'12:00 — Batido Masa Nocturna (como gainer diurno)',kcal:654,p:30,c:44,g:40,items:[{n:'Batido Masa Nocturna',q:'1 ración',k:654,p:30,c:44,g:40}],prep:'Ver sección batidos. Tomar frío si es de día.'},
+    {t:'14:00 — Almuerzo',kcal:880,p:52,c:95,g:22,items:[
+      {n:'Bowl lentejas arroz chorizo (receta 10)',q:'1 ración',k:780,p:38,c:90,g:25}
+    ],prep:'Ver receta 10. Añadir pan 60g.'},
+    {t:'17:00 — Pre-entreno',kcal:450,p:30,c:52,g:12,items:[
+      {n:'Tortilla 3 huevos + pan',q:'3 uds + 60g pan',k:468,p:30,c:33,g:20}
+    ],prep:'Tortilla francesa simple.'},
+    {t:'20:30 — Post-entreno',kcal:520,p:46,c:52,g:12,items:[
+      {n:'Filete merluza + patatas (receta 7)',q:'1 ración',k:710,p:46,c:60,g:14}
+    ],prep:'Ver receta 7.'},
+    {t:'22:30 — Snack nocturno',kcal:350,p:28,c:22,g:15,items:[
+      {n:'Quark + nueces + miel',q:'200g+25g+15g',k:342,p:30,c:21,g:16}
+    ],prep:'Sin preparación.'}
+  ]},
+  {name:'Domingo (Descanso)', type:'Descanso — 3.100 kcal', kcal:3100, meals:[
+    {t:'10:00 — Desayuno tardío',kcal:680,p:40,c:78,g:18,items:[
+      {n:'Avena + leche + plátano + whey',q:'80g+350ml+100g+30g',k:646,p:40,c:78,g:18}
+    ],prep:'Porridge con batido disuelto.'},
+    {t:'12:30 — Snack',kcal:520,p:28,c:42,g:24,items:[
+      {n:'Yogur griego 200g + frutos secos 40g + miel 15g',q:'—',k:520,p:22,c:42,g:24}
+    ],prep:'Sin preparación.'},
+    {t:'14:30 — Almuerzo (comida más grande del día)',kcal:900,p:55,c:98,g:24,items:[
+      {n:'Pasta + boloñesa + parmesano',q:'350g cocida+150g carne+20g queso',k:900,p:54,c:96,g:30}
+    ],prep:'Boloñesa clásica, mínimo 20 min cocción. Domingo para disfrutar cocinando en pareja.'},
+    {t:'17:30 — Merienda',kcal:450,p:25,c:52,g:14,items:[
+      {n:'Tostadas + crema cacahuete + plátano',q:'80g+40g+100g',k:432,p:16,c:54,g:20}
+    ],prep:'4 tostadas con crema cacahuete. Plátano de postre.'},
+    {t:'20:00 — Cena (sin entreno previo)',kcal:580,p:42,c:52,g:18,items:[
+      {n:'Salmón + arroz + verduras',q:'200g+200g+150g',k:555,p:42,c:52,g:18}
+    ],prep:'Plancha salmón + arroz meal prep + verdura salteada.'},
+    {t:'22:30 — Snack nocturno',kcal:320,p:22,c:28,g:12,items:[
+      {n:'Requesón + frutos rojos + almendras',q:'150g+100g+20g',k:320,p:18,c:22,g:12}
+    ],prep:'Sin preparación.'}
+  ]}
+];
+
+function showDay(i, btn) {
+  document.querySelectorAll('.day-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const d = days[i];
+  let html = `<div style="margin-bottom:.5rem"><span class="badge badge-${d.type==='Descanso — 3.100 kcal'?'blue':'green'}">${d.type}</span> <span style="font-size:13px;color:var(--color-text-tertiary);margin-left:6px">Total: ${d.kcal} kcal</span></div>`;
+  d.meals.forEach(m => {
+    let total_p = m.items.reduce((s,x)=>s+x.p,0).toFixed(1);
+    let total_c = m.items.reduce((s,x)=>s+x.c,0).toFixed(1);
+    let total_g = m.items.reduce((s,x)=>s+x.g,0).toFixed(1);
+    html += `<div class="meal-block">
+      <div class="meal-header" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'">
+        <span>${m.t}</span><span class="kcal">${m.kcal} kcal · P:${total_p}g C:${total_c}g G:${total_g}g</span>
+      </div>
+      <div class="meal-body" style="display:none">
+        <table><tr><th>Alimento</th><th>Cantidad</th><th>kcal</th><th>P</th><th>C</th><th>G</th></tr>
+        ${m.items.map(x=>`<tr><td>${x.n}</td><td>${x.q}</td><td>${x.k}</td><td>${x.p}g</td><td>${x.c}g</td><td>${x.g}g</td></tr>`).join('')}
+        </table>
+        ${m.prep?`<p style="margin-top:.5rem"><strong>Preparación:</strong> ${m.prep}</p>`:''}
+      </div>
+    </div>`;
+  });
+  document.getElementById('dayContent').innerHTML = html;
+}
+
+const gymDays = [
+  {name:'Push 1 — Lunes (Pecho, Hombro, Tríceps)', dur:'75-80 min', ex:[
+    {n:'Calentamiento',m:'General',s:'10 min',r:'Bicicleta estática o remo + movilidad hombros',rest:'—',rir:'—',notes:'Obligatorio. 5 min cardio suave + 5 min movilidad específica hombro.'},
+    {n:'Press banca plano barra',m:'Pecho mayor, anterior deltoides, tríceps',s:'4 series',r:'6-10 reps',rest:'3 min',rir:'RIR 2-3',notes:'Ejercicio principal. Escápulas retraídas, espalda arqueada natural. Alternativa: press banca mancuernas.'},
+    {n:'Press inclinado mancuernas (30°)',m:'Pecho superior, deltoides anterior',s:'3 series',r:'8-12 reps',rest:'2.5 min',rir:'RIR 2',notes:'Banco a 30°, no 45°. Alternativa: press inclinado máquina Smith.'},
+    {n:'Press militar barra (de pie)',m:'Deltoides anterior y medio, tríceps',s:'4 series',r:'6-10 reps',rest:'3 min',rir:'RIR 2-3',notes:'Core activo, no hiperextender lumbar. Alternativa: press hombro mancuernas sentado.'},
+    {n:'Elevaciones laterales mancuernas',m:'Deltoides medio',s:'4 series',r:'12-20 reps',rest:'60-90 seg',rir:'RIR 1-2',notes:'Codos ligeramente flexionados. Subida controlada, bajada lenta 3 seg. Alternativa: cable lateral raise.'},
+    {n:'Fondos en paralelas (lastrado si posible)',m:'Pecho inferior, tríceps, deltoides anterior',s:'3 series',r:'8-15 reps',rest:'2 min',rir:'RIR 2',notes:'Ligera inclinación adelante para más pecho. Alternativa: extensión tríceps polea alta.'},
+    {n:'Extensión de tríceps polea alta (cuerda)',m:'Tríceps (todas las cabezas)',s:'3 series',r:'10-15 reps',rest:'60 seg',rir:'RIR 1-2',notes:'Codos fijos. Extensión completa. Alternativa: skull crushers barra EZ.'},
+    {n:'Vuelos con mancuernas (pecho)',m:'Pecho mayor (estiramiento)',s:'3 series',r:'12-15 reps',rest:'60 seg',rir:'RIR 1',notes:'Rango completo, énfasis en el estiramiento. Alternativa: cable fly.'},
+    {n:'Estiramiento y enfriamiento',m:'—',s:'5-8 min',r:'—',rest:'—',rir:'—',notes:'Pectoral en marco puerta, rotación interna/externa hombro, tríceps overhead.'}
+  ]},
+  {name:'Pull 1 — Martes (Espalda, Bíceps)', dur:'75-80 min', ex:[
+    {n:'Calentamiento',m:'General',s:'10 min',r:'Remo ergómetro 5 min + movilidad escapular',rest:'—',rir:'—',notes:''},
+    {n:'Dominadas (o jalón al pecho barra)',m:'Dorsal ancho, bíceps, infraespinoso',s:'4 series',r:'5-10 reps (dominadas) / 8-12 (jalón)',rest:'3 min',rir:'RIR 2-3',notes:'Si no llegas a 5 dominadas, usar jalón al pecho. Agarre prono, manos algo más anchas que hombros. Alternativa: jalón máquina supino.'},
+    {n:'Remo con barra (inclinado)',m:'Trapecio, romboides, dorsal, bíceps',s:'4 series',r:'6-10 reps',rest:'3 min',rir:'RIR 2-3',notes:'Espalda paralela al suelo (ligera inclinación). Tirar al ombligo. Alternativa: remo Yates o remo mancuerna.'},
+    {n:'Remo en polea baja sentado',m:'Dorsal, romboides, trapecio medio',s:'3 series',r:'10-14 reps',rest:'2 min',rir:'RIR 2',notes:'Tirar retrayendo escápulas. No curvar lumbar al tirar. Alternativa: remo en máquina Hammer.'},
+    {n:'Pullover de polea o mancuerna',m:'Dorsal ancho, serrato',s:'3 series',r:'12-15 reps',rest:'90 seg',rir:'RIR 2',notes:'Movimiento de hombro, no de codo. Excelente para ectomorfos (amplía dorsal). Alternativa: straight arm pulldown.'},
+    {n:'Curl bíceps barra EZ',m:'Bíceps braquial, braquial',s:'4 series',r:'8-12 reps',rest:'90 seg',rir:'RIR 2',notes:'Codos pegados al cuerpo. No balancear. Alternativa: curl mancuernas alterno.'},
+    {n:'Curl martillo mancuernas',m:'Braquial, braquiorradial',s:'3 series',r:'10-15 reps',rest:'60 seg',rir:'RIR 2',notes:'Agarre neutro (como un martillo). Alternativa: curl cuerda polea baja.'},
+    {n:'Face pulls polea alta (cuerda)',m:'Deltoides posterior, manguito rotador, trapecio',s:'3 series',r:'15-20 reps',rest:'60 seg',rir:'RIR 1',notes:'Imprescindible para salud de hombro en PPL. Polea a la altura de la cara, tirar hacia la nariz. Alternativa: pájaro con mancuernas.'},
+    {n:'Estiramiento',m:'—',s:'5 min',r:'—',rest:'—',rir:'—',notes:'Estiramiento dorsal en barra colgado, curl bíceps pared, polea lat stretch.'}
+  ]},
+  {name:'Legs 1 — Miércoles (Cuádriceps, Femoral, Glúteos, Gemelos)', dur:'80-90 min', ex:[
+    {n:'Calentamiento',m:'General',s:'10 min',r:'Bici + sentadilla goblet con peso ligero',rest:'—',rir:'—',notes:'Movilidad cadera obligatoria antes de sentadilla.'},
+    {n:'Sentadilla con barra (back squat)',m:'Cuádriceps, glúteo mayor, isquiotibiales, core',s:'4 series',r:'5-8 reps',rest:'3-4 min',rir:'RIR 2-3',notes:'Ejercicio rey. Profundidad al menos paralelo. Rodillas siguiendo la línea de los pies. Alternativa: sentadilla en Smith o hack squat.'},
+    {n:'Prensa de piernas 45°',m:'Cuádriceps, glúteos',s:'3 series',r:'10-15 reps',rest:'2.5 min',rir:'RIR 2',notes:'Pies a la anchura de hombros, rodillas no bloquear al extender. Alternativa: leg press horizontal.'},
+    {n:'Peso muerto rumano (RDL)',m:'Isquiotibiales, glúteo mayor, erectores espinales',s:'4 series',r:'8-12 reps',rest:'3 min',rir:'RIR 2',notes:'Caderas atrás, espalda recta. Bajar hasta tensión en femoral. No hasta el suelo. Alternativa: RDL con mancuernas.'},
+    {n:'Extensión de cuádriceps en máquina',m:'Cuádriceps',s:'3 series',r:'12-20 reps',rest:'90 seg',rir:'RIR 1-2',notes:'Aislamiento. Subida explosiva, bajada 3 seg. Alternativa: sissy squat.'},
+    {n:'Curl femoral acostado en máquina',m:'Isquiotibiales',s:'3 series',r:'10-15 reps',rest:'90 seg',rir:'RIR 2',notes:'Contracción completa arriba. Alternativa: nordic curl o curl femoral sentado.'},
+    {n:'Hip thrust con barra (o en máquina)',m:'Glúteo mayor',s:'3 series',r:'10-15 reps',rest:'2 min',rir:'RIR 2',notes:'Banco a la altura de los omóplatos. Barra sobre caderas (con almohadilla). Extensión máxima de cadera. Alternativa: glute bridge con disco.'},
+    {n:'Gemelos de pie en máquina (calf raise)',m:'Gastrocnemio, sóleo',s:'4 series',r:'15-25 reps',rest:'60 seg',rir:'RIR 1',notes:'Rango completo: punta + talón. Pausa 1 seg arriba. Alternativa: calf raise en prensa o gemelos sentado.'},
+    {n:'Estiramiento',m:'—',s:'8 min',r:'—',rest:'—',rir:'—',notes:'Cuádriceps de pie, piriforme tumbado, flexor cadera en zancada, femoral sentado.'}
+  ]},
+  {name:'Push 2 — Jueves (Variante)', dur:'75-80 min', ex:[
+    {n:'Calentamiento',m:'General',s:'10 min',r:'Bicicleta + movilidad hombro',rest:'—',rir:'—',notes:''},
+    {n:'Press banca inclinado barra (45°)',m:'Pecho superior, deltoides anterior, tríceps',s:'4 series',r:'6-10 reps',rest:'3 min',rir:'RIR 2-3',notes:'Este push empieza con inclinado para dar prioridad diferente al Push 1. Alternativa: press inclinado mancuernas.'},
+    {n:'Press banca plano mancuernas',m:'Pecho mayor',s:'3 series',r:'8-12 reps',rest:'2.5 min',rir:'RIR 2',notes:'Mayor rango de movimiento que barra. Alternativa: press banca máquina.'},
+    {n:'Press Arnold (mancuernas sentado)',m:'Deltoides anterior, medio y posterior',s:'4 series',r:'8-12 reps',rest:'2.5 min',rir:'RIR 2',notes:'Rotar mancuernas durante el movimiento. Excelente ejercicio completo de hombro. Alternativa: press hombro máquina.'},
+    {n:'Elevaciones frontales mancuernas (alternado)',m:'Deltoides anterior',s:'3 series',r:'12-15 reps',rest:'60 seg',rir:'RIR 2',notes:'Alternativo para más tiempo bajo tensión. Alternativa: cable frontal raise.'},
+    {n:'Cable fly cruzado',m:'Pecho mayor (contracción)',s:'3 series',r:'12-15 reps',rest:'90 seg',rir:'RIR 1',notes:'Poleas cruzadas al centro del pecho. Énfasis en la contracción al final. Alternativa: pec deck máquina.'},
+    {n:'Extensión tríceps sobre cabeza mancuerna',m:'Cabeza larga del tríceps',s:'3 series',r:'10-15 reps',rest:'90 seg',rir:'RIR 2',notes:'La cabeza larga solo se activa en overhead. Alternativa: polea alta cuerda overhead.'},
+    {n:'Kickbacks tríceps polea baja',m:'Tríceps (todas cabezas)',s:'3 series',r:'12-20 reps',rest:'60 seg',rir:'RIR 1',notes:'Extensión completa del codo. Alternativa: press francés EZ.'},
+    {n:'Estiramiento',m:'—',s:'5 min',r:'—',rest:'—',rir:'—',notes:''}
+  ]},
+  {name:'Pull 2 — Viernes (Variante)', dur:'75-80 min', ex:[
+    {n:'Calentamiento',m:'General',s:'10 min',r:'Remo + band pull-apart',rest:'—',rir:'—',notes:''},
+    {n:'Peso muerto convencional',m:'Isquiotibiales, glúteos, trapecios, dorsal, core',s:'4 series',r:'4-6 reps',rest:'4 min',rir:'RIR 2-3',notes:'Ejercicio rey del Pull 2. Técnica perfecta o no hagas. Ver tutorial si es necesario. Alternativa: peso muerto sumo o trap bar.'},
+    {n:'Remo mancuerna unilateral',m:'Dorsal, romboides, bíceps',s:'3 series',r:'8-12 reps',rest:'2.5 min',rir:'RIR 2',notes:'Apoyo en banco, tirar hasta la cadera. Gran rango de movimiento. Alternativa: remo polea alta unilateral.'},
+    {n:'Jalón al pecho agarre supino (barra)',m:'Dorsal ancho, bíceps',s:'3 series',r:'10-15 reps',rest:'2.5 min',rir:'RIR 2',notes:'Agarre supino (palmas hacia ti), manos a anchura de hombros. Alternativa: jalón máquina neutro.'},
+    {n:'Encogimientos barra (shrugs)',m:'Trapecio superior',s:'3 series',r:'12-20 reps',rest:'90 seg',rir:'RIR 1',notes:'Subir y mantener 1 seg arriba. Alternativa: encogimientos mancuernas.'},
+    {n:'Curl bíceps predicador (banco Scott)',m:'Bíceps cabeza corta',s:'3 series',r:'8-12 reps',rest:'90 seg',rir:'RIR 2',notes:'Aislamiento perfecto del bíceps. Alternativa: curl concentrado mancuerna.'},
+    {n:'Curl araña / inclinado mancuernas',m:'Bíceps cabeza larga',s:'3 series',r:'10-15 reps',rest:'90 seg',rir:'RIR 2',notes:'Banco a 45° inclinado, brazos colgando. Alternativa: curl de pie con barra.'},
+    {n:'Face pulls + band pull-apart',m:'Manguito rotador, trapecio medio, posterior del hombro',s:'3+3 series',r:'15-20 reps',rest:'60 seg',rir:'RIR 1',notes:'Superserie ligera. Imprescindible para salud de hombro. Alternativa: pájaro cable.'},
+    {n:'Estiramiento',m:'—',s:'5 min',r:'—',rest:'—',rir:'—',notes:''}
+  ]},
+  {name:'Legs 2 — Sábado (Variante)', dur:'80-90 min', ex:[
+    {n:'Calentamiento',m:'General',s:'10 min',r:'Bici + sentadilla goblet + movilidad',rest:'—',rir:'—',notes:''},
+    {n:'Sentadilla frontal (front squat)',m:'Cuádriceps énfasis, core, glúteos',s:'4 series',r:'6-10 reps',rest:'3 min',rir:'RIR 2-3',notes:'Variante más técnica. Si no dominas, hacer hack squat o sentadilla goblet con mancuerna. Alternativa: hack squat máquina.'},
+    {n:'Zancadas búlgaras (split squat búlgaro)',m:'Cuádriceps, glúteo, estabilizadores',s:'3 series',r:'8-12 reps/pierna',rest:'2.5 min',rir:'RIR 2',notes:'Pie trasero en banco. Excelente para corregir asimetrías. Alternativa: zancadas caminando con mancuernas.'},
+    {n:'Peso muerto piernas rígidas (SLDL)',m:'Isquiotibiales, glúteo mayor',s:'4 series',r:'10-15 reps',rest:'3 min',rir:'RIR 2',notes:'Piernas casi rectas (no bloqueadas). Máximo estiramiento femoral. Alternativa: RDL cable.'},
+    {n:'Prensa de piernas (pie alto, más glúteo)',m:'Glúteos, isquiotibiales',s:'3 series',r:'12-20 reps',rest:'2 min',rir:'RIR 2',notes:'Pies más arriba en la plataforma para activar más glúteo. Alternativa: step-ups con mancuernas.'},
+    {n:'Abducción de cadera en máquina',m:'Glúteo medio y mayor (banda)',s:'3 series',r:'15-25 reps',rest:'60 seg',rir:'RIR 1',notes:'Movimiento lento y controlado. Alternativa: abducción de pie en polea.'},
+    {n:'Gemelos sentado en máquina',m:'Sóleo',s:'4 series',r:'15-25 reps',rest:'60 seg',rir:'RIR 1',notes:'El sóleo se activa mejor con la rodilla flexionada. Complementa el calf raise de pie. Alternativa: gemelos sentado con disco.'},
+    {n:'Estiramiento pierna completo',m:'—',s:'10 min',r:'—',rest:'—',rir:'—',notes:'Cuádriceps, femoral, piriforme, glúteo, gemelos, psoas.'}
+  ]}
+];
+
+function showGym(i, btn) {
+  document.querySelectorAll('#gymTabs .day-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const d = gymDays[i];
+  let html = `<p style="font-size:13px;color:var(--color-text-tertiary);margin-bottom:.75rem">Duración estimada: ${d.dur}</p>`;
+  html += `<table><tr><th>Ejercicio</th><th>Músculos</th><th>Series</th><th>Reps</th><th>Descanso</th><th>RIR</th><th>Notas</th></tr>`;
+  d.ex.forEach(e => {
+    html += `<tr><td class="ex-name">${e.n}</td><td>${e.m}</td><td>${e.s}</td><td>${e.r}</td><td>${e.rest}</td><td>${e.rir}</td><td style="font-size:12px">${e.notes}</td></tr>`;
+  });
+  html += '</table>';
+  document.getElementById('gymContent').innerHTML = html;
+}
+
+const routines = {
+  train:`<table>
+    <tr><th>Hora</th><th>Actividad</th><th>Detalle</th></tr>
+    <tr><td>9:30</td><td>Despertar</td><td>500ml agua inmediato al levantarse</td></tr>
+    <tr><td>9:30-10:00</td><td>Desayuno</td><td>Comida 1 — Porridge o tortilla (700+ kcal)</td></tr>
+    <tr><td>10:00-12:00</td><td>Estudio / Programación</td><td>Bloque de trabajo concentrado (pomodoro 25/5)</td></tr>
+    <tr><td>12:00</td><td>Batido hipercalórico</td><td>Comida 2 — 650-900 kcal en 5 minutos</td></tr>
+    <tr><td>12:00-14:00</td><td>Estudio / Programación</td><td>Segundo bloque productivo</td></tr>
+    <tr><td>14:00-14:45</td><td>Almuerzo</td><td>Comida 3 — Comida principal (800-900 kcal)</td></tr>
+    <tr><td>14:45-15:30</td><td>Descanso post-comida</td><td>Paseo corto 15 min o siesta 20 min</td></tr>
+    <tr><td>15:30-17:00</td><td>Estudio / Programación</td><td>Tercer bloque o tarea personal</td></tr>
+    <tr><td>17:00</td><td>Pre-entreno</td><td>Comida 4 — Carbos + proteína (450 kcal)</td></tr>
+    <tr><td>17:00-19:00</td><td>Estudio ligero / Preparación</td><td>Repasos, lectura, preparar bolsa gym</td></tr>
+    <tr><td>19:30-21:00</td><td>GYM</td><td>Entrenamiento PPL (75-90 min)</td></tr>
+    <tr><td>21:00-21:30</td><td>Post-entreno inmediato</td><td>Batido whey + leche en el gym o al llegar</td></tr>
+    <tr><td>21:30</td><td>Cena / Post-entreno</td><td>Comida 5 — Proteína sólida + carbos (500 kcal)</td></tr>
+    <tr><td>21:30-23:00</td><td>Tiempo libre</td><td>Series, pareja, descanso activo</td></tr>
+    <tr><td>22:30-23:00</td><td>Snack nocturno</td><td>Comida 6 — Quark + nueces + miel (350 kcal)</td></tr>
+    <tr><td>23:00-23:30</td><td>Higiene sueño</td><td>Sin móvil, sin pantallas. Lectura o conversación.</td></tr>
+    <tr><td>23:30-00:00</td><td>Dormir</td><td>8-9 horas. Habitación fresca y oscura.</td></tr>
+  </table>`,
+  rest:`<table>
+    <tr><th>Hora</th><th>Actividad</th><th>Detalle</th></tr>
+    <tr><td>9:30-10:00</td><td>Despertar + agua</td><td>500ml agua al levantarse</td></tr>
+    <tr><td>10:00</td><td>Desayuno</td><td>Comida 1 — más relajado, sin prisas (680 kcal)</td></tr>
+    <tr><td>10:30-12:30</td><td>Estudio / Programación</td><td>Bloque productivo mañana</td></tr>
+    <tr><td>12:30</td><td>Snack</td><td>Comida 2 — yogur + frutos secos + miel (520 kcal)</td></tr>
+    <tr><td>12:30-14:30</td><td>Tiempo libre / Estudio</td><td>Repaso, proyecto personal, descanso activo</td></tr>
+    <tr><td>14:30-15:30</td><td>Almuerzo</td><td>Comida 3 — Día de cocinar en pareja (900 kcal)</td></tr>
+    <tr><td>15:30-17:00</td><td>Paseo / Descanso activo</td><td>30 min caminando (no cardio, solo movilidad)</td></tr>
+    <tr><td>17:00-17:30</td><td>Merienda</td><td>Comida 4 — Tostadas + crema cacahuete (450 kcal)</td></tr>
+    <tr><td>17:30-20:00</td><td>Tiempo libre</td><td>Ocio, pareja, compras supermercado, meal prep</td></tr>
+    <tr><td>20:00-21:00</td><td>Cena</td><td>Comida 5 — Cena tranquila (580 kcal)</td></tr>
+    <tr><td>21:00-22:30</td><td>Ocio / Relajación</td><td>Series, juegos, tiempo con pareja</td></tr>
+    <tr><td>22:30</td><td>Snack nocturno</td><td>Comida 6 — Requesón + frutos (320 kcal)</td></tr>
+    <tr><td>23:00</td><td>Rutina de sueño</td><td>Sin pantallas 30 min antes. Objetivo: 9-10h sueño.</td></tr>
+  </table>`
+};
+
+function showRoutine(type, btn) {
+  document.querySelectorAll('#s9 .day-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('routineContent').innerHTML = routines[type];
+}
+
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+showDay(0, document.querySelector('.day-tab'));
+showGym(0, document.querySelector('#gymTabs .day-tab'));
+showRoutine('train', document.getElementById('tab-train'));
+</script>
