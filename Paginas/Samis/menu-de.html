@@ -20,130 +20,13 @@
     <p>Digitale Speisekarte</p>
 </header>
 
-<main>
-    <details open>
-        <summary>Süßes & Gebäck</summary>
-        <div class="content-box">
-            <article class="card-big">
-                <img src="img/croissant.webp" alt="Croissant">
-                <div class="big-info">
-                    <div class="big-header"><h3 class="big-title">Französisches Croissant</h3><span class="big-price">2.00€</span></div>
-                    <div class="big-desc">100% Butter. Jeden Morgen frisch gebacken.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge lacteos">Milch</span><span class="badge huevos">Ei</span></div>
-                </div>
-            </article>
-            <article class="card-big">
-                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600" alt="Cheesecake">
-                <div class="big-info">
-                    <div class="big-header"><h3 class="big-title">Käsekuchen</h3><span class="big-price">4.50€</span></div>
-                    <div class="big-desc">Cremiger Käsekuchen mit handgemachtem Keksboden.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge lacteos">Milch</span><span class="badge huevos">Ei</span></div>
-                </div>
-            </article>
-            <article class="card-big">
-                <img src="https://images.unsplash.com/photo-1621221768461-331002446700?w=600" alt="Crepes">
-                <div class="big-info">
-                    <div class="big-header"><h3 class="big-title">Hausgemachte Crêpes</h3><span class="big-price">3.80€</span></div>
-                    <div class="big-desc">Mit Nutella, Banane oder Puderzucker.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge lacteos">Milch</span><span class="badge huevos">Ei</span></div>
-                </div>
-            </article>
-        </div>
-    </details>
+<nav class="category-nav" id="categoryNav" aria-label="Speisekarten-Kategorien"></nav>
 
-    <details>
-        <summary>Toasts & Frühstück</summary>
-        <div class="content-box">
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Toast Komplett</div>
-                    <span class="bread-option">Wahl: Weißbrot oder Vollkornbrot</span>
-                    <div class="row-desc">Avocado, pochiertes Ei und Samen.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge huevos">Ei</span><span class="badge sesamo">Sesam</span></div>
-                    <span class="row-price">4.50€</span>
-                </div>
-                <img src="img/tosthuevo.webp" class="row-img" alt="Toast">
-            </div>
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Toast mit Tomate</div>
-                    <span class="bread-option">Wahl: Weißbrot oder Vollkornbrot</span>
-                    <div class="row-desc">Geriebene Tomate und natives Olivenöl extra.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span></div>
-                    <span class="row-price">1.50€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1525351462161-d21d26461910?w=150" class="row-img" alt="Tomate">
-            </div>
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Schinken-Käse-Sandwich</div>
-                    <div class="row-desc">Der Klassiker mit gekochtem Schinken und geschmolzenem Käse.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge lacteos">Milch</span></div>
-                    <span class="row-price">3.00€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=150" class="row-img" alt="Sandwich">
-            </div>
-        </div>
-    </details>
+<main id="menuContainer"></main>
 
-    <details>
-        <summary>Kaffee & Heiße Getränke</summary>
-        <div class="content-box">
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Cappuccino</div>
-                    <div class="row-desc">Espresso mit Milchschaum und Kakao.</div>
-                    <div class="allergen-row"><span class="badge lacteos">Milch</span></div>
-                    <span class="row-price">1.80€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=150" class="row-img" alt="Cappuccino">
-            </div>
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Milchkaffee / Latte</div>
-                    <div class="row-desc">Mild und ausgewogen.</div>
-                    <div class="allergen-row"><span class="badge lacteos">Milch</span></div>
-                    <span class="row-price">1.40€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=150" class="row-img" alt="Latte">
-            </div>
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Heiße Schokolade / ColaCao</div>
-                    <div class="row-desc">Warm oder heiß serviert.</div>
-                    <div class="allergen-row"><span class="badge lacteos">Milch</span></div>
-                    <span class="row-price">1.50€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=150" class="row-img" alt="Schokolade">
-            </div>
-        </div>
-    </details>
-
-    <div class="tea-section">
-        <a href="carta-tes-de.html" class="btn-tea">
-            <span>Tee-Karte ansehen</span>
-            <span>🫖</span>
-        </a>
-    </div>
-
-    <details>
-        <summary>Erfrischungsgetränke & Bier</summary>
-        <div class="content-box">
-            <div class="simple-item"><span class="simple-name">Cola / Zero / Fanta</span><span class="simple-price">2.00€</span></div>
-            <div class="simple-item"><span class="simple-name">Eistee / Aquarius</span><span class="simple-price">2.00€</span></div>
-            <div class="simple-item"><span class="simple-name">Mineralwasser</span><span class="simple-price">1.20€</span></div>
-            <div class="simple-item">
-                <div style="display:flex; align-items:center;"><span class="simple-name">Flaschenbier (Mahou)</span><span class="badge gluten" style="margin-left:8px;">Gluten</span></div>
-                <span class="simple-price">2.20€</span>
-            </div>
-            <div class="simple-item">
-                <div style="display:flex; align-items:center;"><span class="simple-name">Kleines Bier (vom Fass)</span><span class="badge gluten" style="margin-left:8px;">Gluten</span></div>
-                <span class="simple-price">1.50€</span>
-            </div>
-            <div class="simple-item"><span class="simple-name">Frischer Orangensaft</span><span class="simple-price">3.00€</span></div>
-        </div>
-    </details>
-</main>
 <footer><p>&copy; 2025 Sami's Café</p></footer>
+
+<script src="menu-data-de.js"></script>
+<script src="menu-render.js"></script>
 </body>
 </html>

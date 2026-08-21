@@ -71,8 +71,52 @@ header p { font-size: 0.8rem; opacity: 0.8; margin-top: 2px; letter-spacing: 1px
     box-shadow: 0 0 8px rgba(212, 163, 115, 0.6);
 }
 
+/* --- NAV DE CATEGORÍAS (STICKY) --- */
+.category-nav {
+    position: sticky;
+    top: var(--header-height, 92px);
+    z-index: 90;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 12px 15px;
+    background: var(--bg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+.category-nav::-webkit-scrollbar { height: 4px; }
+.category-nav::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+.nav-tab {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: var(--white);
+    border: 1px solid #eee;
+    color: var(--secondary);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.nav-tab:hover { border-color: var(--accent); }
+.nav-tab.active {
+    background: var(--primary);
+    color: var(--accent);
+    border-color: var(--primary);
+}
+
 /* --- ESTRUCTURA PRINCIPAL --- */
 main { max-width: 600px; margin: 25px auto; padding: 0 15px; }
+
+@media (min-width: 700px) {
+    main { max-width: 820px; }
+    .card-big img { height: 380px; }
+}
 
 /* Acordeón (Details/Summary) */
 details {
@@ -85,6 +129,7 @@ details {
     transition: box-shadow 0.3s ease;
 }
 details[open] { box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+.menu-category { scroll-margin-top: calc(var(--header-height, 92px) + 65px); }
 
 summary {
     padding: 18px 20px;
@@ -152,7 +197,7 @@ details[open] summary::after { content: '-'; color: var(--primary); transform: r
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     border: 1px solid #f0f0f0;
 }
-.card-big img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.card-big img { width: 100%; height: 280px; object-fit: cover; object-position: center; display: block; }
 .big-info { padding: 15px; }
 .big-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
 .big-title { font-size: 1.25rem; font-weight: 700; color: var(--primary); font-family: var(--font-heading); margin: 0; }
@@ -187,16 +232,15 @@ details[open] summary::after { content: '-'; color: var(--primary); transform: r
 .simple-name { font-weight: 500; color: #444; font-size: 0.95rem; }
 .simple-price { font-weight: 700; color: var(--secondary); font-size: 1rem; }
 
-/* Botón Tés */
-.tea-section { margin: 25px 0; }
-.btn-tea {
-    display: flex; justify-content: space-between; align-items: center;
-    background: var(--primary); color: var(--accent);
-    text-decoration: none; padding: 15px 20px; border-radius: 12px;
-    font-family: var(--font-heading); font-size: 1.2rem; font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: transform 0.2s;
+/* 4. Listas simples en 2 columnas en escritorio/tablet */
+@media (min-width: 700px) {
+    .content-box.grid-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 24px;
+    }
+    .content-box.grid-list .simple-item:nth-child(even) { background: transparent; }
 }
-.btn-tea:active { transform: scale(0.98); }
 
 /* Footer */
 footer { text-align: center; color: #aaa; font-size: 0.8rem; padding: 20px; }

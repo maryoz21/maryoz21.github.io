@@ -20,130 +20,13 @@
     <p>Carta Digital</p>
 </header>
 
-<main>
-    <details open>
-        <summary>Dulces & Caprichos</summary>
-        <div class="content-box">
-            <article class="card-big">
-                <img src="img/croissant.webp" alt="Croissant">
-                <div class="big-info">
-                    <div class="big-header"><h3 class="big-title">Croissant Francés</h3><span class="big-price">2.00€</span></div>
-                    <div class="big-desc">Mantequilla 100%. Horneado cada mañana.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge lacteos">Lácteos</span><span class="badge huevos">Huevo</span></div>
-                </div>
-            </article>
-            <article class="card-big">
-                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600" alt="Cheesecake">
-                <div class="big-info">
-                    <div class="big-header"><h3 class="big-title">Cheesecake</h3><span class="big-price">4.50€</span></div>
-                    <div class="big-desc">Tarta de queso cremosa al horno con base de galleta.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge lacteos">Lácteos</span><span class="badge huevos">Huevo</span></div>
-                </div>
-            </article>
-            <article class="card-big">
-                <img src="https://images.unsplash.com/photo-1621221768461-331002446700?w=600" alt="Crepes">
-                <div class="big-info">
-                    <div class="big-header"><h3 class="big-title">Crepes Caseros</h3><span class="big-price">3.80€</span></div>
-                    <div class="big-desc">Con Nutella, plátano o azúcar glas.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge lacteos">Lácteos</span><span class="badge huevos">Huevo</span></div>
-                </div>
-            </article>
-        </div>
-    </details>
+<nav class="category-nav" id="categoryNav" aria-label="Categorías de la carta"></nav>
 
-    <details>
-        <summary>Tostadas</summary>
-        <div class="content-box">
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Tostada Completa</div>
-                    <span class="bread-option">Elige: Pan Blanco o Integral de Semillas</span>
-                    <div class="row-desc">Aguacate laminado, huevo poché y semillas.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge huevos">Huevo</span><span class="badge sesamo">Sésamo</span></div>
-                    <span class="row-price">4.50€</span>
-                </div>
-                <img src="img/tosthuevo.webp" class="row-img" alt="Tostada">
-            </div>
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Media con Tomate</div>
-                    <span class="bread-option">Elige: Pan Blanco o Integral de Semillas</span>
-                    <div class="row-desc">Tomate rallado natural y AOVE.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span></div>
-                    <span class="row-price">1.50€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1525351462161-d21d26461910?w=150" class="row-img" alt="Tomate">
-            </div>
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Sandwich Mixto</div>
-                    <div class="row-desc">El clásico planchado con jamón dulce y queso.</div>
-                    <div class="allergen-row"><span class="badge gluten">Gluten</span><span class="badge lacteos">Lácteos</span></div>
-                    <span class="row-price">3.00€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=150" class="row-img" alt="Sandwich">
-            </div>
-        </div>
-    </details>
+<main id="menuContainer"></main>
 
-    <details>
-        <summary>Cafetería & Chocolates</summary>
-        <div class="content-box">
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Cappuccino</div>
-                    <div class="row-desc">Espresso con leche vaporizada y cacao.</div>
-                    <div class="allergen-row"><span class="badge lacteos">Lácteos</span></div>
-                    <span class="row-price">1.80€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=150" class="row-img" alt="Cappuccino">
-            </div>
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">Café con Leche</div>
-                    <div class="row-desc">Suave y equilibrado.</div>
-                    <div class="allergen-row"><span class="badge lacteos">Lácteos</span></div>
-                    <span class="row-price">1.40€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=150" class="row-img" alt="Latte">
-            </div>
-            <div class="row-item">
-                <div class="row-text">
-                    <div class="row-title">ColaCao / Chocolate</div>
-                    <div class="row-desc">Caliente o templado. Ideal para desayunos.</div>
-                    <div class="allergen-row"><span class="badge lacteos">Lácteos</span></div>
-                    <span class="row-price">1.50€</span>
-                </div>
-                <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=150" class="row-img" alt="Chocolate">
-            </div>
-        </div>
-    </details>
-
-    <div class="tea-section">
-        <a href="carta-tes.html" class="btn-tea">
-            <span>Ver Carta de Tés & Infusiones</span>
-            <span>🫖</span>
-        </a>
-    </div>
-
-    <details>
-        <summary>Refrescos & Cervezas</summary>
-        <div class="content-box">
-            <div class="simple-item"><span class="simple-name">Coca-Cola / Zero / Fanta</span><span class="simple-price">2.00€</span></div>
-            <div class="simple-item"><span class="simple-name">Nestea Limón / Aquarius</span><span class="simple-price">2.00€</span></div>
-            <div class="simple-item"><span class="simple-name">Agua Mineral</span><span class="simple-price">1.20€</span></div>
-            <div class="simple-item">
-                <div style="display:flex; align-items:center;"><span class="simple-name">Tercio Mahou 5 Estrellas</span><span class="badge gluten" style="margin-left:8px;">Gluten</span></div>
-                <span class="simple-price">2.20€</span>
-            </div>
-            <div class="simple-item">
-                <div style="display:flex; align-items:center;"><span class="simple-name">Caña de Cerveza</span><span class="badge gluten" style="margin-left:8px;">Gluten</span></div>
-                <span class="simple-price">1.50€</span>
-            </div>
-            <div class="simple-item"><span class="simple-name">Zumo de Naranja Natural</span><span class="simple-price">3.00€</span></div>
-        </div>
-    </details>
-</main>
 <footer><p>&copy; 2025 Sami's Café</p></footer>
+
+<script src="menu-data.js"></script>
+<script src="menu-render.js"></script>
 </body>
 </html>
