@@ -1,1 +1,0 @@
-Hay que añadir un sistema de seguridad por muy basico que sea, para que por lo menos no pueda entrar cualquiera y editar todos los buses.

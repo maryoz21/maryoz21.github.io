@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- PANTALLA DE INICIO -->
+    <div id="loginScreen" class="container">
+        <h1>♟ Chess</h1>
+        <div class="card">
+            <h2>¿Cómo te llamas?</h2>
+            <input type="text" id="playerName" placeholder="Tu nombre..." maxlength="30" />
+            <button id="submitBtn">Jugar</button>
+            <p id="message" class="message"></p>
+        </div>
+    </div>
+
+    <!-- PANTALLA DE MENÚ -->
+    <div id="menuScreen" class="hidden menu-page">
+        <aside class="sidebar">
+            <div class="sidebar-logo">♟ Chess</div>
+            <nav>
+                <ul>
+                    <li class="active"><span class="icon">⚔️</span> Jugar</li>
+                    <li><span class="icon">📜</span> Historial</li>
+                    <li><span class="icon">🏆</span> Clasificación</li>
+                    <li><span class="icon">⚙️</span> Ajustes</li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer" id="logoutBtn">🚪 Salir</div>
+        </aside>
+
+        <main class="content">
+            <header class="topbar">
+                <h2>Bienvenido, <span id="displayName"></span> 👋</h2>
+            </header>
+
+            <!-- SECCIÓN MENÚ CARDS -->
+            <section id="menuCards" class="main-section">
+                <div class="menu-card" id="playCard">
+                    <div class="menu-card-icon">⚔️</div>
+                    <div class="menu-card-title">Jugar</div>
+                    <div class="menu-card-desc">Empieza una nueva partida</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-icon">📜</div>
+                    <div class="menu-card-title">Historial</div>
+                    <div class="menu-card-desc">Revisa tus partidas anteriores</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-icon">🏆</div>
+                    <div class="menu-card-title">Clasificación</div>
+                    <div class="menu-card-desc">Ver el ranking de jugadores</div>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-card-icon">⚙️</div>
+                    <div class="menu-card-title">Ajustes</div>
+                    <div class="menu-card-desc">Personaliza tu experiencia</div>
+                </div>
+            </section>
+
+            <!-- LISTA DE PARTIDAS ACTIVAS -->
+            <section class="matches-section">
+                <h4>Partidas activas</h4>
+                <ul id="matchList" class="match-list"></ul>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- POPUP: SELECCIONAR RIVAL -->
+    <div id="modalOverlay" class="hidden modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Selecciona un rival</h3>
+                <span id="modalCloseBtn" class="modal-close">✕</span>
+            </div>
+            <ul id="userList" class="modal-user-list"></ul>
+            <p id="playMessage" class="message"></p>
+        </div>
+    </div>
+
+    <!-- PANTALLA DE TABLERO -->
+    <div id="boardScreen" class="hidden board-screen">
+        <div class="board-topbar">
+            <button id="boardBackBtn" class="btn-back">← Volver</button>
+            <div class="board-info">
+                <span id="boardPlayer1" class="board-player white-side">⬜ </span>
+                <span class="board-vs">vs</span>
+                <span id="boardPlayer2" class="board-player black-side">⬛ </span>
+            </div>
+            <span id="boardTurn" class="board-turn"></span>
+        </div>
+        <div class="board-wrapper">
+            <canvas id="chessCanvas"></canvas>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
+

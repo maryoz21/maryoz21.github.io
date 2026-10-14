@@ -1,0 +1,428 @@
+/* Chess - Estilos principales */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none !important;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 4px;
+}
+
+.card {
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 320px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #888;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #dddddd;
+}
+
+.message {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    min-height: 20px;
+}
+
+.message.error {
+    color: #e06c6c;
+}
+
+.message.success {
+    color: #6ce09a;
+}
+
+/* ── Página de menú ── */
+
+.menu-page {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #111111;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+    flex-shrink: 0;
+}
+
+.sidebar-logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 16px 24px;
+    border-bottom: 1px solid #2a2a2a;
+    letter-spacing: 2px;
+}
+
+.sidebar nav {
+    flex: 1;
+    margin-top: 16px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav li {
+    padding: 14px 24px;
+    cursor: pointer;
+    color: #aaaaaa;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar nav li:hover {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.sidebar nav li.active {
+    color: #ffffff;
+    border-left: 3px solid #ffffff;
+    background-color: #1e1e1e;
+}
+
+.sidebar-footer {
+    padding: 16px 24px;
+    color: #666;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-top: 1px solid #2a2a2a;
+}
+
+.sidebar-footer:hover {
+    color: #e06c6c;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: #1a1a1a;
+}
+
+.topbar {
+    padding: 24px 32px;
+    border-bottom: 1px solid #2a2a2a;
+    background-color: #1a1a1a;
+}
+
+.topbar h2 {
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.main-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 32px;
+}
+
+.menu-card {
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s;
+    text-align: center;
+}
+
+.menu-card:hover {
+    background-color: #333333;
+    transform: translateY(-3px);
+}
+
+.menu-card-icon {
+    font-size: 2rem;
+}
+
+.menu-card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.menu-card-desc {
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+/* ── Lista de partidas ── */
+
+.matches-section {
+    padding: 0 32px 32px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.matches-section h4 {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.match-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.match-item {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    color: #cccccc;
+}
+
+.match-item.empty {
+    color: #666;
+}
+
+/* ── Modal ── */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal {
+    background-color: #2a2a2a;
+    border-radius: 14px;
+    padding: 28px;
+    width: 380px;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.modal-close {
+    cursor: pointer;
+    color: #888;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #e06c6c;
+}
+
+.modal-user-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.modal-user-item {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.modal-user-item.empty {
+    color: #666;
+    justify-content: center;
+}
+
+.btn-challenge {
+    width: auto;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border-radius: 6px;
+}
+
+.btn-challenge:hover {
+    background-color: #dddddd;
+}
+
+/* ── Tablero ── */
+
+.board-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1a1a1a;
+    height: 100vh;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.board-topbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 1px solid #2a2a2a;
+    background-color: #111;
+}
+
+.board-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+}
+
+.board-player {
+    font-weight: bold;
+}
+
+.board-vs {
+    color: #666;
+}
+
+.board-turn {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.board-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 32px;
+}
+
+#chessCanvas {
+    border-radius: 4px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+.match-item {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    color: #cccccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-open-match {
+    width: auto;
+    padding: 5px 14px;
+    font-size: 0.8rem;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border-radius: 6px;
+}
+
+.btn-open-match:hover {
+    background-color: #dddddd;
+}

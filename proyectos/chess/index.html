@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Engine — Proyectos de Mario</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../estilos.css" />
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .back-link:hover { color: var(--accent-primary); }
+
+        .project-header h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .project-header p.lede {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 640px;
+            margin-bottom: 1.5rem;
+        }
+
+        .badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+        .badge {
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.12);
+            color: #93c5fd;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+        }
+
+        section.block { margin-bottom: 2.75rem; }
+        section.block h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        section.block p { color: var(--text-secondary); max-width: 720px; margin-bottom: 0.75rem; }
+
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .arch-item {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+        }
+        .arch-item h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 0.4rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .arch-item p { font-size: 0.9rem; margin: 0; }
+
+        .endpoint-list {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+        .endpoint-list div { padding: 0.3rem 0; white-space: nowrap; }
+        .verb { display: inline-block; width: 3.2rem; font-weight: 700; }
+        .verb.get { color: #60a5fa; }
+        .verb.post { color: #4ade80; }
+        .ep-path { color: var(--text-primary); }
+        .ep-desc { color: var(--text-secondary); margin-left: 1rem; }
+
+        .code-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .code-link {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 0.6rem;
+            padding: 0.7rem 1.1rem;
+            font-size: 0.88rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+        .code-link:hover { background-color: var(--card-hover); color: #60a5fa; border-color: rgba(96,165,250,0.3); }
+
+        .test-note {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(74, 222, 128, 0.08);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 0.6rem;
+            padding: 0.9rem 1.2rem;
+            color: #86efac;
+            font-size: 0.9rem;
+            max-width: 720px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mis Proyectos</h1>
+        <p class="subtitle">Explora mi portafolio web</p>
+    </header>
+    <main>
+        <a href="../../index.html" class="back-link">&larr; Volver a proyectos</a>
+
+        <div class="project-header">
+            <h1>Chess Engine</h1>
+            <p class="lede">
+                Motor de ajedrez completo construido desde cero: lógica de juego, reglas de movimiento
+                por pieza y gestión de partidas en el backend, expuestos a través de una API REST y
+                consumidos por un frontend propio en JavaScript.
+            </p>
+        </div>
+
+        <div class="badges">
+            <span class="badge">Python</span>
+            <span class="badge">FastAPI</span>
+            <span class="badge">Pydantic</span>
+            <span class="badge">REST API</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">unittest</span>
+            <span class="badge">Arquitectura en capas</span>
+        </div>
+
+        <section class="block">
+            <h2>Arquitectura</h2>
+            <p>El proyecto separa responsabilidades en capas independientes, en vez de mezclar lógica de juego con la API:</p>
+            <div class="arch-grid">
+                <div class="arch-item">
+                    <h3>model/</h3>
+                    <p>Tablero, piezas y reglas de movimiento de cada tipo de pieza.</p>
+                </div>
+                <div class="arch-item">
+                    <h3>services/</h3>
+                    <p>Gestión de partidas (MatchesService): creación, turnos, movimientos, validación.</p>
+                </div>
+                <div class="arch-item">
+                    <h3>backend/</h3>
+                    <p>API REST en FastAPI: endpoints, modelos de petición/respuesta con Pydantic, CORS.</p>
+                </div>
+                <div class="arch-item">
+                    <h3>frontend/</h3>
+                    <p>Tablero interactivo en HTML/CSS/JavaScript que consume la API.</p>
+                </div>
+                <div class="arch-item">
+                    <h3>tests/</h3>
+                    <p>Suite de pruebas unitarias (unittest) sobre piezas, tablero y partidas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="block">
+            <h2>API REST</h2>
+            <p>Endpoints principales expuestos por el backend:</p>
+            <div class="endpoint-list">
+                <div><span class="verb post">POST</span><span class="ep-path">/api/register</span><span class="ep-desc">registrar jugador</span></div>
+                <div><span class="verb post">POST</span><span class="ep-path">/api/match</span><span class="ep-desc">crear partida entre dos jugadores</span></div>
+                <div><span class="verb get">GET</span><span class="ep-path">/api/match/active</span><span class="ep-desc">partida activa de un jugador (polling)</span></div>
+                <div><span class="verb get">GET</span><span class="ep-path">/api/match/{id}/board</span><span class="ep-desc">estado del tablero</span></div>
+                <div><span class="verb get">GET</span><span class="ep-path">/api/match/{id}/moves</span><span class="ep-desc">movimientos legales de una pieza</span></div>
+                <div><span class="verb post">POST</span><span class="ep-path">/api/match/{id}/move</span><span class="ep-desc">ejecutar un movimiento</span></div>
+            </div>
+        </section>
+
+        <section class="block">
+            <h2>Pruebas</h2>
+            <div class="test-note">
+                ✓ Cubierto por tests unitarios (unittest): creación de piezas, lógica de tablero y de partidas.
+            </div>
+        </section>
+
+        <section class="block">
+            <h2>Código fuente</h2>
+            <p>Código completo, navegable por carpetas:</p>
+            <div class="code-links">
+                <a class="code-link" href="https://github.com/maryoz21/maryoz21.github.io/tree/main/proyectos/chess/codigo/model" target="_blank" rel="noopener">model/</a>
+                <a class="code-link" href="https://github.com/maryoz21/maryoz21.github.io/tree/main/proyectos/chess/codigo/services" target="_blank" rel="noopener">services/</a>
+                <a class="code-link" href="https://github.com/maryoz21/maryoz21.github.io/tree/main/proyectos/chess/codigo/backend" target="_blank" rel="noopener">backend/</a>
+                <a class="code-link" href="https://github.com/maryoz21/maryoz21.github.io/tree/main/proyectos/chess/codigo/frontend" target="_blank" rel="noopener">frontend/</a>
+                <a class="code-link" href="https://github.com/maryoz21/maryoz21.github.io/tree/main/proyectos/chess/codigo/tests" target="_blank" rel="noopener">tests/</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; Mario 2026. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
