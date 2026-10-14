@@ -142,3 +142,23 @@ footer {
     font-size: 0.875rem;
     background-color: rgba(30, 41, 59, 0.5);
 }
+/* Language switch */
+.lang-switch {
+    margin-top: 1rem;
+}
+.lang-switch a, .lang-switch-top a {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    transition: all 0.2s ease;
+}
+.lang-switch a:hover, .lang-switch-top a:hover {
+    color: #60a5fa;
+    border-color: rgba(96,165,250,0.4);
+}
+.lang-switch-top {
+    margin-bottom: 1.5rem;
+}
